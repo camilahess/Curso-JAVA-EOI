@@ -51,7 +51,72 @@ public class Ejercicios {
 	      
 	      scan.close(); //para que libere memoria y cierre el scan
 }
-
+	private static void ejemplosComparaciones() {
+		Scanner sc = new Scanner(System.in);
+		int a = 1;
+		int b = 2;
+		double c = 1.3;
+		String cad1 = "hola";  // Java es case-sensitive (distingue mayúsculas y minúsculas)
+		String cad2 = "Hola";
+		String login = "111X";
+		String password = "Fran1234";
+		System.out.println(a==c);  //????
+		//System.out.println(a==b);
+		//System.out.println(cad1==cad2);  // No debemos comparar las cadenas con ==
+		//System.out.println(cad1.equals(cad2)); // Forma correcta de comparar cadenas
+		//System.out.println(cad1.equals(cad2)); // Forma correcta de comparar cadenas
+		System.out.println("Introduzca su login: ");
+		String loginUsuario = sc.nextLine();
+		//System.out.println(login.toLowerCase().equals(loginUsuario.toLowerCase())); // 1ª alternativa
+		//System.out.println(login.equalsIgnoreCase(loginUsuario)); // 2ª alternativa
+		System.out.println("Introduzca su password: ");
+		String passwordUsuario = sc.nextLine();
+		/*System.out.println(password.equals(passwordUsuario));
+		String datosUsuario = loginUsuario + " " + passwordUsuario;  // Concatenar cadenas
+		String datosUsuario2 = loginUsuario.concat(passwordUsuario); // Concatenar cadenas
+		System.out.println(datosUsuario);
+		System.out.println(datosUsuario2); */
+		System.out.println(login.equalsIgnoreCase(loginUsuario) && password.equals(passwordUsuario)); 
+		
+	}
+	private static void ejemplosFormateos() {
+		String nombre1 = "Paco";
+		String nombre2 = "Anastasia";
+		double salario1 = 2300.24;
+		double salario2 = 24439.6;
+		//primer intento
+		System.out.println(" NOMBRE SALARIO");
+		System.out.println("---------------------------");
+		System.out.println(" " + nombre1 + " " + salario1);
+		System.out.println(" " + nombre2 + " " + salario2);	
+		
+		//segundo intento imprimiendo bonito
+		System.out.printf("%12s%14s\n", "NOMBRE", "SALARIO");
+		System.out.println("---------------------------");
+		System.out.printf("%12s%14f€\n", nombre1, salario1);
+		System.out.printf("%12s%14f€\n", nombre2, salario2); 
+		
+		//tercer intento - alineación a la izquierda con el signo - adelante
+		System.out.printf("%-12s%-14s\n", "NOMBRE", "SALARIO");
+		System.out.println("---------------------------");
+		System.out.printf("%-12s%-14f€\n", nombre1, salario1);
+		System.out.printf("%-12s%-14f€\n", nombre2, salario2);
+		
+		//cuarto intento, dejar mejor los decimales con un . punto 
+		System.out.printf("%12s%14s\n", "NOMBRE", "SALARIO");
+		System.out.println("---------------------------");
+		System.out.printf("%12s%14.2f€\n", nombre1, salario1);
+		System.out.printf("%12s%14.2f€\n", nombre2, salario2);
+		
+		//FECHAS 
+		int dia = 4;
+		int mes = 6;
+		int anyo = 2013;
+		System.out.printf("Fecha: %02d/%02d/%04d\n", dia, mes, anyo);
+		
+		
+		
+	}
 	private static void ejercicio1() { 
 		
 		int num1 = 36;
@@ -61,19 +126,34 @@ public class Ejercicios {
 	}
 	private static void ejercicio2() {
 
-		int numero1 = 15;
-		int numero2 = 4;
+		int n1 = 15;
+		int n2 = 4;
 	
 		
-    System.out.println("15+4= " + (numero1+numero2));
-    System.out.println("15-4= " + (numero1-numero2) );
-    System.out.println("15/4= " + (numero1/numero2) );
-    System.out.println("15*4= " + (numero1*numero2) );
+    System.out.println(n1 + " + " + n2 + " = " + (n1 + n2));
+	System.out.println(n1 + " - " + n2 + " = " + (n1 - n2));
+	System.out.println(n1 + " * " + n2 + " = " + (n1 * n2));
+	System.out.println(n1 + " / " + n2 + " = " + (n1 / n2));
+	System.out.println(n1 + " % " + n2 + " = " + (n1 % n2));
     
 	}
 	private static void ejercicio3() {
+		Scanner sc = new Scanner(System.in);
+		int n1 = 4, n2 = 4; //comparaciones lógicas true false
+		String cad1 = "Hola";
+		String cad2 = "Hola";
+		String login = "111X";
+		String password = "holaquetal";
 		
-		
+		System.out.println(n1 + " es menor que " + n2 + ": " + (n1 < n2));
+		System.out.println(n1 + " es igual que " + n2 + ": " + (n1 == n2));
+		System.out.println(n1 + " es mayor o igual que " + n2 + ": " + (n1 >= n2));
+		System.out.println(cad1.equals(cad2)); //las cadenas se comparan con equals, no ==
+		System.out.println("Introduzca su login");
+		String loginUsuario = sc.nextLine();
+		System.out.println(login.equals(loginUsuario));
+		System.out.println(login.equalsIgnoreCase(loginUsuario)); // Ignoramos mayúsculas y minúsculas
+		// 
 	}
 	private static void ejercicio4() {
 
@@ -103,6 +183,7 @@ public class Ejercicios {
 		sc.close();
 	}
 	private static void ejercicio6() {}
+	
 	private static void ejercicio7() {
     	
 		char c1 = 'b', c2 = 'k';
@@ -113,11 +194,11 @@ public class Ejercicios {
 	
 }
 	
-    
+    private static void ejercicio8() {}
     
      public static void main(String[] args) {
     	 
-    	ejercicio5(); 
+    	ejemplosFormateos(); 
      
       
 	}
