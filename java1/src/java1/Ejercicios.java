@@ -108,7 +108,7 @@ public class Ejercicios {
 		System.out.printf("%12s%14.2f€\n", nombre1, salario1);
 		System.out.printf("%12s%14.2f€\n", nombre2, salario2);
 		
-		//FECHAS 
+		//FECHAS
 		int dia = 4;
 		int mes = 6;
 		int anyo = 2013;
@@ -182,13 +182,36 @@ public class Ejercicios {
 		
 		sc.close();
 	}
-	private static void ejercicio6() {}
+	private static void ejercicio6() {
+		//crear variables auxliares con int auxA= A para mantener las originales
+		int A = 1;
+		int B = 2;
+		int C = 3;
+		int D = 4;
+		final int auxA = A;
+		final int auxB = B;
+		final int auxC = C;
+		final int auxD = D;
+		System.out.print("Valores iniciales: A = " + A);
+		System.out.print(" B = " + B);
+		System.out.print(" C = " + C);
+		System.out.println(" D = " + D);
+		B=auxC; // B = 3
+		C=auxA; // C = 1
+		A=auxD; // A = 4
+		D=auxB; // D = 2
+		System.out.println("B toma el valor de C -> B = " + B);
+		System.out.println("C toma el valor de A -> C = " + C);
+		System.out.println("A toma el valor de D -> A = " + A);
+		System.out.println("D toma el valor de B -> D = " + D);
+		
+	}
 	
 	private static void ejercicio7() {
-    	
+    	//Todas las letras tienen un numero asociado, unicode o ascii
 		char c1 = 'b', c2 = 'k';
-		System.out.println("'" + c1 + "' tiene la posici�n " + (int)c1);
-		System.out.println("'" + c2 + "' tiene la posici�n " + (int)c2);
+		System.out.println("'" + c1 + "' tiene la posicion " + (int)c1);
+		System.out.println("'" + c2 + "' tiene la posicion " + (int)c2);
 		System.out.println("Diferencia entre '" + c1 + "' y '" + c2 + "': " + (c2 - c1));
 	
 	
@@ -198,7 +221,7 @@ public class Ejercicios {
     
      public static void main(String[] args) {
     	 
-    	ejemplosFormateos(); 
+    	ejercicio6(); 
      
       
 	}
