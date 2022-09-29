@@ -77,7 +77,7 @@ public class Ejercicios {
 		System.out.println(datosUsuario);
 		System.out.println(datosUsuario2); */
 		System.out.println(login.equalsIgnoreCase(loginUsuario) && password.equals(passwordUsuario)); 
-		
+		sc.close(); // siempre cerrar scanner por errores
 	}
 	private static void ejemplosFormateos() {
 		String nombre1 = "Paco";
@@ -154,6 +154,7 @@ public class Ejercicios {
 		System.out.println(login.equals(loginUsuario));
 		System.out.println(login.equalsIgnoreCase(loginUsuario)); // Ignoramos mayúsculas y minúsculas
 		// 
+		sc.close(); // siempre cerrar scanner por errores
 	}
 	private static void ejercicio4() {
 
@@ -179,7 +180,10 @@ public class Ejercicios {
 		System.out.println("El valor de inicial de N es: " + N);
 		N += 77;  // 78
 		System.out.println("El valor incrementado en 77 es: " + N);
-		
+		N -=3;
+		System.out.println("El valor decrementado en 3 es: " + N);
+		N = N*2;
+		System.out.println("El valor duplicado por 2 es: " + N);
 		sc.close();
 	}
 	private static void ejercicio6() {
@@ -206,7 +210,6 @@ public class Ejercicios {
 		System.out.println("D toma el valor de B -> D = " + D);
 		
 	}
-	
 	private static void ejercicio7() {
     	//Todas las letras tienen un numero asociado, unicode o ascii
 		char c1 = 'b', c2 = 'k';
@@ -217,11 +220,16 @@ public class Ejercicios {
 	
 }
 	
-    private static void ejercicio8() {}
+    private static void ejercicio8() {
+    int a = 5; int b; int c;
+    b = ++a;
+   
+    		
+    }
     
      public static void main(String[] args) {
     	 
-    	ejercicio6(); 
+    	ejercicio7(); 
      
       
 	}
