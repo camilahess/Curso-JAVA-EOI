@@ -300,23 +300,32 @@ public class Ejercicios {
     
     private static void ejercicio15 ( ) {
     	Scanner sc = new Scanner(System.in);
+    	Scanner sc1 = new Scanner(System.in);
+    	Scanner sc2 = new Scanner(System.in);
     	
-    	System.out.print("Nombre del producto: ");
+    	final double IVA = 0.21;
+    	System.out.println("Producto 1: ");
     	String producto1 = sc.nextLine();
     	System.out.print("Precio: ");
     	double precio1 = sc.nextDouble();
     	
-    	System.out.print("Nombre del siguiente producto: ");
-    	String producto2 = sc.nextLine();
-    	System.out.print("Precio: ");
-    	double precio2 = sc.nextDouble();
     	
-    	System.out.print("Nombre del siguiente producto: ");
-    	String producto3 = sc.nextLine();
+    	System.out.println("Producto 2 : ");
+    	String producto2 = sc1.nextLine();
     	System.out.print("Precio: ");
-    	double precio3 = sc.nextDouble();
+    	double precio2 = sc1.nextDouble();
     	
-    	System.out.printf("%-15s%-12.2f€%12.2f\n", "Producto", "Precio");
+    	
+    	System.out.println("Producto 3: ");
+    	String producto3 = sc2.nextLine();
+    	System.out.print("Precio: ");
+    	double precio3 = sc2.nextDouble();
+    	
+    	System.out.printf("%-15s%-12.2f€%12.2f\n", "Producto", "Precio", "IVA");
+    	System.out.printf("%-15s%-12.2f€%12.2f\n", producto1, precio1, + (precio1*IVA));
+    	
+    	
+    	
     	
     	/* public static void exercise15() throws IOException {
 		
@@ -365,7 +374,7 @@ public class Ejercicios {
     }
      public static void main(String[] args) {
     	 
-    	ejercicio21(); 
+    	ejercicio15(); 
      
       
 	}
