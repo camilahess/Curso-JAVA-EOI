@@ -322,7 +322,8 @@ public class Ejercicios {
     	double precio3 = sc2.nextDouble();
     	
     	System.out.printf("%-15s%-12.2f€%12.2f\n", "Producto", "Precio", "IVA");
-    	System.out.printf("%-15s%-12.2f€%12.2f\n", producto1, precio1, + (precio1*IVA));
+    	System.out.printf("%-15s%-12.2f€%12.2f\n", producto1, precio2, + (precio1*IVA)+precio1);
+    	System.out.printf("%-15s%-12.2f€%12.2f\n", producto2, precio2, + (precio1*IVA)+precio2);
     	
     	
     	
