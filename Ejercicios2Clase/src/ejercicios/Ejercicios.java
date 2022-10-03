@@ -93,12 +93,57 @@ public class Ejercicios {
 		}
 	
 	private static void ejercicio7() {
+		/* int h,m,s;
+		Scanner sc =new Scanner(System.in);
+		System.out.println("Introduzca la hora : ");
+		h = sc.nextInt();
+		System.out.println("Introduzca los minutos: ");
+		m=sc.nextInt();
+		System.out.println("Introduzca los segundos: ");
+		s= sc.nextInt();
+				
+		if (h>0 && h<23 && m>=0 && m <60 && s>0 && s<60) {
+			System.out.printf("%02d:%02d:%02d",h,m,s);
+			
+		}  else {
+			System.out.println("La hora es incorrecta");
+		}
+			
+		} */
 		
+Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Dime una hora");
+		int h1 = sc.nextInt();
+		System.out.println("Dime los minutos");
+		int m1 = sc.nextInt();
+		System.out.println("Dime los segundos");
+		int s1 = sc.nextInt();
+		
+		if (h1<0) {
+			System.out.println("Error, las horas van de 0 a 23");
+		}else if(h1>23) {
+			System.out.println("Error, las horas van de 0 a 23");
+		}else if  (m1<0) {
+			System.out.println("Error, los minutos van de 0 a 59");
+		}
+		else if(m1>59) {
+				System.out.println("Error, los minutos van de 0 a 59");
+		}else if  (s1<0) {
+			System.out.println("Error, los segundos van de 0 a 59");
+		}else if(s1>59) {
+				System.out.println("Error, los segundos van de 0 a 59");
+		}else {
+			System.out.printf("%02d:%02d:%3d\n", h1, m1, s1);
+		}
+		sc.close();	
 	}
+		
+	
 	
 	
 	public static void main(String[] args) {
-		ejercicio6();
+		ejercicio7();
 
 	}
 
