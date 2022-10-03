@@ -344,9 +344,28 @@ public class Ejercicios {
     	*/
     	
     }
+    
+    private static void ejercicio20() {
+    	
+    		Scanner sc = new Scanner(System.in);
+    		System.out.println("Introduce 3 dígitos: ");
+    		double num1 = sc.nextDouble();
+    		double num2 = sc.nextDouble();
+    		double num3 = sc.nextDouble();
+    		System.out.println("Has escrito: "+num1+" + "+num2+" + "+num3+" = "+(num1+num2+num3));
+    }
+    
+    private static void ejercicio21() {
+    	System.out.println("Introduce tu nombre: ");
+		Scanner sc = new Scanner(System.in);
+		String nombre = sc.next();
+		System.out.println("Dime tu edad: ");
+		int edad = sc.nextInt();
+		System.out.println("Estos son tus datos\n\tNombre: "+nombre+"\n\tEdad: "+edad); //\t tabula
+    }
      public static void main(String[] args) {
     	 
-    	ejercicio15(); 
+    	ejercicio21(); 
      
       
 	}
