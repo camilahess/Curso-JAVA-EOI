@@ -303,27 +303,27 @@ public class Ejercicios {
     	Scanner sc1 = new Scanner(System.in);
     	Scanner sc2 = new Scanner(System.in);
     	
-    	final double IVA = 0.21;
+    	
     	System.out.println("Producto 1: ");
     	String producto1 = sc.nextLine();
-    	System.out.print("Precio: ");
-    	double precio1 = sc.nextDouble();
+    	System.out.println("Precio: ");
+    	String precio1 = sc.nextLine();
     	
     	
     	System.out.println("Producto 2 : ");
     	String producto2 = sc1.nextLine();
-    	System.out.print("Precio: ");
-    	double precio2 = sc1.nextDouble();
+    	System.out.println("Precio: ");
+    	String precio2 = sc1.nextLine();
     	
     	
     	System.out.println("Producto 3: ");
     	String producto3 = sc2.nextLine();
-    	System.out.print("Precio: ");
-    	double precio3 = sc2.nextDouble();
+    	System.out.println("Precio: ");
+    	String precio3 = sc2.nextLine();
     	
-    	System.out.printf("%-15s%-12.2f€%12.2f\n", "Producto", "Precio", "IVA");
-    	System.out.printf("%-15s%-12.2f€%12.2f\n", producto1, precio2, + (precio1*IVA)+precio1);
-    	System.out.printf("%-15s%-12.2f€%12.2f\n", producto2, precio2, + (precio1*IVA)+precio2);
+    	System.out.printf("%-15s%12s%12s\n", "Producto", "Precio", " CON IVA");
+    	System.out.printf("%-15s%12.2s€%12.2f\n", producto1, precio1, (Double.parseDouble(precio1)* 1.21));
+    	System.out.printf("%-15s%12.2s€%12.2f\n", producto2, precio2, (Double.parseDouble(precio2)* 1.21));
     	
     	
     	
