@@ -324,8 +324,11 @@ public class Ejercicios {
     	System.out.printf("%-15s%12s%12s\n", "Producto", "Precio", " CON IVA");
     	System.out.printf("%-15s%12.2s€%12.2f\n", producto1, precio1, (Double.parseDouble(precio1)* 1.21));
     	System.out.printf("%-15s%12.2s€%12.2f\n", producto2, precio2, (Double.parseDouble(precio2)* 1.21));
+    	System.out.printf("%-15s%12.2s€%12.2f\n", producto3, precio3, (Double.parseDouble(precio3)* 1.21));
     	
-    	
+    	sc.close();
+    	sc1.close();
+    	sc2.close();
     	
     	
     	/* public static void exercise15() throws IOException {
