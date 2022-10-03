@@ -93,7 +93,10 @@ public class Ejercicios {
 		}
 	
 	private static void ejercicio7() {
-		/* int h,m,s;
+		/* 
+		HECHO POR MI
+		
+		int h,m,s;
 		Scanner sc =new Scanner(System.in);
 		System.out.println("Introduzca la hora : ");
 		h = sc.nextInt();
@@ -109,9 +112,9 @@ public class Ejercicios {
 			System.out.println("La hora es incorrecta");
 		}
 			
-		} */
+		} */ 
 		
-Scanner sc = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 		
 		System.out.println("Dime una hora");
 		int h1 = sc.nextInt();
@@ -138,12 +141,34 @@ Scanner sc = new Scanner(System.in);
 		}
 		sc.close();	
 	}
+
+	private static void ejercicio8() {
+		/* BÁSICO :
 		
+		int a = 5;
+		
+		if (a%2==0) {
+			System.out.println("Tú número es par");
+		} else {
+			System.out.println("Tú número es impar");
+		}
+		*/
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Introduce un número: ");
+		int a = sc.nextInt();
+		
+		
+		System.out.println((a%2==0) ? "Tú número es par" : " Tú número es impar");
+		sc.close();
+	}
+	
+	
 	
 	
 	
 	public static void main(String[] args) {
-		ejercicio7();
+		ejercicio8();
 
 	}
 
