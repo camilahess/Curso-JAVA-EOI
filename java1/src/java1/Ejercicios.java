@@ -222,14 +222,131 @@ public class Ejercicios {
 	
     private static void ejercicio8() {
     int a = 5; int b; int c;
-    b = ++a;
+    b = ++a; // imprime 6
+    c = a++; // imprime 6 y luego incrementa 1 
+    b = b*5; // 6x5 = 30
+    a = a*2; // 7x2 = 14 
+    
+    System.out.println("A=" + a + "\n" + "B= "+ b + "\n" + "C=" + c);
    
     		
     }
     
+    private static void ejercicio9() {
+    	Scanner sc = new Scanner(System.in);
+    	System.out.println("Introduzca su nombre: ");
+    	String nombre = sc.nextLine();
+    	System.out.println("Tu nombre es: " + nombre);
+    	sc.close();
+    	
+    }
+    
+    private static void ejercicio10 () {
+    	Scanner sc = new Scanner(System.in);
+    	System.out.println("Introduzca un número entero: ");
+    	int numero = sc.nextInt();
+    	System.out.println("El doble de su número es: " + (numero*2));
+    	System.out.println("El triple de su número es: " + (numero*3));
+    	sc.close();
+    }
+    
+    private static void ejercicio11() {
+    	Scanner sc = new Scanner(System.in);
+    	System.out.println("Introduzca cuantos grados hace en su zona:" );
+    	int grados = sc.nextInt();
+    	grados = 32 + (9* grados / 5); 
+    	System.out.println( "Sus grados en Fahrenheit son = " + grados); 
+    	sc.close();
+    	
+    }
+    
+    private static void ejercicio12() {
+    	Scanner sc = new Scanner(System.in);
+    	System.out.println("Introduzca un número de tres cifras: ");
+    	int numero = sc.nextInt();
+    	  System.out.println("Primera cifra  "+ (numero/100));
+    	  System.out.println("Segunda cifra  "+ (numero/10%10));
+    	  System.out.println("Tercera cifra  "+( numero%10));
+    	  sc.close();
+    		
+    }
+    
+    private static void ejercicio13() {
+    	Scanner sc = new Scanner(System.in);
+    	System.out.println("Introduce tu fecha de nacimiento: (dia, mes, año)");
+    	int dia = sc.nextInt();
+    	int mes = sc.nextInt();
+    	int anio = sc.nextInt ();
+    	
+    	int suma = dia+mes+anio;
+    	int num1 = suma %10;
+    	int num2 = (suma /10) %10;
+    	int num3= (suma/100) %10;
+    	int num4= suma/1000;
+    	int numSuerte= num1 + num2+ num3+ num4;
+    	System.out.println("Tú número de la suerte es: " + numSuerte);
+    	sc.close();
+    	
+    }
+    
+    private static void ejercicio14 () {
+    	Scanner sc = new Scanner(System.in);
+    	System.out.println("Introduzca su edad: ");
+    	int edad = sc.nextInt();
+    	System.out.println("Dentro de 15 años usted tendrá: " + (edad+15) + " años");
+    	sc.close();
+    	
+    }
+    
+    private static void ejercicio15 ( ) {
+    	Scanner sc = new Scanner(System.in);
+    	
+    	System.out.print("Nombre del producto: ");
+    	String producto1 = sc.nextLine();
+    	System.out.print("Precio: ");
+    	double precio1 = sc.nextDouble();
+    	
+    	System.out.print("Nombre del siguiente producto: ");
+    	String producto2 = sc.nextLine();
+    	System.out.print("Precio: ");
+    	double precio2 = sc.nextDouble();
+    	
+    	System.out.print("Nombre del siguiente producto: ");
+    	String producto3 = sc.nextLine();
+    	System.out.print("Precio: ");
+    	double precio3 = sc.nextDouble();
+    	
+    	System.out.printf("%-15s%-12.2f€%12.2f\n", "Producto", "Precio");
+    	
+    	/* public static void exercise15() throws IOException {
+		
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+		System.out.print("Producto uno: ");
+		String produc1 = reader.readLine();
+		System.out.print("Precio: ");
+		double precio1 =Double.parseDouble(reader.readLine());
+		
+		System.out.print("Producto dos: ");
+		String produc2 =  reader.readLine();
+		System.out.print("Precio: ");
+		double precio2 = Double.parseDouble(reader.readLine());
+		
+		System.out.print("Producto tres: ");
+		String produc3 =  reader.readLine();
+		System.out.print("Precio: ");
+		double precio3 = Double.parseDouble(reader.readLine());
+		
+		System.out.printf("%-15s%-12s%12s\n", "NOMBRE", "PRECIO", "CON IVA");
+		System.out.printf("%-15s%11.2f€%11.2f€\n", produc1, precio1, ((precio1*0.21)+precio1));
+		System.out.printf("%-15s%11.2f€%11.2f€\n", produc2,  precio2, ((precio2*0.21)+precio2));
+		System.out.printf("%-15s%11.2f€%11.2f€\n", produc3,  precio3, ((precio3*0.21)+precio3));
+    	*/
+    	
+    }
      public static void main(String[] args) {
     	 
-    	ejercicio7(); 
+    	ejercicio15(); 
      
       
 	}
