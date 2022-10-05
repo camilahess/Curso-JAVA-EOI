@@ -198,8 +198,53 @@ public class Ejercicios {
 			default: break;
 			}
 			
+			
 		}
+		sc.close();
 	}
+	private static void ejercicio10() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Escribe una letra,un número o un carácter: ");
+		char letra = sc.next().charAt(0);
+		
+		switch (letra) {
+		case '.': System.out.println("Es un .");
+			break;
+		case ',': System.out.println("Es una ,");
+			break;
+		case ':': System.out.println("Son dos puntos :");
+			break;
+		case ';': System.out.println("Es un ; ");
+			break;
+		case '0': System.out.println("Es un 0");
+			break;
+		case '1': System.out.println("Es un 1");
+			break;
+		case '2': System.out.println("Es un 2");
+			break;
+		case '3': System.out.println("Es un 3");
+			break;
+		case '4': System.out.println("Es un 4");
+			break;
+		case '5': System.out.println("Es un 5");
+			break;
+		case '6': System.out.println("Es un 6");
+			break;
+		case '7': System.out.println("Es un 7");
+			break;
+		case '8': System.out.println("Es un 8");
+			break;
+		case '9': System.out.println("Es un 9");
+			break;
+
+		default:
+			System.out.println("Es otro carácter");
+			break;
+		}
+		sc.close();
+	}
+		
+	
 	private static void ejercicio13() {
 		/* BUCLE CON WHILE
 		int i = 20;
@@ -210,11 +255,8 @@ public class Ejercicios {
 		
 		for (int i = 20 ; i<=20 && i > 0; i-=1) { 
 			System.out.print(i + ", ");
-			
+		
 		}
-	
-		
-		
 	}
 	private static void ejercicio18() {
 		for ( int i = 0; i>=0 && i <=100; i+=5) {
@@ -227,7 +269,7 @@ public class Ejercicios {
 	
 	
 	public static void main(String[] args) {
-		ejercicio9();
+		ejercicio10();
 
 	}
 
