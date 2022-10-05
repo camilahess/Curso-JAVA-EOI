@@ -245,30 +245,83 @@ public class Ejercicios {
 	}
 	private static void ejercicio11() {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Escribe un número entero");
-		int n1 = sc.nextInt();
-		System.out.println("Escribe un segundo número entero");
-		int n2 = sc.nextInt();
+		int opcion = -1;
+		while (opcion!=0) { // con el while volvemos a pedir el menu cuando la opcion es incorrecta
+		
 		System.out.println("Elige una de las siguientes opciones");
 		System.out.println("1.Sumar");
 		System.out.println("2.Restar");
 		System.out.println("3.Multiplicar");
 		System.out.println("4.Dividir");
-		int n3 = sc.nextInt();
+		System.out.println("5.Salir");
+		opcion = sc.nextInt();
+		int n1 =-1;
+		int n2=-1;
 		double division = (double)n1/n2;
-		if (n3==1) {
+		
+		 
+		if (opcion>=1 && opcion<=4) {
+			System.out.println("Escribe un número entero");
+			 n1 = sc.nextInt();
+			System.out.println("Escribe un segundo número entero");
+			 n2 = sc.nextInt();	
+		}
+		
+		switch ( opcion ) {
+		case 1 : 
 			System.out.println(n1 + " + "+ n2 + " = " + (n1+n2));
-		}else if (n3==2) {
+			break;
+		case 2 :
 			System.out.println(n1 + " - "+ n2 + " = " + (n1-n2) );
-		}else if (n3==3) {
+			break;
+		case 3 : 
 			System.out.println(n1 + " x "+ n2 + " = " + (n1*n2) );
-		}else if(n3==4) {
+			break;
+		case 4 : 
 			System.out.println((n2==0)? "El divisor no puede ser 0": (n1 + " / "+ n2 ) + " = " + (division));
-		}else { 
-			System.out.println("Elige una de las 4 opciones");
+			break;
+		case 5 :
+			System.out.println("Gracias por utilizar la calculadora");
+			break;
+		default:
+			System.out.println("Opción no válida. Vuelva a elegir opción.");
+			break;
+		}
+		
 		}
 		sc.close();
 	}	
+	
+	private static void ejercicio12() {
+		Scanner sc = new Scanner(System.in);
+		double precio = 100;
+		System.out.println("El precio de la entrada es: " + "€"+ precio );
+		System.out.println("Cuál es tu edad?: ");
+		int edad = sc.nextInt();
+		sc.nextLine();
+		String socio = "no";
+		double descuento = 0;
+		
+		if ( edad<18) {
+			//hacer descuento 25%
+			descuento = 0.25;
+			precio = precio * (1-descuento);	
+			}	else if (edad >= 18 && edad <= 65) {
+			System.out.print(" Es usted socio? (si/no): ");
+			socio = sc.nextLine();
+			if (socio.equals("si")) {
+				descuento = 0.40;
+				precio = precio * (1-descuento);
+			}
+			} else if (edad >= 65) {
+				descuento = 0.75;
+				precio = precio * (1-descuento);
+			}
+		
+		
+		System.out.println("El precio de su entrada es de: " + "€" + precio);
+		System.out.println("Se le ha aplicado un descuento del : " + (descuento*100) + "%");
+	 }
 	
 	private static void ejercicio13() {
 		/* BUCLE CON WHILE
@@ -282,6 +335,9 @@ public class Ejercicios {
 			System.out.print(i + ", ");
 		
 		}
+	}
+	private static void ejercicio15() {
+		
 	}
 	private static void ejercicio18() {
 		for ( int i = 0; i>=0 && i <=100; i+=5) {
@@ -311,7 +367,7 @@ public class Ejercicios {
 	
 	
 	public static void main(String[] args) {
-		ejercicio19();
+		ejercicio12();
 
 	}
 

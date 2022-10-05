@@ -245,7 +245,7 @@ public class repetitivas {
 			// infinito3();
 			// while1();
 			// whileIgualQueFor();
-			whileIgualQueFor2();
+			ejemploMenuWhileConSwitch();
 		
 	}
 
