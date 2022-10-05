@@ -289,12 +289,23 @@ public class Ejercicios {
 	}
 	}
 	
+	private static void ejercicio19() { 
+			Scanner sc = new Scanner(System.in);
+	        int num;
+	        System.out.print("Introduce un número entero: ");
+	        num = sc.nextInt();
+	        System.out.print("\nNumeros del 1 al " + num + ": ");                                           
+	        for (int i = 1; i <= num; i++) {
+	            System.out.print(i + ", ");
+	        }
+}
+	
 	
 	
 	
 	
 	public static void main(String[] args) {
-		ejercicio11();
+		ejercicio19();
 
 	}
 
