@@ -294,9 +294,15 @@ public class Ejercicios {
 	        int num;
 	        System.out.print("Introduce un número entero: ");
 	        num = sc.nextInt();
-	        System.out.print("\nNumeros del 1 al " + num + ": ");                                           
+	        System.out.print("\nNumeros del 1 al " + num + ": ");  
+	        
 	        for (int i = 1; i <= num; i++) {
+	        	if ( i < num ) {
 	            System.out.print(i + ", ");
+	        	} else { 
+	        		System.out.print(i + ".");
+	        	}
+	            
 	        }
 }
 	
