@@ -243,7 +243,32 @@ public class Ejercicios {
 		}
 		sc.close();
 	}
-		
+	private static void ejercicio11() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Escribe un número entero");
+		int n1 = sc.nextInt();
+		System.out.println("Escribe un segundo número entero");
+		int n2 = sc.nextInt();
+		System.out.println("Elige una de las siguientes opciones");
+		System.out.println("1.Sumar");
+		System.out.println("2.Restar");
+		System.out.println("3.Multiplicar");
+		System.out.println("4.Dividir");
+		int n3 = sc.nextInt();
+		double division = (double)n1/n2;
+		if (n3==1) {
+			System.out.println(n1 + " + "+ n2 + " = " + (n1+n2));
+		}else if (n3==2) {
+			System.out.println(n1 + " - "+ n2 + " = " + (n1-n2) );
+		}else if (n3==3) {
+			System.out.println(n1 + " x "+ n2 + " = " + (n1*n2) );
+		}else if(n3==4) {
+			System.out.println((n2==0)? "El divisor no puede ser 0": (n1 + " / "+ n2 ) + " = " + (division));
+		}else { 
+			System.out.println("Elige una de las 4 opciones");
+		}
+		sc.close();
+	}	
 	
 	private static void ejercicio13() {
 		/* BUCLE CON WHILE
@@ -269,7 +294,7 @@ public class Ejercicios {
 	
 	
 	public static void main(String[] args) {
-		ejercicio10();
+		ejercicio11();
 
 	}
 
