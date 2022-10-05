@@ -158,9 +158,68 @@ public class Ejercicios {
 		System.out.println("Introduce un número: ");
 		int a = sc.nextInt();
 		
-		
 		System.out.println((a%2==0) ? "Tú número es par" : " Tú número es impar");
 		sc.close();
+	}
+	private static void ejercicio9() {
+		Scanner sc = new Scanner(System.in);
+		int mes;
+		System.out.println("Introduzca el número de mes: ");
+		mes = sc.nextInt();
+		if (mes <1 || mes >12) {
+			System.out.println("El mes es incorrecto");
+		} else { 
+			switch(mes) {
+			case 1 : System.out.print("El mes de enero tiene 31 días");
+			break;
+			case 2 : System.out.print("El mes de febrero tiene 28 días");
+			break;
+			case 3 : System.out.print(" El mes de marzo tiene 31 días");
+			break;
+			case 4 : System.out.print(" El mes de abril tiene 30 días");
+			break;
+			case 5 : System.out.print(" El mes de mayo tiene 31 días");
+			break;
+			case 6 : System.out.print(" El mes de junio tiene 30 días");
+			break;
+			case 7 : System.out.print(" El mes de julio tiene 31 días");
+			break;
+			case 8 : System.out.print(" El mes de agosto tiene 31 días");
+			break;
+			case 9 : System.out.print(" El mes de septiembre tiene 30 días");
+			break;
+			case 10 : System.out.print(" El mes de octubre tiene 31 días");
+			break;
+			case 11 : System.out.print(" El mes de noviembre tiene 30 días");
+			break;
+			case 12 : System.out.print(" El mes de diciembre tiene 31 días");
+			break;
+			
+			default: break;
+			}
+			
+		}
+	}
+	private static void ejercicio13() {
+		/* BUCLE CON WHILE
+		int i = 20;
+		while(i<=20 && i > 0) { 
+			System.out.print(i+", ");
+			i-=1;
+		} */
+		
+		for (int i = 20 ; i<=20 && i > 0; i-=1) { 
+			System.out.print(i + ", ");
+			
+		}
+	
+		
+		
+	}
+	private static void ejercicio18() {
+		for ( int i = 0; i>=0 && i <=100; i+=5) {
+			System.out.print(i + ", ");
+	}
 	}
 	
 	
@@ -168,7 +227,7 @@ public class Ejercicios {
 	
 	
 	public static void main(String[] args) {
-		ejercicio8();
+		ejercicio9();
 
 	}
 
