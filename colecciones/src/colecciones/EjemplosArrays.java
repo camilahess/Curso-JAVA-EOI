@@ -117,7 +117,39 @@ public class EjemplosArrays {
 	
 	
 	
-	
+	public static void arraysMultidimensionales() {
+		// Ejemplo de tabla no escalonada
+		int[][] tabla = new int[4][3]; // crear el array y darle memoria
+		tabla[0][0] = 5;
+		tabla[0][1] = 4;
+		tabla[0][2] = 9;
+		tabla[1][0] = 8;
+		tabla[1][1] = 5;
+		tabla[1][2] = 1000;
+		tabla[2][0] = -2;
+		tabla[2][1] = 14;
+		tabla[2][2] = 5;
+		tabla[3][0] = 9;
+		tabla[3][1] = 0;
+		tabla[3][2] = 8;
+		int[][] tabla2 = { { 5, 4, 9 }, { 8, 5, 1000 }, { -2, 14, 5 }, { 9, 0, 8 } }; // es lo mismo que lo de arriba
+
+		// recorrer las tablas
+		//int alto = tabla.length;
+		//int ancho = tabla[0].length;
+		for (int fila = 0; fila < tabla.length; fila++) { 
+			// Mensajes antes de cada fila
+			//System.out.println("Tratamiento de la fila: " + fila);
+			for (int col = 0; col < tabla[fila].length; col++) {
+				System.out.print(tabla[fila][col] + " ");
+			}
+			// Mensajes al final de cada fila
+			// System.out.println("\nFin de la fila: " + fila); // Generamos salto de línea
+			System.out.println();
+		}
+		// Mensajes al final de la tabla
+
+	}
 	
 	
 	

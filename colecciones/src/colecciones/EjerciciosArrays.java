@@ -18,12 +18,11 @@ public class EjerciciosArrays {
 	private static void ejercicio2() {
 		Scanner sc = new Scanner(System.in);
 		int[] numeros = new int[10];
-		System.out.println("Introduce primer número");
-		int numero = sc.nextInt();
-		System.out.println("Introduce segundo número");
-		int numero2 = sc.nextInt();
+		System.out.println("Introduce primer número: ");
+		int num1 = sc.nextInt();
+		System.out.println("Introduce segundo número: ");
 		
-		System.out.println(numeros);
+		
 			
 	}
 	
