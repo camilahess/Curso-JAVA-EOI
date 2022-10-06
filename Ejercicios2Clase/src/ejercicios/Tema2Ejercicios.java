@@ -374,10 +374,11 @@ public class Tema2Ejercicios {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Dime un número: ");
 		int num = sc.nextInt();
-		int cifras = 0;
+		
+		int cifras = 0; // contador de cifras
 		while (num != 0) {
-			num /= 10;
-			cifras++;
+			num /= 10; //achicamos el numero 
+			cifras++; //sube el contador
 		}
 		System.out.println("El número tiene " + cifras + " cifras");
 		sc.close();
@@ -424,17 +425,17 @@ public class Tema2Ejercicios {
 	
 	private static void ejercicio20() {
 		Scanner sc = new Scanner(System.in);
-		int var = 0;
+		int suma = 0;
 		int num = -1;
 		while (true) {
 			System.out.println("Dime un número: \n");
 			num = sc.nextInt();
 			if (num == 0)
-				break;
+				break; // corta por encontrar el cero
 			if (num<0)
-				continue;
-			var += num;
-			System.out.println("Resultado: " + var);
+				continue; // continua con el bucle
+			suma += num;
+			System.out.println("Resultado: " + suma);
 		} while (num != 0);
 	}
 	
