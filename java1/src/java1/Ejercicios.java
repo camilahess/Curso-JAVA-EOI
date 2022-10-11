@@ -1,6 +1,9 @@
 package java1;
 
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 
 public class Ejercicios {
@@ -169,8 +172,8 @@ public class Ejercicios {
 		System.out.print(num3);
 		System.out.println(num4);// println para que haga el salto de linea*/
 		
-		System.out.println(""+num1+num2+num3+num4); //Esto es lo mismo que lo de arriba pero mas simple
-		System.out.println(((num1+num2)*num3)/num4);
+		System.out.println(""+num1+num2+num3+num4); //Esto es lo mismo que lo de arriba pero mas simple, esto CONCATENA, NO SUMA NUMEROS
+		System.out.println(((num1+num2)*num3)/num4); // Esto suma los dos numeros, luego multiplica, luego divide.
 		
 	}
 	private static void ejercicio5() {
@@ -213,7 +216,7 @@ public class Ejercicios {
 	private static void ejercicio7() {
     	//Todas las letras tienen un numero asociado, unicode o ascii
 		char c1 = 'b', c2 = 'k';
-		System.out.println("'" + c1 + "' tiene la posicion " + (int)c1);
+		System.out.println("'" + c1 + "' tiene la posicion " + (int)c1); //poniendo el INT adelante, convertimos la letra en numero
 		System.out.println("'" + c2 + "' tiene la posicion " + (int)c2);
 		System.out.println("Diferencia entre '" + c1 + "' y '" + c2 + "': " + (c2 - c1));
 	
@@ -252,10 +255,10 @@ public class Ejercicios {
     
     private static void ejercicio11() {
     	Scanner sc = new Scanner(System.in);
-    	System.out.println("Introduzca cuantos grados hace en su zona:" );
+    	System.out.println("Introduzca cuantos grados centígrados hace en su zona:" );
     	int grados = sc.nextInt();
-    	grados = 32 + (9* grados / 5); 
-    	System.out.println( "Sus grados en Fahrenheit son = " + grados); 
+    	int F = 32 + (9* grados / 5); 
+    	System.out.println( "Sus grados en Fahrenheit son = " + F + " F"); 
     	sc.close();
     	
     }
@@ -297,41 +300,8 @@ public class Ejercicios {
     	sc.close();
     	
     }
-    
-    private static void ejercicio15 ( ) {
-    	Scanner sc = new Scanner(System.in);
-    	Scanner sc1 = new Scanner(System.in);
-    	Scanner sc2 = new Scanner(System.in);
-    	
-    	
-    	System.out.println("Producto 1: ");
-    	String producto1 = sc.nextLine();
-    	System.out.println("Precio: ");
-    	String precio1 = sc.nextLine();
-    	
-    	
-    	System.out.println("Producto 2 : ");
-    	String producto2 = sc1.nextLine();
-    	System.out.println("Precio: ");
-    	String precio2 = sc1.nextLine();
-    	
-    	
-    	System.out.println("Producto 3: ");
-    	String producto3 = sc2.nextLine();
-    	System.out.println("Precio: ");
-    	String precio3 = sc2.nextLine();
-    	
-    	System.out.printf("%-15s%12s%12s\n", "Producto", "Precio", " CON IVA");
-    	System.out.printf("%-15s%12.2s€%12.2f\n", producto1, precio1, (Double.parseDouble(precio1)* 1.21));
-    	System.out.printf("%-15s%12.2s€%12.2f\n", producto2, precio2, (Double.parseDouble(precio2)* 1.21));
-    	System.out.printf("%-15s%12.2s€%12.2f\n", producto3, precio3, (Double.parseDouble(precio3)* 1.21));
-    	
-    	sc.close();
-    	sc1.close();
-    	sc2.close();
-    	
-    	
-    	/* public static void exercise15() throws IOException {
+
+    	public static void ejercicio15() throws IOException {
 		
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
@@ -354,7 +324,7 @@ public class Ejercicios {
 		System.out.printf("%-15s%11.2f€%11.2f€\n", produc1, precio1, ((precio1*0.21)+precio1));
 		System.out.printf("%-15s%11.2f€%11.2f€\n", produc2,  precio2, ((precio2*0.21)+precio2));
 		System.out.printf("%-15s%11.2f€%11.2f€\n", produc3,  precio3, ((precio3*0.21)+precio3));
-    	*/
+    	
     	
     }
     
@@ -376,7 +346,7 @@ public class Ejercicios {
 		int edad = sc.nextInt();
 		System.out.println("Estos son tus datos\n\tNombre: "+nombre+"\n\tEdad: "+edad); //\t tabula
     }
-     public static void main(String[] args) {
+     public static void main(String[] args) throws IOException {
     	 
     	ejercicio15(); 
      

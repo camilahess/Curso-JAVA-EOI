@@ -18,6 +18,8 @@ public class Tema2Ejercicios {
 	}
 
 	private static void ejercicio2() {
+		/*Programa que lea un número entero y muestre si el número es múltiplo de 10 
+		 * (si el resto de la división entre 10 da 0).*/
 		Scanner sc = new Scanner(System.in);
 		int N;
 		System.out.print("Número entero: ");
@@ -32,9 +34,12 @@ public class Tema2Ejercicios {
 	}
 
 	private static void ejercicio3() {
+		/*Programa que lea un carácter por teclado y
+		 *  compruebe si es una letra mayúscula. Una letra mayúscula es aquella que está entre la ‘A’ y la ‘Z’. Recuerda que se pueden comparar los caracteres como si fueran números.
+		 */
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Introduzca un carácter: ");
-		char car = sc.nextLine().charAt(0);
+		char car = sc.nextLine().charAt(0); //char at es para que lea el primer carácter recibido
 		if (car >= 'A' && car <= 'Z') {
 			System.out.println("Es una letra mayúscula");
 		} else {
@@ -67,9 +72,9 @@ public class Tema2Ejercicios {
 		System.out.println("Introduzca otro número: ");
 		int numero2 = sc.nextInt();
 		if (numero2 > 0) {
-			System.out.println(numero1 + "%" + numero2 + "= " + numero1 / numero2);
+			System.out.printf(numero1 + "%" + numero2 + "= " + numero1 / numero2);
 		} else {
-			System.out.println("El divisor no puede ser cero");
+			System.out.printf("El divisor no puede ser cero");
 		}
 		sc.close();
 
@@ -145,7 +150,8 @@ public class Tema2Ejercicios {
 		 * 
 		 * int a = 5;
 		 * 
-		 * if (a%2==0) { System.out.println("Tú número es par"); } else {
+		 * if (a%2==0) { System.out.println("Tú número es par"); } 
+		 * else {
 		 * System.out.println("Tú número es impar"); }
 		 */
 
@@ -214,7 +220,7 @@ public class Tema2Ejercicios {
 	private static void ejercicio10() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Escribe una letra,un número o un carácter: ");
-		char letra = sc.next().charAt(0);
+		char letra = sc.next().charAt(0); // CharAt(0) es para que lea el primer carácter
 
 		switch (letra) {
 		case '.':
@@ -270,7 +276,7 @@ public class Tema2Ejercicios {
 	private static void ejercicio11() {
 		Scanner sc = new Scanner(System.in);
 		int opcion = -1;
-		while (opcion != 0) { // con el while volvemos a pedir el menu cuando la opcion es incorrecta
+		while (opcion != 5) { // con el while volvemos a pedir el menu cuando la opcion es incorrecta
 
 			System.out.println("Elige una de las siguientes opciones");
 			System.out.println("1.Sumar");
@@ -307,7 +313,7 @@ public class Tema2Ejercicios {
 				System.out.println("Gracias por utilizar la calculadora");
 				break;
 			default:
-				System.out.println("Opción no válida. Vuelva a elegir opción.");
+				System.out.println("Opción no válida. Vuelva a elegir opción.\n");
 				break;
 			}
 
@@ -448,7 +454,7 @@ public class Tema2Ejercicios {
 		
 	}
 	public static void main(String[] args) {
-		ejercicio20();
+		ejercicio12();
 
 	}
 
