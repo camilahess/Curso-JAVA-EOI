@@ -32,24 +32,30 @@ public class ejemplosListas {
 		// eliminar por elemento
 		nombres.remove("Thiago");
 		nombres.forEach(e -> System.out.println(e));
+		
 		// añadir en una posición específica
 		nombres.add(0, "Nuevo nombre");
 		nombres.forEach(e -> System.out.println(e));
+		
 		// tamaño de la lista
 		System.out.println("El tamaño de la lista es: " + nombres.size());
+		
 		// Conversiones entre arrays y listas
 		// 1. Convertir de lista a array
+		
 		String[] nombresArray = new String[nombres.size()];
 		nombres.toArray(nombresArray);
 		System.out.println("Impresión de la lista");
 		nombres.forEach(e -> System.out.println(e));
 		System.out.println("Impresión del array");
 		System.out.println(Arrays.toString(nombresArray));
+		
 		// 2. Convertir de array en lista
 		String[] meses = { "Enero", "febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre",
 				"Octubre", "Noviembre", "Diciembre" };
 		List<String> mesesLista = new ArrayList<String>(Arrays.asList(meses));
 		mesesLista.forEach(e -> System.out.println(e));
+		
 		// Creación de una lista a partir de otra/s
 		List<String> alumnosDam = new ArrayList<String>(Arrays.asList("pablo", "Ismael", "Yessica"));
 		List<String> alumnosEoi = new ArrayList<String>(Arrays.asList("Alberto", "Benjamín", "Camila", "Pablo"));
@@ -61,6 +67,7 @@ public class ejemplosListas {
 		todosAlumnos.removeAll(alumnosBorrar);
 		System.out.println("Todos mis alumnos menos los borrados:"); 
 		todosAlumnos.forEach(e -> System.out.println(e));
+		
 		// Eliminar toda la lista
 		todosAlumnos.clear();
 		if (todosAlumnos.isEmpty()) {
@@ -74,7 +81,7 @@ public class ejemplosListas {
 		System.out.println(alumnosDam);
 		alumnosDam.sort(String.CASE_INSENSITIVE_ORDER);
 		System.out.println(alumnosDam);
-		alumnosDam.sort(Comparator.comparingInt(String::length));
+		alumnosDam.sort(Comparator.comparingInt(String::length)); //Ordena las cadenas según la cantidad de letras que tenga.
 		System.out.println(alumnosDam);
 		alumnosDam.sort(String.CASE_INSENSITIVE_ORDER.reversed());
 		System.out.println(alumnosDam);
@@ -91,7 +98,8 @@ public class ejemplosListas {
 			System.out.println("Enero y Febrero existen en la lista");
 		
 	}
-
+	
+	
 	public static void main(String[] args) {
 		ejemplo1();
 
