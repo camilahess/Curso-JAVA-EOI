@@ -113,7 +113,7 @@ public class camiprobando {
 		ordenar.forEach(name -> System.out.println(name + "\n"));
 		
 		//ordenar por cantidad de letras 
-		ordenar.sort(Comparator.comparingInt(String::length));
+		ordenar.sort(Comparator.comparingInt(String::length)); // se pone en vez de NULL, el orden que queremos. Comparando
 		ordenar.forEach(name -> System.out.println(name));
 	}
 	
