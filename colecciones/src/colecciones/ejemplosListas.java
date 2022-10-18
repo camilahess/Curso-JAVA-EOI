@@ -104,14 +104,20 @@ public class ejemplosListas {
 	public static void reemplazarLista() {
 		List<String> meses = new ArrayList<String>(Arrays.asList("Enero", "febrero", "Marzo", "Abril", "Mayo", "Junio",
 				"Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"));
-		meses.replaceAll(e -> e + " mes"); // hace una operación a TODOS los elementos de una lista, sin ningún tipo de filtro
+		meses.replaceAll(e -> e + " mes"); // hace una operación a TODOS los elementos de una lista, sin ningún tipo de
+											// filtro
 		meses.forEach(e -> System.out.println(e));
 		meses = new ArrayList<String>(Arrays.asList("Enero", "febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio",
 				"Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"));
-		meses.replaceAll(cadena -> cadena.substring(0, 1).toUpperCase() + cadena.substring(1).toLowerCase()); // CAPITALIZAR UNA LISTA ENTERA
+		meses.replaceAll(cadena -> cadena.substring(0, 1).toUpperCase() + cadena.substring(1).toLowerCase()); // CAPITALIZAR
+																												// UNA
+																												// LISTA
+																												// ENTERA
 		meses.forEach(e -> System.out.println(e));
 		// Filtrar elementos en la cadena
-		meses.stream().filter(e -> e.equals("Julio") || e.equals("Agosto")).forEach(e -> e = "Verano"); // ESTO NO HACE LO QUE QUEREMOS
+		meses.stream().filter(e -> e.equals("Julio") || e.equals("Agosto")).forEach(e -> e = "Verano"); // ESTO NO HACE
+																										// LO QUE
+																										// QUEREMOS
 		// meses.forEach(e->System.out.println(e))
 
 		// Buscar los elementos que queremos y cambiar el contenido de su posición
@@ -132,10 +138,10 @@ public class ejemplosListas {
 		System.out.println(cadena);
 		System.out.println(cadena.toUpperCase());
 		System.out.println(cadena.substring(0, 1).toUpperCase()); // Esto es la primera letra en mayúscula
-		
+
 		cadena = cadena.substring(0, 1).toUpperCase() + cadena.substring(1).toLowerCase(); // Capitalizar una cadena
 		System.out.println(cadena);
-		
+
 		String cadena2 = "Esta es una cadena más larga que la anterior";
 		// Encontrar todas las 'a' de esta cadena
 		for (int i = 0; i < cadena2.length(); i++) {
@@ -146,61 +152,80 @@ public class ejemplosListas {
 
 	}
 
-	// dada una cadena, pregunta al usuario la subcadena a buscar y muéstrale esa subcadena hasta el final
-	// luego pregunta si quiere buscar la siguiente ocurrencia y mientras diga que sí, sácale el resultado.
-		public static void buscarSiguiente() {
-			Scanner sc = new Scanner(System.in);
-			String cadena="w Esta es una cadena más larga que la Anterior, hola adiós hola hola";
-			boolean salir = false;
-			int posicionEncontrada = -1;
-			// Pista: contains, indexOf, lastIndexOf
-			System.out.println("Introduzca la cadena a buscar: ");
-			String cadenaBuscada = sc.nextLine();
-			while(!salir) {
-				posicionEncontrada = cadena.toLowerCase().indexOf(cadenaBuscada.toLowerCase(), posicionEncontrada+1);
-				if(posicionEncontrada!=-1) {  // Encuentro la cadena
-					System.out.println(cadena.substring(posicionEncontrada));
-					System.out.println("¿Buscar siguiente? (s/n): ");
-					String respuesta = sc.nextLine();
-					if(respuesta.toLowerCase().equals("n")) {
-						salir = true;
-					}
-				} else {
-					System.out.println("No se encuentran más ocurrencias de la cadena");
+	// dada una cadena, pregunta al usuario la subcadena a buscar y muéstrale esa
+	// subcadena hasta el final
+	// luego pregunta si quiere buscar la siguiente ocurrencia y mientras diga que
+	// sí, sácale el resultado.
+	public static void buscarSiguiente() {
+		Scanner sc = new Scanner(System.in);
+		String cadena = "w Esta es una cadena más larga que la Anterior, hola adiós hola hola";
+		boolean salir = false;
+		int posicionEncontrada = -1;
+		// Pista: contains, indexOf, lastIndexOf
+		System.out.println("Introduzca la cadena a buscar: ");
+		String cadenaBuscada = sc.nextLine();
+		while (!salir) {
+			posicionEncontrada = cadena.toLowerCase().indexOf(cadenaBuscada.toLowerCase(), posicionEncontrada + 1);
+			if (posicionEncontrada != -1) { // Encuentro la cadena
+				System.out.println(cadena.substring(posicionEncontrada));
+				System.out.println("¿Buscar siguiente? (s/n): ");
+				String respuesta = sc.nextLine();
+				if (respuesta.toLowerCase().equals("n")) {
 					salir = true;
-				}			
-			}		
+				}
+			} else {
+				System.out.println("No se encuentran más ocurrencias de la cadena");
+				salir = true;
+			}
 		}
-		
-		private static void reemplazarCadena ( ) {
-			Scanner sc = new Scanner(System.in);
-			String cadena="w Esta es una cadena más larga que la Anterior, hola adiós hola hola";
-			boolean salir = false;
-			int posicionEncontrada = -1;
-			// Pista: contains, indexOf, lastIndexOf
-			System.out.println("Introduzca la cadena a buscar: ");
-			String cadenaBuscada = sc.nextLine();
-			System.out.println("Introduzca la cadena a reemplazar: ");
-			String cadenaReemplazar = sc.nextLine();
-					
-			while(!salir) {
-				posicionEncontrada = cadena.toLowerCase().indexOf(cadenaBuscada.toLowerCase(), posicionEncontrada+1);
-				if(posicionEncontrada!=-1) {  // Encuentro la cadena
-					System.out.println(cadena.substring(posicionEncontrada));
-					System.out.println("Reemplazar y buscar siguiente ? ( s / n ) : ");
-					String respuesta = sc.nextLine();
-					if(respuesta.toLowerCase().equals("n")) {
-						salir = true;
-					} else {
-						cadena = cadena.replaceFirst(cadenaBuscada, cadenaReemplazar);
-					}
-				} else {
-					System.out.println("No se encuentran más ocurrencias de la cadena");
+	}
+
+	private static void reemplazarCadena() {
+		Scanner sc = new Scanner(System.in);
+		String cadena = "w Esta es una cadena más larga que la Anterior, hola adiós hola hola";
+		boolean salir = false;
+		int posicionEncontrada = -1;
+		// Pista: contains, indexOf, lastIndexOf
+		System.out.println("Introduzca la cadena a buscar: ");
+		String cadenaBuscada = sc.nextLine();
+		System.out.println("Introduzca la cadena a reemplazar: ");
+		String cadenaReemplazar = sc.nextLine();
+
+		while (!salir) {
+			posicionEncontrada = cadena.toLowerCase().indexOf(cadenaBuscada.toLowerCase(), posicionEncontrada + 1);
+			if (posicionEncontrada != -1) { // Encuentro la cadena
+				System.out.println(cadena.substring(posicionEncontrada));
+				System.out.println("Reemplazar y buscar siguiente ? ( s / n ) : ");
+				String respuesta = sc.nextLine();
+				if (respuesta.toLowerCase().equals("n")) {
 					salir = true;
-				}			
-			}	
-			System.out.println("La cadena queda asi: " +cadena);
+				} else {
+					cadena = cadena.replaceFirst(cadenaBuscada, cadenaReemplazar);
+				}
+			} else {
+				System.out.println("No se encuentran más ocurrencias de la cadena");
+				salir = true;
+			}
 		}
+		System.out.println("La cadena queda asi: " + cadena);
+	}
+
+	public static void ejemplosCondicionalesListas() {
+		// ejemplo removeIf
+		List<String> meses = new ArrayList<String>(Arrays.asList("Enero", "febrero", "Marzo", "Abril", "Mayo", "Junio",
+				"Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"));
+		// borrar los elementos de la lista que tienen más de 7 letras
+		meses.removeIf(e -> e.length() > 6);
+		System.out.println(meses);
+
+		// ejemplo retainAll
+		meses = new ArrayList<String>(Arrays.asList("Enero", "febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio",
+				"Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"));
+		List<String> subconjunto = new ArrayList<String>(Arrays.asList("Julio", "Agosto"));
+		// quedarse con todos los elementos de la lista que pertenezcan al subconjunto
+		meses.retainAll(subconjunto);
+	}
+
 	private static void ejercicio1() {
 		List<Integer> numeros = new ArrayList<Integer>(Arrays.asList(10, 20, 30, 40));
 		System.out.println(numeros);
@@ -209,7 +234,7 @@ public class ejemplosListas {
 		numeros.add(60);
 		System.out.println(numeros);
 		// numeros.forEach(n -> System.out.println(n));
-		//numeros.remove(1); // elimina la posición 1, en este caso el 20
+		// numeros.remove(1); // elimina la posición 1, en este caso el 20
 		// numeros.removeIf(n ->n==20); // este borra todos los 20 que encuentre
 		numeros.remove(numeros.indexOf(20)); // borra el primero que encuentra
 		System.out.println(numeros);
