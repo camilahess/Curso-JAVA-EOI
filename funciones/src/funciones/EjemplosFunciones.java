@@ -64,14 +64,40 @@ public class EjemplosFunciones {
 		System.out.println(numero * numero);
 	}
 
+	/**
+	 * Funcion(método) para devolver el cuadrado de un numero
+	 * 
+	 * @param numero El numero del cual queremos obtener su cuadrado
+	 * @return Devuelve el cuadrado del numero int que hemos puesto en parámetros
+	 */
 	public static int devolverCuadrado(int numero) {
 		int cuadrado = numero * numero;
 		return cuadrado;
 	}
 
+	public static boolean esPositivo(int numero) {
+		/*
+		 * if(numero>=0) return true; else return false;
+		 */
+		return numero >= 0 ? true : false; // Con ternario, condicion primero, si se cumple devuelve true, sino false
+	}
+
+	// Método que reciba muchas cadenas y las devuelva.
+	public static String concatenarCadenas(String... cadenas) { // ... numero indeterminado de cadenas que puede recibir
+		String resultado = "";
+		System.out.println("He recibido " + cadenas.length + " cadenas");
+		 
+		 for (int i = 0; i < cadenas.length; i++) {
+			 resultado = resultado + " " + cadenas [i];
+		 }
+
+		return resultado;
+
+	}
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		// TODO Auto-generated method stub
+
 		// funcion1();
 		// funcion2();
 		/*
@@ -89,17 +115,24 @@ public class EjemplosFunciones {
 		 * System.out.println("Introduzca un número (0 para terminar):"); numero =
 		 * Integer.parseInt(sc.nextLine());
 		 * System.out.println("El cuadrado del número es: "); cuadrado(numero); }
+		 * 
+		 * 
+		 * // Programa que pide un número por pantalla y le suma 10 a su cuadrado
+		 * System.out.println("Introduzca un número:"); int numero =
+		 * Integer.parseInt(sc.nextLine()); int numeroCuadrado =
+		 * devolverCuadrado(numero); double numeroPow = Math.pow(numero, 2); //La
+		 * función Math. pow() retorna la base elevada al exponente , es decir,
+		 * baseexponente . numeroCuadrado += 10; numeroPow += 10;
+		 * System.out.println(numeroCuadrado); System.out.println(numeroPow);
 		 */
 
-		// Programa que pide un número por pantalla y le suma 10 a su cuadrado
-		System.out.println("Introduzca un número:");
-		int numero = Integer.parseInt(sc.nextLine());
-		int numeroCuadrado = devolverCuadrado(numero);
-		double numeroPow = Math.pow(numero, 2);
-		numeroCuadrado += 10;
-		numeroPow += 10;
-		System.out.println(numeroCuadrado);
-		System.out.println(numeroPow);
+		// AGRUPACION DE PARÁMETROS
+		System.out.println(concatenarCadenas("Hola"));
+		System.out.println(concatenarCadenas("Hola", "Camila"));
+		System.out.println(concatenarCadenas("Hola", "mundo", "cruel"));
+		System.out.println(concatenarCadenas("Adiós"));
+		System.out.println(concatenarCadenas());
+
 	}
 
 }
