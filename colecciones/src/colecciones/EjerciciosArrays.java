@@ -143,20 +143,20 @@ public class EjerciciosArrays {
 		
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Cuantos alumnos hay en total?: ");
-		int cantidad = sc.nextInt();
+		int alumnos = sc.nextInt();
 		
-		double[] notas = new double[cantidad];
-		String[] nombres = new String[cantidad];
+		double[] notas = new double[alumnos];
+		String[] nombres = new String[alumnos];
 
 		
 		
-		for(int i = 0; i < cantidad; i++) {
+		for(int i = 0; i < alumnos; i++) {
 			System.out.print("Nombre y nota (separados por espacio): ");
 			nombres[i] = sc.next();
 			notas[i] = sc.nextDouble();
 		}
 		
-		for(int i = 0; i < cantidad; i++) {
+		for(int i = 0; i < alumnos; i++) {
 			System.out.printf("%15s: %5.2f\n", nombres[i], notas[i]);
 		}
 	}

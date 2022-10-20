@@ -11,31 +11,87 @@ import java.util.List;
 
 public class EjemplosFicheros {
 
-	//LEER FICHEROS
-	public static void leer1(String directorio, String nombreFichero) throws IOException {
+	//LEER FICHEROS y controlarlos con TRY CATCH
+	public static void leer1(String directorio, String nombreFichero)  {
 		//String ruta = directorio + File.separator + nombreFichero; // ruta = "c:\ficheros\eoi.txt"
-		Files.readAllLines(Paths.get(directorio + File.separator + nombreFichero)).forEach(l -> System.out.println(l));
+		//el file.separator es para reconocer la barra que separa los directorios / \ dependiendo el sistema operativo
+		try {
+			Files.readAllLines(Paths.get(directorio + File.separator + nombreFichero)).forEach(l -> System.out.println(l));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
-	public static void leer2(String directorio, String nombreFichero) throws IOException {
+	public static void leer2(String directorio, String nombreFichero)  {
 	//Este ejemplo es el mismo que el ejemplo 1 pero paso a paso
 		
 	String rutaAbsoluta = directorio + File.separator + nombreFichero;// Construir la cadena
 	//Transformar la cadena a ruta de ordenador con PATH
 	Path rutaOrdenador = Paths.get(rutaAbsoluta);
-	List<String> lineasFichero = Files.readAllLines(rutaOrdenador); //Te devuelve una lista de strings con las lineas del fichero
-	lineasFichero.forEach(l->System.out.println(l));		
+	try {
+		List<String> lineasFichero = Files.readAllLines(rutaOrdenador); //Te devuelve una lista de strings con las lineas del fichero
+		lineasFichero.forEach(l->System.out.println(l));
+	} catch (IOException e) {
+		e.printStackTrace();
+	}		
 	}
 	
-	public static void escribir1 (String directorio, String nombreFichero, List<String> lineas) throws IOException {
-		Files.write(Paths.get(directorio + File.separator + nombreFichero), lineas, StandardOpenOption.CREATE_NEW);
+	public static void leerRutaEntera(String ruta)  {
+		try {
+			Files.readAllLines(Paths.get(ruta)).forEach(l -> System.out.println(l));
+			System.out.println("Esto lo hace si lee bien el fichero");
+		} catch (IOException e) { // con el catch conseguimos que el programa no se interrumpa, y no falle
+			e.printStackTrace();
+		}
+		//System.out.println("La función acaba correctamente, pero no he podido leer el fichero");
+		
+		
+	}
+	
+	//CREAR UN FICHERO DE CERO, E INCLUIR LINEAS DENTRO.
+	public static void escribir1 (String directorio, String nombreFichero, List<String> lineas) {
+		try {
+			Files.write(Paths.get(directorio + File.separator + nombreFichero), lineas, StandardOpenOption.CREATE_NEW);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void ejemploTry () {
+		int numero1 = 10;
+		int numero2 = 0;
+		try {
+			int division = numero1/numero2;
+		} catch (Exception e) {
+			System.out.println("Error en la división"); // controlamos la división
+		}
+	}
+	
+	public static void ejemploTry2 () {
+		int numero1 = 10;
+		int numero2 = 0;
+		try {
+			int division = numero1/numero2;
+			Files.write(Paths.get("/Users/camilahess/Desktop/ficherosx/eoi.txt"), Arrays.asList("" + division),StandardOpenOption.CREATE_NEW);
+			
+		} catch (ArithmeticException e) {
+			e.printStackTrace(); // Esto ayuda a saber donde está el problema
+			System.out.println("Error en la división"); // controlamos la división
+		} catch (IOException e) {
+			e.printStackTrace();
+			System.out.println("Error en acceso al fichero");
+		}
+		//ESTO: catch (Exception e) es para excepciones genéricas pero es mejor especificar el tipo de excepción
 	}
 	
 	
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args)  {
 		// leer1("/Users/camilahess/Desktop/ficheros", "eoi.txt");
-		List<String> lineas = Arrays.asList("Linea  1" , "Línea 2");
-		escribir1("/Users/camilahess/Desktop/ficheros", "ejemploeoi.txt",lineas);
+		//List<String> lineas = Arrays.asList("Linea  1" , "Línea 2"); // creamos una lista para escribir en un nuevo fichero
+		//escribir1("/Users/camilahess/Desktop/ficheros", "ejemploeoi.txt",lineas); // creamos el fichero con el nuevo nombre del documento.txt
+		//leerRutaEntera("/Users/camilahess/Desktop/ficheros/eois.txt"); --> Error apropósito
+		//leerRutaEntera("/Users/camilahess/Desktop/ficheros/eoi.txt"); //Lee bien el fichero
+		ejemploTry2();
 	}
 
 }

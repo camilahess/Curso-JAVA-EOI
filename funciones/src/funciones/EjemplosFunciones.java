@@ -98,7 +98,9 @@ public class EjemplosFunciones {
 		return resultado;
 
 	}
-
+			// INT DE SALIDA ------( INT ENTRADA)
+	
+	//Método que cambia el valor de un numero entero.
 	public static int cambiarValor(int numero) {
 		numero = numero + 1;
 		return numero;
@@ -116,6 +118,7 @@ public class EjemplosFunciones {
 		numeros[1] = numeros[1] + 1;
 	}
 
+	//Método para cambiar String, solo si lo volvemos a asignar en sí mismo // cad = cambiarString(cad);
 	public static String cambiarString(String cadena) {
 		cadena = cadena + " hola";
 		return cadena;
@@ -192,6 +195,13 @@ public class EjemplosFunciones {
 	}
 
 	public static void ejemplosFechas() {
+		
+		// CLASES PARA MANEJAR FECHAS 
+		//LocalDate y LocalDateTime
+		// Métodos para sumar días, meses, años, etc a una fecha por ejemplo 
+		//También como convertir la fecha a número, o de string a fechas con .parse o DateTimeFormatter
+		
+		
 		String fechaTexto = "01/12/2010";
 		LocalDate fechaAhora = LocalDate.now();
 		LocalDate fechaAyer = LocalDate.now().minusDays(1);
@@ -272,10 +282,16 @@ public class EjemplosFunciones {
 		 * //Cambiar valor numeros en un array (varios numeros) int[] numeros = new
 		 * int[2]; numeros[0] = 5; numeros[1] = 6; cambiarValorArray(numeros);
 		 * System.out.println("Número 0: " + numeros[0] + " Número 1: " + numeros[1]);
+		 */
+		 //Cambiar String String 
+		 String cad = "Camila"; 
+		 cambiarString(cad);
+		 System.out.println(cad); 
+		  /*
+		 
+		 * // "Fran" o "Fran hola"? -> Fran  "Solo saca FRAN porque las cadenas son inmutables"
 		 * 
-		 * //Cambiar String String cad = "Fran"; cambiarString(cad);
-		 * System.out.println(cad); // "Fran" o "Fran hola"? -> Fran cad =
-		 * cambiarString(cad); System.out.println(cad); // "Fran" o "Fran hola"? -> Fran
+		 * cad = cambiarString(cad); System.out.println(cad); // "Fran" o "Fran hola"? -> Fran
 		 * hola String otra = "otra"; otra.concat(" cadena"); System.out.println(otra);
 		 * // "otra" o "otra cadena"? otra, no concatena otra = otra.concat(" cadena");
 		 * System.out.println(otra); // "otra" o "otra cadena"? -> otra cadena
@@ -288,7 +304,7 @@ public class EjemplosFunciones {
 		 */
 		//ejemplosMath();
 		//ejemplosCadenas();
-		ejemplosFechas();
+		//ejemplosFechas();
 
 	}
 
