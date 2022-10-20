@@ -9,6 +9,17 @@ public class EjerciciosFunciones {
 		System.out.println();
 	}
 	
+	public static void ejercicio2( ) {
+		
+			for(int i = 0; i < cadena.length(); i++) {
+				System.out.println(i);
+					
+				}
+				
+			}
+			
+	
+	
 	
 	
 	
@@ -18,6 +29,7 @@ public class EjerciciosFunciones {
 		ejercicio1();
 		ejercicio1();
 		ejercicio1();
+		ejercicio2();
 		
 
 	}

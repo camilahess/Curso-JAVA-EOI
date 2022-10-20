@@ -12,7 +12,7 @@ import java.util.List;
 public class EjemplosFicheros {
 
 	//LEER FICHEROS y controlarlos con TRY CATCH
-	public static void leer1(String directorio, String nombreFichero)  {
+	public static void leerFichero(String directorio, String nombreFichero)  {
 		//String ruta = directorio + File.separator + nombreFichero; // ruta = "c:\ficheros\eoi.txt"
 		//el file.separator es para reconocer la barra que separa los directorios / \ dependiendo el sistema operativo
 		try {
@@ -20,6 +20,16 @@ public class EjemplosFicheros {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	/**
+	 * Ejemplo de método sobrecargado
+	 * @param directorio
+	 * 
+	 */
+	public static void leerFichero (String ruta) {
+		File fichero = new File(ruta);
+		leerFichero(fichero.getParent(), fichero.getName()); // Llamamos a otro método desde este método
 	}
 	
 	public static void leer2(String directorio, String nombreFichero)  {
@@ -39,7 +49,7 @@ public class EjemplosFicheros {
 	public static void leerRutaEntera(String ruta)  {
 		try {
 			Files.readAllLines(Paths.get(ruta)).forEach(l -> System.out.println(l));
-			System.out.println("Esto lo hace si lee bien el fichero");
+			//System.out.println("Esto lo hace si lee bien el fichero");
 		} catch (IOException e) { // con el catch conseguimos que el programa no se interrumpa, y no falle
 			e.printStackTrace();
 		}
@@ -47,6 +57,25 @@ public class EjemplosFicheros {
 		
 		
 	}
+	
+	
+	//DEVOLVER LINEAS DE FICHERO
+	public static List<String> devolverLineasFichero(String directorio, String nombreFichero) {
+
+		try {
+
+			return Files.readAllLines(Paths.get(directorio + File.separator + nombreFichero));			
+
+		} catch (IOException e) {
+
+			e.printStackTrace();
+
+		}
+
+		return null;
+
+	}
+	
 	
 	//CREAR UN FICHERO DE CERO, E INCLUIR LINEAS DENTRO.
 	public static void escribir1 (String directorio, String nombreFichero, List<String> lineas) {
@@ -103,12 +132,18 @@ public class EjemplosFicheros {
 	}
 	
 	public static void main(String[] args)  {
-		// leer1("/Users/camilahess/Desktop/ficheros", "eoi.txt");
+		//leerFichero("/Users/camilahess/Desktop/ficheros", "eoi.txt");
+		//leerFichero("/Users/camilahess/Desktop/ficheros/eoi.txt");
+		devolverLineasFichero("/Users/camilahess/Desktop/ficheros", "eoi.txt");
+		
 		//List<String> lineas = Arrays.asList("Linea  1" , "Línea 2"); // creamos una lista para escribir en un nuevo fichero
 		//escribir1("/Users/camilahess/Desktop/ficheros", "ejemploeoi.txt",lineas); // creamos el fichero con el nuevo nombre del documento.txt
+		
+		
 		//leerRutaEntera("/Users/camilahess/Desktop/ficheros/eois.txt"); --> Error apropósito
 		//leerRutaEntera("/Users/camilahess/Desktop/ficheros/eoi.txt"); //Lee bien el fichero
-		ejemploTry3();
+		//ejemploTry3();
+		
 	}
 
 }
