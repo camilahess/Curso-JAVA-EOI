@@ -72,7 +72,8 @@ public class EjemplosFicheros {
 		int numero2 = 0;
 		try {
 			int division = numero1/numero2;
-			Files.write(Paths.get("/Users/camilahess/Desktop/ficherosx/eoi.txt"), Arrays.asList("" + division),StandardOpenOption.CREATE_NEW);
+			Files.write(Paths.get("/Users/camilahess/Desktop/ficherosx/eoi.txt"), 
+					Arrays.asList("" + division),StandardOpenOption.CREATE_NEW);
 			
 		} catch (ArithmeticException e) {
 			e.printStackTrace(); // Esto ayuda a saber donde está el problema
@@ -84,6 +85,22 @@ public class EjemplosFicheros {
 		//ESTO: catch (Exception e) es para excepciones genéricas pero es mejor especificar el tipo de excepción
 	}
 	
+	public static void ejemploTry3 () {
+		//Controlando todo solo con el Exception e, no recomendable
+		int numero1 = 10;
+		int numero2 = 0;
+		try {
+			int division = numero1/numero2;
+			Files.write(Paths.get("/Users/camilahess/Desktop/ficherosx/eoi.txt"), 
+					Arrays.asList("" + division),StandardOpenOption.CREATE_NEW);
+			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("Error en acceso al fichero");
+		}
+		//ESTO: catch (Exception e) es para excepciones genéricas pero es mejor especificar el tipo de excepción
+	}
 	
 	public static void main(String[] args)  {
 		// leer1("/Users/camilahess/Desktop/ficheros", "eoi.txt");
@@ -91,7 +108,7 @@ public class EjemplosFicheros {
 		//escribir1("/Users/camilahess/Desktop/ficheros", "ejemploeoi.txt",lineas); // creamos el fichero con el nuevo nombre del documento.txt
 		//leerRutaEntera("/Users/camilahess/Desktop/ficheros/eois.txt"); --> Error apropósito
 		//leerRutaEntera("/Users/camilahess/Desktop/ficheros/eoi.txt"); //Lee bien el fichero
-		ejemploTry2();
+		ejemploTry3();
 	}
 
 }
