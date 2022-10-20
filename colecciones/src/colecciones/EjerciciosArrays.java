@@ -81,10 +81,47 @@ public class EjerciciosArrays {
 }
 		
 	
-	
+	public static void ejercicio3(){
+		Scanner sc = new Scanner(System.in);
+		double[] numeros = new double[10];
+		double suma = 0;
+		double media = 0;
+		System.out.println("Introduce primer número: ");
+		numeros[0]= sc.nextDouble();
+		System.out.println("Introduce segundo número: ");
+		numeros[1] = sc.nextDouble();
+		System.out.println("Introduce tercer número: ");
+		numeros[2] =sc.nextDouble();
+		System.out.println("Introduce cuarto número: ");
+		numeros[3] = sc.nextDouble();
+		System.out.println("Introduce quinto número: ");
+		numeros[4] = sc.nextDouble();
+		System.out.println("Introduce sexto número: ");
+		numeros[5] = sc.nextDouble();
+		System.out.println("Introduce septimo número: ");
+		numeros[6] = sc.nextDouble();
+		System.out.println("Introduce octavo número: ");
+		numeros[7] = sc.nextDouble();
+		System.out.println("Introduce noveno número: ");
+		numeros[8]= sc.nextDouble();
+		System.out.println("Introduce decimo número: ");
+		numeros[9]= sc.nextDouble();
+		
+		
+		for (int i = 0; i < numeros.length; i++) {
+			 suma = suma + numeros[i];
+		}
+		//Promedio de los números // media de los números 
+				// El promedio es la suma dividida entre la cantidad de elementos
+		double promedio = suma / numeros.length;
+		System.out.printf("Suma: %.2f Promedio: %.2f", suma, promedio);
+		System.out.println("");
+		
+		
+	}
 
 	public static void main(String[] args) {
-		ejercicio2();
+		ejercicio3();
 	}
 
 }
