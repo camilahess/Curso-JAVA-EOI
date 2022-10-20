@@ -18,8 +18,10 @@ public class Tema2Ejercicios {
 	}
 
 	private static void ejercicio2() {
-		/*Programa que lea un número entero y muestre si el número es múltiplo de 10 
-		 * (si el resto de la división entre 10 da 0).*/
+		/*
+		 * Programa que lea un número entero y muestre si el número es múltiplo de 10
+		 * (si el resto de la división entre 10 da 0).
+		 */
 		Scanner sc = new Scanner(System.in);
 		int N;
 		System.out.print("Número entero: ");
@@ -34,12 +36,14 @@ public class Tema2Ejercicios {
 	}
 
 	private static void ejercicio3() {
-		/*Programa que lea un carácter por teclado y
-		 *  compruebe si es una letra mayúscula. Una letra mayúscula es aquella que está entre la ‘A’ y la ‘Z’. Recuerda que se pueden comparar los caracteres como si fueran números.
+		/*
+		 * Programa que lea un carácter por teclado y compruebe si es una letra
+		 * mayúscula. Una letra mayúscula es aquella que está entre la ‘A’ y la ‘Z’.
+		 * Recuerda que se pueden comparar los caracteres como si fueran números.
 		 */
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Introduzca un carácter: ");
-		char car = sc.nextLine().charAt(0); //char at es para que lea el primer carácter recibido
+		char car = sc.nextLine().charAt(0); // char at es para que lea el primer carácter recibido
 		if (car >= 'A' && car <= 'Z') {
 			System.out.println("Es una letra mayúscula");
 		} else {
@@ -150,8 +154,7 @@ public class Tema2Ejercicios {
 		 * 
 		 * int a = 5;
 		 * 
-		 * if (a%2==0) { System.out.println("Tú número es par"); } 
-		 * else {
+		 * if (a%2==0) { System.out.println("Tú número es par"); } else {
 		 * System.out.println("Tú número es impar"); }
 		 */
 
@@ -374,22 +377,22 @@ public class Tema2Ejercicios {
 			System.out.println("Resultado: " + suma);
 		} while (num != 0);
 	}
-	
 
 	private static void ejercicio15() {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Dime un número: ");
 		int num = sc.nextInt();
-		
+
 		int cifras = 0; // contador de cifras
 		while (num != 0) {
-			num /= 10; //achicamos el numero 
-			cifras++; //sube el contador
+			num /= 10; // achicamos el numero
+			cifras++; // sube el contador
 		}
 		System.out.println("El número tiene " + cifras + " cifras");
 		sc.close();
-		
+
 	}
+
 	private static void ejercicio16() {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Dime un número entero: ");
@@ -400,12 +403,14 @@ public class Tema2Ejercicios {
 		}
 		sc.close();
 	}
+
 	private static void ejercicio17() {
 		for (int i = 1; i <= 30; i++) {
-			if((i % 3) > 0)
-			System.out.println(i);
+			if ((i % 3) > 0)
+				System.out.println(i);
 		}
 	}
+
 	private static void ejercicio18() {
 		for (int i = 0; i >= 0 && i <= 100; i += 5) {
 			System.out.print(i + ", ");
@@ -428,7 +433,7 @@ public class Tema2Ejercicios {
 
 		}
 	}
-	
+
 	private static void ejercicio20() {
 		Scanner sc = new Scanner(System.in);
 		int suma = 0;
@@ -438,23 +443,200 @@ public class Tema2Ejercicios {
 			num = sc.nextInt();
 			if (num == 0)
 				break; // corta por encontrar el cero
-			if (num<0)
+			if (num < 0)
 				continue; // continua con el bucle
 			suma += num;
 			System.out.println("Resultado: " + suma);
-		} while (num != 0);
+		}
+		while (num != 0)
+			;
+		sc.close();
 	}
-	
+
 	private static void ejercicio21() {
-	/* Scanner sc = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 		System.out.println("Escribe un número para saber sus divisores: ");
 		int numero = sc.nextInt();
-		for () */
-		
-		
+
+		for (int i = 1; i <= numero; i++) {
+			if (numero % i == 0) {
+				// imprimes la solucion
+				System.out.println(i);
+			}
+		}
+		sc.close();
 	}
+
+	private static void ejercicio22() {
+		// Repite 5 veces lo que encuentra en el for anidado
+		for (int i = 0; i < 5; i++) {
+			for (int j = 1; j <= 9; j++) {
+				System.out.print(j);
+			}
+		}
+	}
+
+	private static void ejercicio23() {
+		for (int i = 9; i >= 1; i--) {
+			for (int j = 1; j <= i; j++) {
+				System.out.print(j);
+			}
+			System.out.println(); // salto de linea
+		}
+	}
+
+	private static void ejercicio24() {
+		//cuadrado mismo alto que ancho
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Dime un número");
+		int num = sc.nextInt();
+
+		for (int fila = 0; fila < num; fila++) {
+			for (int col = 0; col < num; col++) {
+				System.out.print("*");
+			}
+			System.out.println(); // salto de línea
+		}
+		sc.close();
+	}
+
+	private static void ejercicio25() {
+		//escalera de bajada
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Dime un número");
+		int num = sc.nextInt();
+		
+		for (int i = 1; i <= num; i++ ) {
+			
+			for(int j = 1; j <= i; j++) {
+				
+				System.out.print("*");
+				
+			}
+			System.out.println();
+		}
+	}
+	
+	private static void ejercicio26() {
+		//Escalera de subida, mitad de pirámide
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Dime un número para la altura de la figura");
+		int num = sc.nextInt();
+		
+		for (int filas = 1; filas <= num; filas++ ) {
+			
+			for(int blancos = 1; blancos <= num - filas; blancos++) {
+				System.out.print(" ");
+				}
+		for (int asteriscos = 1; asteriscos <= filas; asteriscos++) {
+					System.out.print("*");
+				}
+			
+			System.out.println();
+		}
+	}
+	
+	private static void ejercicio27() {
+		//Cuadrado vacío
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Dime un ancho: ");
+		int ancho = sc.nextInt();
+		
+		System.out.print("Dime un alto: ");
+		int alto = sc.nextInt();
+		
+		for(int fila = 1; fila <= alto; fila++) {
+			
+			for(int col = 1; col <= ancho; col++) {
+				
+				if(fila == 1 || fila == alto || col == 1 || col == ancho) {
+					System.out.print("*");
+				} else {
+					System.out.print(" ");
+				}
+			}
+			System.out.println();
+		}
+		sc.close();
+	}
+	
+	
+	private static void ejercicio28() {
+		//Pirámide normal
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Introduzca número de filas");
+		int numFilas = sc.nextInt();
+		
+		for(int altura = 1; altura <= numFilas; altura++){
+            //Espacios en blanco
+            for(int blancos = 1; blancos <= numFilas-altura ; blancos++){
+                System.out.print(" ");
+            }
+ 
+            //Asteriscos
+            for(int asteriscos = 1; asteriscos <= (altura*2) - 1; asteriscos++){
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+		sc.close();
+    }
+	
+	private static void ejercicio29() {
+		//pirámide hueca
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Introduzca número de filas");
+		int num = sc.nextInt();
+		
+	    for (int i = 0; i < num; ++i) {
+            //Cada primer for, se hace un salto de línea.
+            System.out.println();
+            //Utilizamos dos for para lograr la forma.
+            for (int j = 0; j < num - i - 1; ++j) {                      
+                System.out.print(" ");           
+            }
+            for (int j = 0; j < 2 * i + 1; ++j){
+                //Condición para imprimir solo los bordes.
+                if ((i==0)||(i==num-1)||(j==0)||(j==2*i)) {
+                    System.out.print("*");
+                }
+                else{
+                   System.out.print(" ");  
+                }
+                
+            }
+        }
+        System.out.println();
+        sc.close();
+    }
+		
+
+	
+	private static void ejercicio30() {
+		//Pirámide de asteriscos invertida
+		Scanner sc = new Scanner(System.in);
+        System.out.print("Introduzca numero de filas: ");
+        int numFilas = sc.nextInt();
+        sc.close();
+        System.out.println();
+        for(int numBlancos = 0, numAsteriscos = (numFilas*2)-1; numAsteriscos>0; numBlancos++, numAsteriscos -= 2){
+             
+            //Espacios en blanco
+            for(int i=0; i < numBlancos; i++){
+                System.out.print(" ");
+            }
+             
+            //Asteriscos
+            for(int j=numAsteriscos; j > 0; j--){
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+        sc.close();
+    }   
+	
 	public static void main(String[] args) {
-		ejercicio12();
+		ejercicio29();
 
 	}
 
