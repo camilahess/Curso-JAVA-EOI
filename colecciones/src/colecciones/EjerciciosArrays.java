@@ -77,7 +77,7 @@ public class EjerciciosArrays {
 		System.out.println("El número mayor es: " + numeroMayor);
 		System.out.println("El número menor es: " + numeroMenor);
 		
-		
+		sc.close();
 }
 		
 	
@@ -117,11 +117,55 @@ public class EjerciciosArrays {
 		System.out.printf("Suma: %.2f Promedio: %.2f", suma, promedio);
 		System.out.println("");
 		
-		
+		sc.close();
 	}
+	
+	public static void ejercicio4 () {
+		//Los meses son las posiciones pero del 0 al 11
+		int[] dias = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+		int total = 0;
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Dime un mes del año: ");
+		int mes = sc.nextInt();
+		System.out.print("Dime el dia del año: ");
+		int dia = sc.nextInt();
+		
+		
+		for(int i = 0; i < mes - 1; i++) {
+			total += dias[i]; // total = total + dias[i];
+		}
+		total += dia;
+		
+		System.out.println("El número de días dentro del año de la fecha indicada es " + total);
+	}
+	
+	public static void ejercicio5(){
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Cuantos alumnos hay en total?: ");
+		int cantidad = sc.nextInt();
+		
+		double[] notas = new double[cantidad];
+		String[] nombres = new String[cantidad];
 
+		
+		
+		for(int i = 0; i < cantidad; i++) {
+			System.out.print("Nombre y nota (separados por espacio): ");
+			nombres[i] = sc.next();
+			notas[i] = sc.nextDouble();
+		}
+		
+		for(int i = 0; i < cantidad; i++) {
+			System.out.printf("%15s: %5.2f\n", nombres[i], notas[i]);
+		}
+	}
+	
+	
+		
 	public static void main(String[] args) {
-		ejercicio3();
+		ejercicio5();
+		
 	}
 
 }

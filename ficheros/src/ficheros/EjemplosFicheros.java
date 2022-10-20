@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.util.Arrays;
 import java.util.List;
 
 public class EjemplosFicheros {
@@ -25,14 +27,15 @@ public class EjemplosFicheros {
 	lineasFichero.forEach(l->System.out.println(l));		
 	}
 	
-	public static void escribir1 (String directorio, String nombreFichero, List<String> lineas) {
-		
+	public static void escribir1 (String directorio, String nombreFichero, List<String> lineas) throws IOException {
+		Files.write(Paths.get(directorio + File.separator + nombreFichero), lineas, StandardOpenOption.CREATE_NEW);
 	}
 	
 	
 	public static void main(String[] args) throws IOException {
-		leer1("/Users/camilahess/Desktop/ficheros", "eoi.txt");
-
+		// leer1("/Users/camilahess/Desktop/ficheros", "eoi.txt");
+		List<String> lineas = Arrays.asList("Linea  1" , "Línea 2");
+		escribir1("/Users/camilahess/Desktop/ficheros", "ejemploeoi.txt",lineas);
 	}
 
 }
