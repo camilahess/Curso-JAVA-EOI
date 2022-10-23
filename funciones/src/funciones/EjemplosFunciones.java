@@ -270,7 +270,9 @@ public class EjemplosFunciones {
 		/*
 		 * System.out.println(concatenarCadenas("Hola"));
 		 * System.out.println(concatenarCadenas("Hola", "Camila"));
-		 * System.out.println(concatenarCadenas("Hola", "mundo", "cruel"));
+		 */
+		  System.out.println(concatenarCadenas("Hola", "mundo", "cruel"));
+		  /*
 		 * System.out.println(concatenarCadenas("Adiós"));
 		 * System.out.println(concatenarCadenas());
 		 */
@@ -284,9 +286,9 @@ public class EjemplosFunciones {
 		 * System.out.println("Número 0: " + numeros[0] + " Número 1: " + numeros[1]);
 		 */
 		 //Cambiar String String 
-		 String cad = "Camila"; 
-		 cambiarString(cad);
-		 System.out.println(cad); 
+		 //String cad = "Camila"; 
+		 //cambiarString(cad);
+		 //System.out.println(cad); 
 		  /*
 		 
 		 * // "Fran" o "Fran hola"? -> Fran  "Solo saca FRAN porque las cadenas son inmutables"
