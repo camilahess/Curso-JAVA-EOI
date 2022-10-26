@@ -139,21 +139,18 @@ public class EjerciciosFunciones {
 		return suma / array.length;
 	}
 
-	public static int ejercicio7(String [] array) {
+	public static String ejercicio7(String [] palabras) {
 		//Llegue hasta devolver la posicion pero ya no se como seguir
 		
-		int posicion= 0;
-		for (int i = 0; i < array.length ; i++) {
-			posicion = (new Random().nextInt(array.length)); //devuelve una posición aleatoria del array
-		}
-		// new Random().nextInt(array.length)
-		return posicion;
+		int pos = new Random().nextInt(palabras.length);
+		return palabras[pos];
 	}
 
-	public static int ejercicio8(int...numeros) {
+	public static void ejercicio8(int...numeros) {
 	
 	}
 	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
 		// ejercicio1();
 		// ejercicio1();
 		// ejercicio1();
@@ -186,9 +183,26 @@ public class EjerciciosFunciones {
 		// System.out.println("La media de tu array es: " + ejercicio6(array));
 
 		// String [] array = {"Camila", "Tomas", "Thiago", "Jaqui"};
-		//
-		// ejercicio7(array);
-		System.out.println(ejercicio8(4,5,6,7,8,2,3,5,229));
+		
+		String[] palabras = {"casa", "gato", "mano", "cara", "silla"};
+		String palabraAdivinar = ejercicio7(palabras);
+		
+		boolean adivinada = false;
+		int intentos = 0;
+		while(!adivinada && intentos < 3) {
+			System.out.print("Adivina la palabra (intento " + (intentos + 1) + "): ");
+			String palabra = sc.nextLine();
+			if(palabra.equals(palabraAdivinar)) {
+				adivinada = true;
+			}
+			intentos++;
+		}
+		
+		if(adivinada) {
+			System.out.println("Enhorabuena, has acertado!");
+		} else {
+			System.out.println("La palabra correcta era " + palabraAdivinar);
+	}
 		
 		
 

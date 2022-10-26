@@ -1,15 +1,25 @@
 package poo1;
 
 import java.time.LocalDate;
+import java.time.Period;
+import java.util.Objects;
 
 public class Persona {
-	
+	//1- CREAR LOS ATRIBUTOS
+    //2 - Crear los constructores ( vacío, todos los parámetros )
+    //2b opcional - Crear más constructores y el de copia
+    //3 - Crear Getters and Setters
+    //4 - Crear toString
+    //5 - Crear  hashCode and Equals
+    //6 opcional - Métodos adicionales
+    
+    
 	//Atributos / propiedades de la clase 
-	String nombre;
-	String apellido;
-	String dni;
-	String telefono;
-	LocalDate fechaNacimiento;
+	private String nombre;
+	private String apellido;
+	private String dni;
+	private String telefono;
+	private LocalDate fechaNacimiento;
 	
 	//Constructores , crear persona , constructor vacío
 	public Persona() {
@@ -79,8 +89,36 @@ public class Persona {
 		return "Persona [nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + ", telefono=" + telefono
 				+ ", fechaNacimiento=" + fechaNacimiento + "]";
 	}
+
+	//Persona es igual a otra persona solo si tienen el mismo DNI 
+    @Override
+    public int hashCode() {
+        return Objects.hash(dni);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Persona other = (Persona) obj;
+        return Objects.equals(dni, other.dni);
+    }
 	
 	
-	
-	
+	//Nuevo método para saber si es o no mayor de edad la persona
+	//Con LOCAL DATE
+    public boolean esMayorEdad() {
+        //Period para obtener dias, meses o años.
+        Period edad = Period.between(this.fechaNacimiento, LocalDate.now()); // Esto saca un periodo de tiempo
+        int anyos = Math.abs(edad.getYears()); // El math abs, da un valor absoluto en positivo siempre
+        if (anyos>=18)
+            return true;
+        else 
+            return false;
+        
+    }
 }
