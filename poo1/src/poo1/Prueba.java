@@ -101,6 +101,24 @@ public class Prueba {
         
     }
     
+    public static void darBaja () {
+        //borrar el primer coche que encuentre con esa matricula
+        System.out.println("Introduzca la matricula a eliminar: ");
+        String matriculaBuscar = sc.nextLine();
+
+        //primera forma, recorro la lista y si coincide con la matricula, elimino el elemento
+        //Borra el coche , completo, que coincide con la matricula
+       
+        
+        for (Coche c: coches) { // para cada c de la lista de coches
+            if(c.getMatricula().equals(matriculaBuscar)) {
+                coches.remove(c);
+                break;
+                
+            }
+        }
+    }
+    
     
     
     public static void menu () {
@@ -121,13 +139,14 @@ public class Prueba {
             break;
                 
         case 2: 
+            darBaja();
             break;
                 
         case 3:
             
             break;
         case 4:
-            
+           System.out.println(coches.stream().filter(c->c.rodado() == true).count());
             break;
         case 5:
             coches.forEach(e->System.out.println(e)); //Mostrar coches de la lista
@@ -146,10 +165,9 @@ public class Prueba {
 	public static void main (String[] args) {
 	    sc = new Scanner (System.in);
 		//ejemploPersonas();
-	   // ejemplosCoches();
+	    //ejemplosCoches();
 	    menu();
 	    sc.close();
-	
 		
 	}
 }

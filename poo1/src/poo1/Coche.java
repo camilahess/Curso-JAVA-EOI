@@ -49,7 +49,7 @@ public class Coche {
     }
     
     
-    //Constructor de copia ( copiamos un un coche a partir de otro)
+    //Constructor de copia ( copiamos un coche a partir de otro)
     public Coche(Coche c) {
         super();
         this.matricula = c.matricula;
