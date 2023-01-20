@@ -81,6 +81,27 @@ public class Iterativas {
 			System.out.println("El total acumulado ha sido:" + total);
 		}
 		
+		public static void while2() {
+			Scanner sc = new Scanner(System.in);
+			String password = "1234";
+			boolean adivina = false;
+			int intentos = 0;
+			while(adivina==false && intentos <3) { //mientras la contraseña sea diferente a la correcta , se ejecuta
+				System.out.println("Introduce la password: (Tienes " + (3-intentos) + " " 
+						+ (((3-intentos)==1)?"intento): ":"intentos): "));
+				String respuesta = sc.nextLine();
+				intentos++;
+				if(respuesta.equals(password)) {
+					adivina =true;
+				} else {
+					System.out.println("Fallaste");
+				}
+			}
+			System.out.println(adivina?"Has acertado" : "Gastaste los intentos");
+			//comparar una variable con true es lo mismo que ponerla sola, ejemplo:
+			// adivina == true, o solo poner adivina.
+			sc.close();
+		}
 		
 		public static void whileIgualQueFor() {
 			for (int i = 0; i < 10; i++) {
@@ -116,7 +137,7 @@ public class Iterativas {
 			int intentos = 0;
 			int num;
 			do {
-				System.out.print("Adivina el número del 1 al 10 (te quedan " + (3-intentos) + " " 
+				System.out.print("Adivina el número del 1 al 10 (Tienes " + (3-intentos) + " " 
 						+ (((3-intentos)==1)?"intento): ":"intentos): "));
 				num = sc.nextInt();
 				intentos++;
@@ -246,8 +267,7 @@ public class Iterativas {
 			//while1();
 			// whileIgualQueFor();
 			//ejemploMenuWhileConSwitch();
-			doWhile1();
-		
+			//doWhile1();
+			while2();
+		}
 	}
-
-}
