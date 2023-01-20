@@ -59,19 +59,10 @@ public class segundaprueba {
 		int mes = sc.nextInt();
 		if (mes >= 1 && mes <= 12) {
 			switch (mes) {
-			case 1: 
-			case 3:
-			case 5:
-			case 7:
-			case 8:
-			case 10:
-			case 12:
+			case 1, 3, 5, 7, 8, 10, 12: 
 				System.out.println("El mes tiene 31 días");
 				break;
-			case 4:
-			case 6:
-			case 9:
-			case 11:
+			case 4, 6, 9 ,11:
 				System.out.println("El mes tiene 30 días");
 				break;
 			case 2:
