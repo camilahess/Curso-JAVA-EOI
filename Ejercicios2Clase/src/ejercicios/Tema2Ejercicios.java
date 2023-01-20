@@ -10,9 +10,9 @@ public class Tema2Ejercicios {
 		System.out.print("Número entero: ");
 		N = sc.nextInt();
 		if (N % 2 == 0) { // Para saber si es par
-			System.out.println("Par");
+			System.out.println("Tú número es par");
 		} else {
-			System.out.println("Impar");
+			System.out.println("Tu número es impar");
 		}
 		sc.close();
 	}
@@ -59,7 +59,7 @@ public class Tema2Ejercicios {
 		String palabra1 = sc.nextLine();
 		System.out.println("Introduzca otra palabra: ");
 		String palabra2 = sc.nextLine();
-		if (palabra1.equals(palabra2)) {
+		if (palabra1.equalsIgnoreCase(palabra2)) { //Utilizamos ignore case para quitar mayus o minus
 			System.out.println("Las palabras son iguales");
 		} else {
 			System.out.println("Las palabras NO son iguales");
@@ -68,17 +68,34 @@ public class Tema2Ejercicios {
 		sc.close();
 
 	}
+	
+	private static void ejercicio4b() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Ingrese una palabra");
+		String p1 = sc.nextLine();
+		System.out.println("Ingrese otra palabra");
+		String p2 = sc.nextLine();
+		if (p1.equalsIgnoreCase(p2)) {
+			System.out.println("Son iguales");
+		} else {
+			System.out.println("No son iguales");
+		}
+		
+		sc.close();
+	}
 
 	private static void ejercicio5() {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Introduzca un número: ");
+		System.out.println("Vamos a dividir dos números!");
+		System.out.println("Introduzca el primer número: ");
 		int numero1 = sc.nextInt();
-		System.out.println("Introduzca otro número: ");
+		System.out.println("Introduzca el segundo número: ");
 		int numero2 = sc.nextInt();
 		if (numero2 > 0) {
-			System.out.printf(numero1 + "%" + numero2 + "= " + numero1 / numero2);
+			double result = (double)(numero1/numero2);
+			System.out.printf(numero1 + "/" + numero2 + "= " + result);
 		} else {
-			System.out.printf("El divisor no puede ser cero");
+			System.out.printf("El divisor no puede ser cero, intente con otro número");
 		}
 		sc.close();
 
@@ -224,7 +241,7 @@ public class Tema2Ejercicios {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Escribe una letra,un número o un carácter: ");
 		char letra = sc.next().charAt(0); // CharAt(0) es para que lea el primer carácter
-
+		
 		switch (letra) {
 		case '.':
 			System.out.println("Es un .");
@@ -353,16 +370,20 @@ public class Tema2Ejercicios {
 		System.out.println("El precio de su entrada es de: " + "€" + precio);
 		System.out.println("Se le ha aplicado un descuento del : " + (descuento * 100) + "%");
 	}
+	
+	
 
 	private static void ejercicio13() {
 		/*
 		 * BUCLE CON WHILE int i = 20; while(i<=20 && i > 0) { System.out.print(i+", ");
 		 * i-=1; }
 		 */
-
-		for (int i = 20; i <= 20 && i > 0; i -= 1) {
-			System.out.print(i + ", ");
-
+		for (int i = 20; i > 0; i--) {
+			if (i !=1) {
+		System.out.print(i + ",");
+			} else {
+				System.out.print(i + ".");
+			}
 		}
 	}
 
@@ -376,6 +397,7 @@ public class Tema2Ejercicios {
 			suma += num;
 			System.out.println("Resultado: " + suma);
 		} while (num != 0);
+		sc.close();
 	}
 
 	private static void ejercicio15() {
@@ -636,7 +658,7 @@ public class Tema2Ejercicios {
     }   
 	
 	public static void main(String[] args) {
-		ejercicio29();
+		ejercicio4b();
 
 	}
 

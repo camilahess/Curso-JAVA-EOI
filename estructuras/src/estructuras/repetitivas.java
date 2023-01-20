@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class repetitivas {
 
 		public static void for1() {
-			for (int i = 0; i < 10; i++) {
+			for (int i = 0; i <= 10; i++) {
 				System.out.println(i);
 			}
 			// El programa continua por aquí al acabar el bucle
@@ -64,7 +64,7 @@ public class repetitivas {
 			}
 		}
 
-		public static void infinito3() { // A conciencia
+		public static void infinito3() { // A conciencia (error)
 			for (;;) {
 				System.out.println("Hola");
 			}
@@ -234,7 +234,7 @@ public class repetitivas {
 
 		
 		public static void main(String[] args) {
-			// for1();
+			//for1();
 			// for2();
 			// for3();
 			// for4();
@@ -243,9 +243,10 @@ public class repetitivas {
 			// offTopicEnteros();
 			// infinito2();
 			// infinito3();
-			// while1();
+			//while1();
 			// whileIgualQueFor();
-			ejemploMenuWhileConSwitch();
+			//ejemploMenuWhileConSwitch();
+			doWhile1();
 		
 	}
 

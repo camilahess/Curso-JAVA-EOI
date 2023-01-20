@@ -164,7 +164,7 @@ public class EjerciciosArrays {
 	
 		
 	public static void main(String[] args) {
-		ejercicio5();
+		ejercicio4();
 		
 	}
 
