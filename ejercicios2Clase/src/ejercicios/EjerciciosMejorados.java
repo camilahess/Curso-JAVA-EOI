@@ -2,7 +2,7 @@ package ejercicios;
 
 import java.util.Scanner;
 
-public class segundaprueba {
+public class EjerciciosMejorados {
 
 	private static void ejercicio2() {
 		Scanner sc = new Scanner(System.in);
@@ -84,7 +84,7 @@ public class segundaprueba {
 		
 		if (caracter == '.' || caracter == ',' || caracter == ';' || caracter == ':') {
 			System.out.println("Es un signo de puntuacion");
-		} else if (caracter >=0 || caracter <=9 ) {
+		} else if (Character.isDigit(caracter)) { //toma en cuenta del 0 al 9 en cualquier idioma
 			System.out.println("Es un numero del 0 al 9");
 		} else {
 			System.out.println("Has ingresado otro tipo de caracter");
@@ -174,7 +174,7 @@ public class segundaprueba {
 	}
 
 	public static void main(String[] args) {
-		ejercicio9();
+		ejercicio10();
 
 	}
 
