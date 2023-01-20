@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class ejerciciosListas {
+public class EjerciciosListas {
 	
 	
 	private static void ejercicio1() {

@@ -7,7 +7,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
-public class ejemplosListas {
+public class EjemplosListas {
 
 	private static void ejemplo1() {
 		// Crear listas

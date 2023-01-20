@@ -3,7 +3,17 @@ package estructuras;
 import java.util.Scanner;
 
 public class Condicionales {
-
+	//Declaro la CONSTANTE con final para el iva que siempre es lo mismo
+	// y lo puedo utilizar en cualquier método
+	
+	public static final double IVA = 0.21; 
+	
+	public static void ejemploUsandoIva() {
+		//uso la constante IVA ya declarada fuera de este método.
+		Scanner sc = new Scanner(System.in);
+		double precio = 50;
+		System.out.println("El precio con IVA es: " +( precio + (precio * IVA)));
+	}
 	public static void ejemplosIf() {
 
 		Scanner sc = new Scanner(System.in);
@@ -79,10 +89,6 @@ public class Condicionales {
 		// Fuera del if-else if-else
 		System.out.println("Hola " + nombre); // Siempre se haría esta línea
 		sc.close();
-	}
-	
-	public static void ternario() {
-		
 	}
 
 	public static void ternario1() {
@@ -189,7 +195,7 @@ public class Condicionales {
 	}
 	
 	public static void main(String[] args) {
-		ejemploTernarias();
+		ejemploUsandoIva();
 
 	}
 

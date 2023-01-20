@@ -3,7 +3,7 @@ package estructuras;
 import java.util.Random;
 import java.util.Scanner;
 
-public class repetitivas {
+public class Iterativas {
 
 		public static void for1() {
 			for (int i = 0; i <= 10; i++) {

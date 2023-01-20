@@ -59,7 +59,7 @@ public class EjerciciosMejorados {
 		int mes = sc.nextInt();
 		if (mes >= 1 && mes <= 12) {
 			switch (mes) {
-			case 1, 3, 5, 7, 8, 10, 12: 
+			case 1, 3, 5, 7, 8, 10, 12: //SWITCH IMPROVED 
 				System.out.println("El mes tiene 31 días");
 				break;
 			case 4, 6, 9 ,11:
@@ -78,19 +78,22 @@ public class EjerciciosMejorados {
 	
 	private static void ejercicio10() {
 		//diferente, hecho con otros condicionales
+		
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Escribe un carácter: ");
 		char caracter = sc.next().charAt(0);
 		
 		if (caracter == '.' || caracter == ',' || caracter == ';' || caracter == ':') {
 			System.out.println("Es un signo de puntuacion");
-		} else if (Character.isDigit(caracter)) { //toma en cuenta del 0 al 9 en cualquier idioma
+		} else if (Character.isDigit(caracter)) { //NEW toma en cuenta del 0 al 9 en cualquier idioma
 			System.out.println("Es un numero del 0 al 9");
 		} else {
 			System.out.println("Has ingresado otro tipo de caracter");
 		}
 		sc.close();
 	}
+	
+	
 	private static void ejercicio11() {
 		Scanner sc = new Scanner(System.in);
 		int operacion = -1;
