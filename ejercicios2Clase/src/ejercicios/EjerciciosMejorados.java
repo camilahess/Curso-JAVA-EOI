@@ -228,12 +228,91 @@ public class EjerciciosMejorados {
 		sc.close();
 	}
 	
+	private static void ejercicio12Grupo() {
+        Scanner sc = new Scanner(System.in);
+        final double PRECIO_ENTRADA = 50;
+        final double MENOR_EDAD = 0.25;
+        final double SOCIO = 0.40;
+        final double MAYOR_65 = 0.75;
+        double precioTotal = 0;
+        double precioEntrada = PRECIO_ENTRADA;
+        
+        System.out.println("Cuantas personas vienen en grupo?");
+        int numeroDePersonas = sc.nextInt();
+        sc.nextLine();
+       
+        
+        for (int i = 1; i <= numeroDePersonas; i++) {
+            System.out.println("Dime la edad de la persona " + i + ":");
+            int edad = sc.nextInt();
+            sc.nextLine();
+            precioEntrada = PRECIO_ENTRADA;
+            
+            if (edad < 18) {
+                precioEntrada = PRECIO_ENTRADA * (1 - MENOR_EDAD);
+            } else if (edad >= 18 && edad <= 65) {
+                System.out.println("Es usted socio ? (si/no)");
+                String socio = sc.nextLine();
+                //SOLUCIÓN CON EXPRESIÓN REGULAR 
+                Pattern regex = Pattern.compile("^s[iíÍ]?$", Pattern.CASE_INSENSITIVE);
+                Matcher m = regex.matcher(socio);
+                if (m.matches()) {
+                    precioEntrada = PRECIO_ENTRADA * (1 - SOCIO);
+                }
+            } else {
+                precioEntrada = PRECIO_ENTRADA * (1 - MAYOR_65);
+            }
+            precioTotal += precioEntrada;
+        }
+        System.out.println("El precio total de las entradas para el grupo es de: " + precioTotal + "€");
+    }
+
+	public static void ejercicio12GrupoWhile() {
+		 Scanner sc = new Scanner(System.in);
+		 	final double PRECIO_ENTRADA = 50;
+	        final double MENOR_EDAD = 0.25;
+	        final double SOCIO = 0.40;
+	        final double MAYOR_65 = 0.75;
+	        double precioTotal = 0;
+	        double precioEntrada = PRECIO_ENTRADA;
+	        
+	        System.out.println("Cuantas personas vienen en grupo?");
+	        int numeroDePersonas = sc.nextInt();
+	        sc.nextLine();
+	        
+	        int i = 1;
+	        while (i <= numeroDePersonas) {
+	            System.out.println("Dime la edad de la persona " + i + ":");
+	            int edad = sc.nextInt();
+	            sc.nextLine();
+	            precioEntrada = PRECIO_ENTRADA;
+	            
+	            if (edad <= 18) {
+	                precioEntrada = PRECIO_ENTRADA * (1 - MENOR_EDAD);
+	            } else if (edad > 18 && edad <= 65) {
+	                System.out.println("Es usted socio ? (si/no)");
+	                String socio = sc.nextLine();
+	                //SOLUCIÓN CON EXPRESIÓN REGULAR 
+	                Pattern regex = Pattern.compile("^s[iíÍ]?$", Pattern.CASE_INSENSITIVE);
+	                Matcher m = regex.matcher(socio);
+	                if (m.matches()) {
+	                    precioEntrada = PRECIO_ENTRADA * (1 - SOCIO);
+	                }
+	            } else {
+	                precioEntrada = PRECIO_ENTRADA * (1 - MAYOR_65);
+	            }
+	            precioTotal += precioEntrada;
+	            i++;
+	        }
+	        System.out.println("El precio total de las entradas para el grupo es de: " + precioTotal + "€");
+		
+	}
 	public static void ejemploDado() {
 
 	}
 
 	public static void main(String[] args) {
-		ejercicio12Pattern();
+		ejercicio12Grupo();
 
 	}
 
