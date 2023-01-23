@@ -59,7 +59,7 @@ public class EjerciciosTema2 {
 		String palabra1 = sc.nextLine();
 		System.out.println("Introduzca otra palabra: ");
 		String palabra2 = sc.nextLine();
-		if (palabra1.equalsIgnoreCase(palabra2)) { //Utilizamos ignore case para quitar mayus o minus
+		if (palabra1.equalsIgnoreCase(palabra2)) { // Utilizamos ignore case para quitar mayus o minus
 			System.out.println("Las palabras son iguales");
 		} else {
 			System.out.println("Las palabras NO son iguales");
@@ -68,7 +68,7 @@ public class EjerciciosTema2 {
 		sc.close();
 
 	}
-	
+
 	private static void ejercicio4b() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Ingrese una palabra");
@@ -80,7 +80,7 @@ public class EjerciciosTema2 {
 		} else {
 			System.out.println("No son iguales");
 		}
-		
+
 		sc.close();
 	}
 
@@ -92,7 +92,7 @@ public class EjerciciosTema2 {
 		System.out.println("Introduzca el segundo número: ");
 		int numero2 = sc.nextInt();
 		if (numero2 > 0) {
-			double result = (double)(numero1/numero2);
+			double result = (double) (numero1 / numero2);
 			System.out.printf(numero1 + "/" + numero2 + "= " + result);
 		} else {
 			System.out.printf("El divisor no puede ser cero, intente con otro número");
@@ -241,7 +241,7 @@ public class EjerciciosTema2 {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Escribe una letra,un número o un carácter: ");
 		char letra = sc.next().charAt(0); // CharAt(0) es para que lea el primer carácter
-		
+
 		switch (letra) {
 		case '.':
 			System.out.println("Es un .");
@@ -343,7 +343,7 @@ public class EjerciciosTema2 {
 
 	private static void ejercicio12() {
 		Scanner sc = new Scanner(System.in);
-		double precio = 100;
+		double precio = 50;
 		System.out.println("El precio de la entrada es: " + "€" + precio);
 		System.out.println("Cuál es tu edad?: ");
 		int edad = sc.nextInt();
@@ -370,17 +370,37 @@ public class EjerciciosTema2 {
 		System.out.println("El precio de su entrada es de: " + "€" + precio);
 		System.out.println("Se le ha aplicado un descuento del : " + (descuento * 100) + "%");
 	}
-	
-	
 
-	private static void ejercicio13() {
+	/**
+	 * Muestra por pantalla los números de 20 al 1 usando un bucle while
+	 */
+	public static void ejercicio13() {
+		int numero = 20;
+		while (numero > 0) {
+			System.out.println(numero);
+			numero--; // decremento necesario para que el bucle no sea infinito.
+		}
+	}
+
+	public static void ejercicio13CualquierNumero() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Introduzca el número a decrementar: ");
+		int numero = sc.nextInt();
+		while (numero > 0) {
+			System.out.println(numero);
+			numero--; // decremento necesario para que el bucle no sea infinito.
+		}
+		sc.close();
+	}
+
+	private static void ejercicio13b() {
 		/*
 		 * BUCLE CON WHILE int i = 20; while(i<=20 && i > 0) { System.out.print(i+", ");
 		 * i-=1; }
 		 */
 		for (int i = 20; i > 0; i--) {
-			if (i !=1) {
-		System.out.print(i + ",");
+			if (i != 1) {
+				System.out.print(i + ",");
 			} else {
 				System.out.print(i + ".");
 			}
@@ -508,7 +528,7 @@ public class EjerciciosTema2 {
 	}
 
 	private static void ejercicio24() {
-		//cuadrado mismo alto que ancho
+		// cuadrado mismo alto que ancho
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Dime un número");
 		int num = sc.nextInt();
@@ -523,55 +543,55 @@ public class EjerciciosTema2 {
 	}
 
 	private static void ejercicio25() {
-		//escalera de bajada
+		// escalera de bajada
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Dime un número");
 		int num = sc.nextInt();
-		
-		for (int i = 1; i <= num; i++ ) {
-			
-			for(int j = 1; j <= i; j++) {
-				
+
+		for (int i = 1; i <= num; i++) {
+
+			for (int j = 1; j <= i; j++) {
+
 				System.out.print("*");
-				
+
 			}
 			System.out.println();
 		}
 	}
-	
+
 	private static void ejercicio26() {
-		//Escalera de subida, mitad de pirámide
+		// Escalera de subida, mitad de pirámide
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Dime un número para la altura de la figura");
 		int num = sc.nextInt();
-		
-		for (int filas = 1; filas <= num; filas++ ) {
-			
-			for(int blancos = 1; blancos <= num - filas; blancos++) {
+
+		for (int filas = 1; filas <= num; filas++) {
+
+			for (int blancos = 1; blancos <= num - filas; blancos++) {
 				System.out.print(" ");
-				}
-		for (int asteriscos = 1; asteriscos <= filas; asteriscos++) {
-					System.out.print("*");
-				}
-			
+			}
+			for (int asteriscos = 1; asteriscos <= filas; asteriscos++) {
+				System.out.print("*");
+			}
+
 			System.out.println();
 		}
 	}
-	
+
 	private static void ejercicio27() {
-		//Cuadrado vacío
+		// Cuadrado vacío
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Dime un ancho: ");
 		int ancho = sc.nextInt();
-		
+
 		System.out.print("Dime un alto: ");
 		int alto = sc.nextInt();
-		
-		for(int fila = 1; fila <= alto; fila++) {
-			
-			for(int col = 1; col <= ancho; col++) {
-				
-				if(fila == 1 || fila == alto || col == 1 || col == ancho) {
+
+		for (int fila = 1; fila <= alto; fila++) {
+
+			for (int col = 1; col <= ancho; col++) {
+
+				if (fila == 1 || fila == alto || col == 1 || col == ancho) {
 					System.out.print("*");
 				} else {
 					System.out.print(" ");
@@ -581,82 +601,79 @@ public class EjerciciosTema2 {
 		}
 		sc.close();
 	}
-	
-	
+
 	private static void ejercicio28() {
-		//Pirámide normal
+		// Pirámide normal
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Introduzca número de filas");
 		int numFilas = sc.nextInt();
-		
-		for(int altura = 1; altura <= numFilas; altura++){
-            //Espacios en blanco
-            for(int blancos = 1; blancos <= numFilas-altura ; blancos++){
-                System.out.print(" ");
-            }
- 
-            //Asteriscos
-            for(int asteriscos = 1; asteriscos <= (altura*2) - 1; asteriscos++){
-                System.out.print("*");
-            }
-            System.out.println();
-        }
+
+		for (int altura = 1; altura <= numFilas; altura++) {
+			// Espacios en blanco
+			for (int blancos = 1; blancos <= numFilas - altura; blancos++) {
+				System.out.print(" ");
+			}
+
+			// Asteriscos
+			for (int asteriscos = 1; asteriscos <= (altura * 2) - 1; asteriscos++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
 		sc.close();
-    }
-	
+	}
+
 	private static void ejercicio29() {
-		//pirámide hueca
+		// pirámide hueca
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Introduzca número de filas");
 		int num = sc.nextInt();
-		
-	    for (int i = 0; i < num; ++i) {
-            //Cada primer for, se hace un salto de línea.
-            System.out.println();
-            //Utilizamos dos for para lograr la forma.
-            for (int j = 0; j < num - i - 1; ++j) {                      
-                System.out.print(" ");           
-            }
-            for (int j = 0; j < 2 * i + 1; ++j){
-                //Condición para imprimir solo los bordes.
-                if ((i==0)||(i==num-1)||(j==0)||(j==2*i)) {
-                    System.out.print("*");
-                }
-                else{
-                   System.out.print(" ");  
-                }
-                
-            }
-        }
-        System.out.println();
-        sc.close();
-    }
-		
 
-	
+		for (int i = 0; i < num; ++i) {
+			// Cada primer for, se hace un salto de línea.
+			System.out.println();
+			// Utilizamos dos for para lograr la forma.
+			for (int j = 0; j < num - i - 1; ++j) {
+				System.out.print(" ");
+			}
+			for (int j = 0; j < 2 * i + 1; ++j) {
+				// Condición para imprimir solo los bordes.
+				if ((i == 0) || (i == num - 1) || (j == 0) || (j == 2 * i)) {
+					System.out.print("*");
+				} else {
+					System.out.print(" ");
+				}
+
+			}
+		}
+		System.out.println();
+		sc.close();
+	}
+
 	private static void ejercicio30() {
-		//Pirámide de asteriscos invertida
+		// Pirámide de asteriscos invertida
 		Scanner sc = new Scanner(System.in);
-        System.out.print("Introduzca numero de filas: ");
-        int numFilas = sc.nextInt();
-        sc.close();
-        System.out.println();
-        for(int numBlancos = 0, numAsteriscos = (numFilas*2)-1; numAsteriscos>0; numBlancos++, numAsteriscos -= 2){
-             
-            //Espacios en blanco
-            for(int i=0; i < numBlancos; i++){
-                System.out.print(" ");
-            }
-             
-            //Asteriscos
-            for(int j=numAsteriscos; j > 0; j--){
-                System.out.print("*");
-            }
-            System.out.println();
-        }
-        sc.close();
-    }   
-	
+		System.out.print("Introduzca numero de filas: ");
+		int numFilas = sc.nextInt();
+		sc.close();
+		System.out.println();
+		for (int numBlancos = 0,
+				numAsteriscos = (numFilas * 2) - 1; numAsteriscos > 0; numBlancos++, numAsteriscos -= 2) {
+
+			// Espacios en blanco
+			for (int i = 0; i < numBlancos; i++) {
+				System.out.print(" ");
+			}
+
+			// Asteriscos
+			for (int j = numAsteriscos; j > 0; j--) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+		sc.close();
+	}
+
 	public static void main(String[] args) {
 		ejercicio4b();
 

@@ -1,6 +1,8 @@
 package ejercicios;
 
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class EjerciciosMejorados {
 
@@ -53,16 +55,16 @@ public class EjerciciosMejorados {
 	}
 
 	private static void ejercicio9() {
-		//MEJORADO
+		// MEJORADO
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Ingrese un número de mes: ");
 		int mes = sc.nextInt();
 		if (mes >= 1 && mes <= 12) {
 			switch (mes) {
-			case 1, 3, 5, 7, 8, 10, 12: //SWITCH IMPROVED 
+			case 1, 3, 5, 7, 8, 10, 12: // SWITCH IMPROVED
 				System.out.println("El mes tiene 31 días");
 				break;
-			case 4, 6, 9 ,11:
+			case 4, 6, 9, 11:
 				System.out.println("El mes tiene 30 días");
 				break;
 			case 2:
@@ -70,30 +72,29 @@ public class EjerciciosMejorados {
 				break;
 			}
 		} else {
-			System.out.println("El número de mes no es correcto"); 
+			System.out.println("El número de mes no es correcto");
 		}
-	sc.close();
-		
+		sc.close();
+
 	}
-	
+
 	private static void ejercicio10() {
-		//diferente, hecho con otros condicionales
-		
+		// diferente, hecho con otros condicionales
+
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Escribe un carácter: ");
 		char caracter = sc.next().charAt(0);
-		
+
 		if (caracter == '.' || caracter == ',' || caracter == ';' || caracter == ':') {
 			System.out.println("Es un signo de puntuacion");
-		} else if (Character.isDigit(caracter)) { //NEW toma en cuenta del 0 al 9 en cualquier idioma
+		} else if (Character.isDigit(caracter)) { // NEW toma en cuenta del 0 al 9 en cualquier idioma
 			System.out.println("Es un numero del 0 al 9");
 		} else {
 			System.out.println("Has ingresado otro tipo de caracter");
 		}
 		sc.close();
 	}
-	
-	
+
 	private static void ejercicio11() {
 		Scanner sc = new Scanner(System.in);
 		int operacion = -1;
@@ -161,23 +162,78 @@ public class EjerciciosMejorados {
 				descuento = 0.40;
 				precio = precio * (1 - descuento);
 			}
-			} else if (edad >= 65) {
-				descuento = 0.75;
-				precio = precio * (1 - descuento);
+		} else if (edad >= 65) {
+			descuento = 0.75;
+			precio = precio * (1 - descuento);
 
-			}
-			System.out.println("El precio de su entrada es de: " + "€" + precio);
-			System.out.println("Se le ha aplicado un descuento del : " + (descuento * 100) + "%");
+		}
+		System.out.println("El precio de su entrada es de: " + "€" + precio);
+		System.out.println("Se le ha aplicado un descuento del : " + (descuento * 100) + "%");
 
 	}
 	
+	private static void ejercicio12b() {
+		Scanner sc = new Scanner(System.in);
+		double precio = 50;
+		final double MENOR_EDAD = 0.25;
+		final double SOCIO = 0.40;
+		final double MAYOR_65 = 0.75;
+		System.out.println("Dime tu edad para comprobar el precio de la entrada:");
+		int edad = sc.nextInt();
+		sc.nextLine(); //DESP de coger numeros por pantalla limpiamos el buffer
+		
+		if (edad<18) {
+			precio = precio * ( 1- MENOR_EDAD);
+		} else if (edad > 18 && edad <= 65 ) {
+			System.out.println("Es usted socio ? (si/no)");
+			String socio = sc.nextLine();
+			if (socio.equalsIgnoreCase("si") || socio.equalsIgnoreCase("sí") || socio.equalsIgnoreCase("s")) {
+				precio = precio * (1- SOCIO);
+			}
+		} else {
+			precio = precio * ( 1- MAYOR_65);
+		}
+		System.out.println("El precio de su entrada es de : " + precio + "€");
+		
+		sc.close();
+	}
+	
+	private static void ejercicio12Pattern() {
+		//EXPRESIONES REGULARES CON PATTERN
+		Scanner sc = new Scanner(System.in);
+		double precio = 50;
+		final double MENOR_EDAD = 0.25;
+		final double SOCIO = 0.40;
+		final double MAYOR_65 = 0.75;
+		System.out.println("Dime tu edad para comprobar el precio de la entrada:");
+		int edad = sc.nextInt();
+		sc.nextLine(); //DESP de coger numeros por pantalla limpiamos el buffer
+		
+		if (edad<18) {
+			precio = precio * ( 1- MENOR_EDAD);
+		} else if (edad > 18 && edad <= 65 ) {
+			System.out.println("Es usted socio ? (si/no)");
+			String socio = sc.nextLine();
+			//SOLUCIÓN CON EXPRESIÓN REGULAR 
+			Pattern regex = Pattern.compile("^s[iíÍ]?$", Pattern.CASE_INSENSITIVE);			
+			Matcher m = regex.matcher(socio);
+			if (m.matches()) {
+				precio = precio * (1-SOCIO);
+			}
+		} else {
+			precio = precio * ( 1- MAYOR_65);
+		}
+		System.out.println("El precio de su entrada es de : " + precio + "€");
+		
+		sc.close();
+	}
+	
 	public static void ejemploDado() {
-		
-		
+
 	}
 
 	public static void main(String[] args) {
-		ejercicio10();
+		ejercicio12Pattern();
 
 	}
 
