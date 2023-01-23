@@ -1,5 +1,7 @@
 package estructuras;
 
+import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -136,6 +138,7 @@ public class Iterativas {
 			//int adivina = 7;
 			int intentos = 0;
 			int num;
+			//Esto al menos se ejecuta una vez, se utiliza para menús o pedir usuario y contraseña
 			do {
 				System.out.print("Adivina el número del 1 al 10 (Tienes " + (3-intentos) + " " 
 						+ (((3-intentos)==1)?"intento): ":"intentos): "));
@@ -252,6 +255,20 @@ public class Iterativas {
 			}
 			sc.close();
 		}
+		
+		public static void acaboCurso() {
+			int contadorDias = 0;
+			LocalDate fecha = LocalDate.now(); //día de hoy
+			System.out.println(fecha.getDayOfWeek()); //imprime el día - MONDAY
+			while(fecha.isBefore(LocalDate.parse("2023-03-31"))) {
+				if(fecha.getDayOfWeek() != DayOfWeek.SATURDAY && fecha.getDayOfWeek() != DayOfWeek.SUNDAY ) {
+				System.out.println(fecha);
+				contadorDias++; //días de curso sin sábados y domingos
+				}
+				fecha = fecha.plusDays(1);
+			}
+			System.out.println("Te quedan " + contadorDias + " días de cursado");
+		}
 
 		
 		public static void main(String[] args) {
@@ -268,6 +285,7 @@ public class Iterativas {
 			// whileIgualQueFor();
 			//ejemploMenuWhileConSwitch();
 			//doWhile1();
-			while2();
+			//while2();
+			acaboCurso();
 		}
 	}
