@@ -224,7 +224,7 @@ public class Iterativas {
 			sc.close();
 		}
 		
-		public static void ejemploMenuWhileConSwitch() {
+		public static void ejemploMenuWhileConSwitch() { //java17
 			Scanner sc = new Scanner(System.in);
 			int opcion=-1;
 			while (opcion!=0){
@@ -236,21 +236,11 @@ public class Iterativas {
 				System.out.println("Introduzca opción: ");
 				opcion = sc.nextInt();  // coger opción
 				switch(opcion) {	// tratar la opción
-				case 1:
-					System.out.println("Has elegido jugar");
-					break;
-				case 2:
-					System.out.println("Has elegido guardar");
-					break;
-				case 3:
-					System.out.println("Has elegido opciones");
-					break;
-				case 0:
-					System.out.println("Gracias por jugar al juego. Nos vemos pronto!");
-					break;
-				default:
-					System.out.println("Opción no válida. Vuelva a elegir opción.");
-					break;
+				case 1 -> System.out.println("Has elegido jugar");
+				case 2 -> System.out.println("Has elegido guardar");
+				case 3 -> System.out.println("Has elegido opciones");
+				case 0 -> System.out.println("Gracias por jugar al juego. Nos vemos pronto!");
+				default -> System.out.println("Opción no válida. Vuelva a elegir opción.");
 				}
 			}
 			sc.close();

@@ -54,7 +54,7 @@ public class EjerciciosMejorados {
 		}
 	}
 
-	private static void ejercicio9() {
+	private static void ejercicio9() { //java17
 		// MEJORADO
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Ingrese un número de mes: ");
@@ -228,7 +228,7 @@ public class EjerciciosMejorados {
 		sc.close();
 	}
 	
-	private static void ejercicio12Grupo() {
+	private static void ejercicio12GrupoFor() {
         Scanner sc = new Scanner(System.in);
         final double PRECIO_ENTRADA = 50;
         final double MENOR_EDAD = 0.25;
@@ -305,14 +305,14 @@ public class EjerciciosMejorados {
 	            i++;
 	        }
 	        System.out.println("El precio total de las entradas para el grupo es de: " + precioTotal + "€");
-		
+	        sc.close();
 	}
 	public static void ejemploDado() {
 
 	}
 
 	public static void main(String[] args) {
-		ejercicio12Grupo();
+		ejercicio12GrupoFor();
 
 	}
 
