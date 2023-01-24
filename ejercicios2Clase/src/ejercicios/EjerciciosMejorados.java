@@ -41,7 +41,7 @@ public class EjerciciosMejorados {
 		}
 
 	}
-
+	
 	private static void ejercicio5() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Ingresa dos números");
@@ -53,23 +53,36 @@ public class EjerciciosMejorados {
 			System.out.println("El divisor no puede ser cero");
 		}
 	}
+	
+	private static void ejercicio7() {
 
-	private static void ejercicio9() { //java17
+		 int h,m,s; 
+		 Scanner sc =new Scanner(System.in);
+		 System.out.println("Introduzca la hora : "); 
+		 h = sc.nextInt();
+		 System.out.println("Introduzca los minutos: "); 
+		 m=sc.nextInt();
+		 System.out.println("Introduzca los segundos: "); 
+		 s= sc.nextInt();
+		 
+		 if (h>0 && h<23 && m>=0 && m <60 && s>0 && s<60) {
+		 System.out.printf("La hora introducida es: \n" + "%02d:%02d:%02d",h,m,s);
+		 
+		 } else { System.out.println("La hora es incorrecta"); 
+		 }
+		 sc.close();
+		 }
+
+	private static void ejercicio9() { //java17 SWITCH IMPROVED
 		// MEJORADO
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Ingrese un número de mes: ");
 		int mes = sc.nextInt();
 		if (mes >= 1 && mes <= 12) {
 			switch (mes) {
-			case 1, 3, 5, 7, 8, 10, 12: // SWITCH IMPROVED
-				System.out.println("El mes tiene 31 días");
-				break;
-			case 4, 6, 9, 11:
-				System.out.println("El mes tiene 30 días");
-				break;
-			case 2:
-				System.out.println("El mes tiene 28 días");
-				break;
+			case 1, 3, 5, 7, 8, 10, 12 -> System.out.println("El mes tiene 31 días");
+			case 4, 6, 9, 11 -> System.out.println("El mes tiene 30 días");
+			case 2 -> System.out.println("El mes tiene 28 días");
 			}
 		} else {
 			System.out.println("El número de mes no es correcto");
@@ -267,7 +280,7 @@ public class EjerciciosMejorados {
         System.out.println("El precio total de las entradas para el grupo es de: " + precioTotal + "€");
     }
 
-	public static void ejercicio12GrupoWhile() {
+	private static void ejercicio12GrupoWhile() {
 		 Scanner sc = new Scanner(System.in);
 		 	final double PRECIO_ENTRADA = 50;
 	        final double MENOR_EDAD = 0.25;
@@ -307,12 +320,32 @@ public class EjerciciosMejorados {
 	        System.out.println("El precio total de las entradas para el grupo es de: " + precioTotal + "€");
 	        sc.close();
 	}
-	public static void ejemploDado() {
 
+	private static void ejercicio13() {
+		
+		for ( int i=0; i <=20; i++) {
+			System.out.print((i<20) ? i + ",": i + ".");
+		}
 	}
-
+	
+	private static void ejercicio21NPrimos() {
+		int contador = 0;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Introduzca el número para saber si es primo");
+		int numero = Integer.parseInt(sc.nextLine());
+		
+		for (int i = 1; i <= numero; i++) {
+			if(numero%i==0) {
+				contador ++;
+			}
+		}
+		
+		System.out.println((contador==2 || numero==1)? "Es primo" : "No es primo");
+		sc.close();
+	}
+	
 	public static void main(String[] args) {
-		ejercicio12GrupoFor();
+		ejercicio21NPrimos();
 
 	}
 

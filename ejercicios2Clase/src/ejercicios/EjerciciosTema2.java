@@ -121,48 +121,30 @@ public class EjerciciosTema2 {
 	}
 
 	private static void ejercicio7() {
-		/*
-		 * HECHO POR MI
-		 * 
-		 * int h,m,s; Scanner sc =new Scanner(System.in);
-		 * System.out.println("Introduzca la hora : "); h = sc.nextInt();
-		 * System.out.println("Introduzca los minutos: "); m=sc.nextInt();
-		 * System.out.println("Introduzca los segundos: "); s= sc.nextInt();
-		 * 
-		 * if (h>0 && h<23 && m>=0 && m <60 && s>0 && s<60) {
-		 * System.out.printf("%02d:%02d:%02d",h,m,s);
-		 * 
-		 * } else { System.out.println("La hora es incorrecta"); }
-		 * 
-		 * }
-		 */
-
 		Scanner sc = new Scanner(System.in);
+		
 		System.out.println("Escriba la hora (HH) ");
 		int horas = sc.nextInt();
 
 		if (horas >= 00 && horas <= 23) {
-
 			System.out.println("Escriba los minutos (MM) ");
 			int minutos = sc.nextInt();
-
-			if (minutos >= 0 && minutos <= 59) {
-
+				if (minutos >= 0 && minutos <= 59) {
 				System.out.println("Escriba los segundos(SS ) ");
 				int segundos = sc.nextInt();
-
-				if (segundos >= 0 && segundos <= 59) {
+					if (segundos >= 0 && segundos <= 59) {
 					System.out.println(
-							"Tú hora es: " + horas + " horas, " + minutos + " minutos y " + segundos + "segundos");
+					"Tú hora es: " + horas + " horas, " + minutos + " minutos y " + segundos + " segundos");
 				} else {
-					System.out.println("El valor introducido es erróneo");
+					System.out.println("La hora introducida es errónea");
 				}
 			} else {
-				System.out.println("El valor introducido es erróneo");
+				System.out.println("Los minutos introducidos no son correctos");
 			}
 		} else {
-			System.out.println("El valor introducido es erróneo");
+			System.out.println("Los segundos introducidos no son correctos");
 		}
+		sc.close();
 	}
 
 	private static void ejercicio8() {
@@ -393,6 +375,7 @@ public class EjerciciosTema2 {
 		sc.close();
 	}
 
+
 	private static void ejercicio13b() {
 		/*
 		 * BUCLE CON WHILE int i = 20; while(i<=20 && i > 0) { System.out.print(i+", ");
@@ -406,13 +389,17 @@ public class EjerciciosTema2 {
 			}
 		}
 	}
-
+	/** 
+	 * . Inicializa una variable entera a 0. Después, pregunta al usuario por un número y súmaselo a la 
+	 * variable inicial. Repite esto hasta que el usuario introduzca el número cero. Utiliza el bucle 
+	 * do..while.
+	 */
 	private static void ejercicio14() {
 		Scanner sc = new Scanner(System.in);
 		int suma = 0;
 		int num = -1;
 		do {
-			System.out.println("Dime un número: \n");
+			System.out.println("Dime un número:");
 			num = sc.nextInt();
 			suma += num;
 			System.out.println("Resultado: " + suma);
@@ -420,21 +407,28 @@ public class EjerciciosTema2 {
 		sc.close();
 	}
 
+	/**
+	 * Pide al usuario un número y calcula cuantas cifras tiene dicho número. Para ello puedes dividir
+	 * el número entre 10 hasta que el resultado sea cero.
+	 */
 	private static void ejercicio15() {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Dime un número: ");
 		int num = sc.nextInt();
-
 		int cifras = 0; // contador de cifras
+		
 		while (num != 0) {
-			num /= 10; // achicamos el numero
+			num /= 10; // achicamos el numero = num = num / 10 
 			cifras++; // sube el contador
 		}
 		System.out.println("El número tiene " + cifras + " cifras");
 		sc.close();
 
 	}
-
+	
+	/**
+	 * . Pide al usuario un número y dibuja una línea con tantos asteriscos como el número introducido.
+	 */
 	private static void ejercicio16() {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Dime un número entero: ");
@@ -446,6 +440,9 @@ public class EjerciciosTema2 {
 		sc.close();
 	}
 
+	/**
+	 * Muestra los números del 1 al 30 menos los divisibles entre 3 (resto da cero).
+	 */
 	private static void ejercicio17() {
 		for (int i = 1; i <= 30; i++) {
 			if ((i % 3) > 0)
@@ -453,8 +450,11 @@ public class EjerciciosTema2 {
 		}
 	}
 
+	/**
+	 * Muestra de 5 en 5, los números del 0 al 100.
+	 */
 	private static void ejercicio18() {
-		for (int i = 0; i >= 0 && i <= 100; i += 5) {
+		for (int i = 0; i >= 0 && i <= 100; i+=5) {
 			System.out.print(i + ", ");
 		}
 	}
@@ -482,7 +482,7 @@ public class EjerciciosTema2 {
 		int num = -1;
 		while (true) {
 			System.out.println("Dime un número: \n");
-			num = sc.nextInt();
+			num = Integer.parseInt(sc.nextLine());
 			if (num == 0)
 				break; // corta por encontrar el cero
 			if (num < 0)
@@ -498,8 +498,7 @@ public class EjerciciosTema2 {
 	private static void ejercicio21() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Escribe un número para saber sus divisores: ");
-		int numero = sc.nextInt();
-
+		int numero = Integer.parseInt(sc.nextLine());
 		for (int i = 1; i <= numero; i++) {
 			if (numero % i == 0) {
 				// imprimes la solucion
@@ -531,7 +530,7 @@ public class EjerciciosTema2 {
 		// cuadrado mismo alto que ancho
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Dime un número");
-		int num = sc.nextInt();
+		int num = Integer.parseInt(sc.nextLine());
 
 		for (int fila = 0; fila < num; fila++) {
 			for (int col = 0; col < num; col++) {
@@ -546,7 +545,7 @@ public class EjerciciosTema2 {
 		// escalera de bajada
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Dime un número");
-		int num = sc.nextInt();
+		int num = Integer.parseInt(sc.nextLine());
 
 		for (int i = 1; i <= num; i++) {
 
@@ -675,7 +674,7 @@ public class EjerciciosTema2 {
 	}
 
 	public static void main(String[] args) {
-		ejercicio4b();
+		ejercicio23();
 
 	}
 

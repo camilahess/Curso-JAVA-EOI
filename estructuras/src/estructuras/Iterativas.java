@@ -2,12 +2,16 @@ package estructuras;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Random;
 import java.util.Scanner;
 
 public class Iterativas {
 
 		public static void for1() {
+			//1- Inicia, comprueba y entra.
+			//2- Aumenta i, comprueba y entra. (Hasta el 10)
 			for (int i = 0; i <= 10; i++) {
 				System.out.println(i);
 			}
@@ -29,6 +33,7 @@ public class Iterativas {
 			for (int i = 1; i <= 10; i++) {
 				System.out.println(tabla + " * " + i + " = " + (tabla * i));
 			}
+			sc.close();
 		}
 
 		public static void for4() { // tabla de multiplicar invertida
@@ -38,14 +43,24 @@ public class Iterativas {
 			for (int i = 10; i > 0; i--) {
 				System.out.println(tabla + " * " + i + " = " + (tabla * i));
 			}
+			sc.close();
 		}
-
-		public static void for5() { // ejemplo de for complejo
-			for (int i = 0, j = 10; i <= 10 && j > 5; i++, j--) { // 0+10, 1+9, 2+8...10+0
-				System.out.println(i + " + " + j + " = " + (i + j));
+		
+		public static void forAnidado() { // tabla de multiplicar anidada
+			for(int tabla=1;tabla<=5;tabla++) {
+				System.out.println("Comienzo de la tabla del " + tabla);
+				for (int num=1;num<=10;num++) {
+					System.out.println(tabla + "x" + num + "=" + (tabla*num) );
+				}
 			}
 		}
 
+		public static void for5() { // ejemplo de for complejo, más de una variable
+			for (int i = 0, j = 10; i <= 10 && j > 5; i++, j--) { // 0+10, 1+9, 2+8, 3+7, 4+6
+			System.out.println(i + " + " + j + " = " + (i + j));
+			}
+		}
+		
 		public static void infinito1() { // Probable error
 			for (int i = 0; i >= 0; i++) {
 				System.out.println(i);
@@ -259,14 +274,23 @@ public class Iterativas {
 			}
 			System.out.println("Te quedan " + contadorDias + " días de cursado");
 		}
+		
+		public static void imprimirHoraFecha() {
+			LocalDate fecha = LocalDate.now();
+			LocalTime hora = LocalTime.now();
+			LocalDateTime fechaHora = LocalDateTime.now();
+			System.out.println(fecha);
+			System.out.println(hora);
+			System.out.println(fechaHora);
+		}
 
 		
 		public static void main(String[] args) {
 			//for1();
 			// for2();
-			// for3();
+			//for3();
 			// for4();
-			// for5();
+			 for5();
 			// infinito1();
 			// offTopicEnteros();
 			// infinito2();
@@ -276,6 +300,8 @@ public class Iterativas {
 			//ejemploMenuWhileConSwitch();
 			//doWhile1();
 			//while2();
-			acaboCurso();
+			//acaboCurso();
+			//imprimirHoraFecha();
+			//forAnidado();
 		}
 	}
