@@ -4,7 +4,10 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class EjemplosArrays {
-
+	//Coleccion de datos: LOS ARRAYS SON DE MEMORIA ESTÁTICA. 
+	//Si no sabemos cuantos datos tendremos, usamos listas
+	//Se usan mucho en INTELIGENCIA ARTIFICIAL
+	
 	public static void nuevosEjemplos() {
 		int[] numeros = { 1, 2, 3, 4, 5 };
 		// Si necesito saber la posición
@@ -116,7 +119,7 @@ public class EjemplosArrays {
 
 	}
 
-	public static void buscar2Basico() {
+	public static void buscarBasico() {
 		String[] nombres = { "Juan", "Ana", "Pedro", "Eva", "Paco" };
 		boolean encontrado = false; // Nos indicará si hemos encontrado el valor
 		String buscar = "pedro"; // Valor a buscar en el array
@@ -133,7 +136,7 @@ public class EjemplosArrays {
 		}
 	}
 
-	public static void buscar3Funcional() {
+	public static void busquedaFuncional() {
 		String[] nombres = { "Juan", "Ana", "Pedro", "Eva", "Paco" };
 		boolean encontrado = false; 
 		String buscar = "PEDRO"; 
@@ -143,6 +146,7 @@ public class EjemplosArrays {
 			} else {
 			 System.out.println(buscar + " no encontrado...");
 			}
+		
 	}
 
 	public static void ordenarArrays() {
@@ -216,7 +220,7 @@ public class EjemplosArrays {
 		// ejemplo1();
 		// buscarEnArray();
 		// nuevosEjemplos();
-		buscar3Funcional();
+		busquedaFuncional();
 	}
 
 }
