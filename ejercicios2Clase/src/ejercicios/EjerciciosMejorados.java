@@ -41,7 +41,7 @@ public class EjerciciosMejorados {
 		}
 
 	}
-	
+
 	private static void ejercicio5() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Ingresa dos números");
@@ -53,27 +53,28 @@ public class EjerciciosMejorados {
 			System.out.println("El divisor no puede ser cero");
 		}
 	}
-	
+
 	private static void ejercicio7() {
 
-		 int h,m,s; 
-		 Scanner sc =new Scanner(System.in);
-		 System.out.println("Introduzca la hora : "); 
-		 h = sc.nextInt();
-		 System.out.println("Introduzca los minutos: "); 
-		 m=sc.nextInt();
-		 System.out.println("Introduzca los segundos: "); 
-		 s= sc.nextInt();
-		 
-		 if (h>0 && h<23 && m>=0 && m <60 && s>0 && s<60) {
-		 System.out.printf("La hora introducida es: \n" + "%02d:%02d:%02d",h,m,s);
-		 
-		 } else { System.out.println("La hora es incorrecta"); 
-		 }
-		 sc.close();
-		 }
+		int h, m, s;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Introduzca la hora : ");
+		h = sc.nextInt();
+		System.out.println("Introduzca los minutos: ");
+		m = sc.nextInt();
+		System.out.println("Introduzca los segundos: ");
+		s = sc.nextInt();
 
-	private static void ejercicio9() { //java17 SWITCH IMPROVED
+		if (h > 0 && h < 23 && m >= 0 && m < 60 && s > 0 && s < 60) {
+			System.out.printf("La hora introducida es: \n" + "%02d:%02d:%02d", h, m, s);
+
+		} else {
+			System.out.println("La hora es incorrecta");
+		}
+		sc.close();
+	}
+
+	private static void ejercicio9() { // java17 SWITCH IMPROVED
 		// MEJORADO
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Ingrese un número de mes: ");
@@ -184,7 +185,7 @@ public class EjerciciosMejorados {
 		System.out.println("Se le ha aplicado un descuento del : " + (descuento * 100) + "%");
 
 	}
-	
+
 	private static void ejercicio12b() {
 		Scanner sc = new Scanner(System.in);
 		double precio = 50;
@@ -193,26 +194,26 @@ public class EjerciciosMejorados {
 		final double MAYOR_65 = 0.75;
 		System.out.println("Dime tu edad para comprobar el precio de la entrada:");
 		int edad = sc.nextInt();
-		sc.nextLine(); //DESP de coger numeros por pantalla limpiamos el buffer
-		
-		if (edad<18) {
-			precio = precio * ( 1- MENOR_EDAD);
-		} else if (edad > 18 && edad <= 65 ) {
+		sc.nextLine(); // DESP de coger numeros por pantalla limpiamos el buffer
+
+		if (edad < 18) {
+			precio = precio * (1 - MENOR_EDAD);
+		} else if (edad > 18 && edad <= 65) {
 			System.out.println("Es usted socio ? (si/no)");
 			String socio = sc.nextLine();
 			if (socio.equalsIgnoreCase("si") || socio.equalsIgnoreCase("sí") || socio.equalsIgnoreCase("s")) {
-				precio = precio * (1- SOCIO);
+				precio = precio * (1 - SOCIO);
 			}
 		} else {
-			precio = precio * ( 1- MAYOR_65);
+			precio = precio * (1 - MAYOR_65);
 		}
 		System.out.println("El precio de su entrada es de : " + precio + "€");
-		
+
 		sc.close();
 	}
-	
+
 	private static void ejercicio12Pattern() {
-		//EXPRESIONES REGULARES CON PATTERN
+		// EXPRESIONES REGULARES CON PATTERN
 		Scanner sc = new Scanner(System.in);
 		double precio = 50;
 		final double MENOR_EDAD = 0.25;
@@ -220,137 +221,136 @@ public class EjerciciosMejorados {
 		final double MAYOR_65 = 0.75;
 		System.out.println("Dime tu edad para comprobar el precio de la entrada:");
 		int edad = sc.nextInt();
-		sc.nextLine(); //DESP de coger numeros por pantalla limpiamos el buffer
-		
-		if (edad<18) {
-			precio = precio * ( 1- MENOR_EDAD);
-		} else if (edad > 18 && edad <= 65 ) {
+		sc.nextLine(); // DESP de coger numeros por pantalla limpiamos el buffer
+
+		if (edad < 18) {
+			precio = precio * (1 - MENOR_EDAD);
+		} else if (edad > 18 && edad <= 65) {
 			System.out.println("Es usted socio ? (si/no)");
 			String socio = sc.nextLine();
-			//SOLUCIÓN CON EXPRESIÓN REGULAR 
-			Pattern regex = Pattern.compile("^s[iíÍ]?$", Pattern.CASE_INSENSITIVE);			
+			// SOLUCIÓN CON EXPRESIÓN REGULAR
+			Pattern regex = Pattern.compile("^s[iíÍ]?$", Pattern.CASE_INSENSITIVE);
 			Matcher m = regex.matcher(socio);
 			if (m.matches()) {
-				precio = precio * (1-SOCIO);
+				precio = precio * (1 - SOCIO);
 			}
 		} else {
-			precio = precio * ( 1- MAYOR_65);
+			precio = precio * (1 - MAYOR_65);
 		}
 		System.out.println("El precio de su entrada es de : " + precio + "€");
-		
+
 		sc.close();
 	}
-	
+
 	private static void ejercicio12GrupoFor() {
-        Scanner sc = new Scanner(System.in);
-        final double PRECIO_ENTRADA = 50;
-        final double MENOR_EDAD = 0.25;
-        final double SOCIO = 0.40;
-        final double MAYOR_65 = 0.75;
-        double precioTotal = 0;
-        double precioEntrada = PRECIO_ENTRADA;
-        
-        System.out.println("Cuantas personas vienen en grupo?");
-        int numeroDePersonas = sc.nextInt();
-        sc.nextLine();
-       
-        
-        for (int i = 1; i <= numeroDePersonas; i++) {
-            System.out.println("Dime la edad de la persona " + i + ":");
-            int edad = sc.nextInt();
-            sc.nextLine();
-            precioEntrada = PRECIO_ENTRADA;
-            
-            if (edad < 18) {
-                precioEntrada = PRECIO_ENTRADA * (1 - MENOR_EDAD);
-            } else if (edad >= 18 && edad <= 65) {
-                System.out.println("Es usted socio ? (si/no)");
-                String socio = sc.nextLine();
-                //SOLUCIÓN CON EXPRESIÓN REGULAR 
-                Pattern regex = Pattern.compile("^s[iíÍ]?$", Pattern.CASE_INSENSITIVE);
-                Matcher m = regex.matcher(socio);
-                if (m.matches()) {
-                    precioEntrada = PRECIO_ENTRADA * (1 - SOCIO);
-                }
-            } else {
-                precioEntrada = PRECIO_ENTRADA * (1 - MAYOR_65);
-            }
-            precioTotal += precioEntrada;
-        }
-        System.out.println("El precio total de las entradas para el grupo es de: " + precioTotal + "€");
-    }
+		Scanner sc = new Scanner(System.in);
+		final double PRECIO_ENTRADA = 50;
+		final double MENOR_EDAD = 0.25;
+		final double SOCIO = 0.40;
+		final double MAYOR_65 = 0.75;
+		double precioTotal = 0;
+		double precioEntrada = PRECIO_ENTRADA;
+
+		System.out.println("Cuantas personas vienen en grupo?");
+		int numeroDePersonas = sc.nextInt();
+		sc.nextLine();
+
+		for (int i = 1; i <= numeroDePersonas; i++) {
+			System.out.println("Dime la edad de la persona " + i + ":");
+			int edad = sc.nextInt();
+			sc.nextLine();
+			precioEntrada = PRECIO_ENTRADA;
+
+			if (edad < 18) {
+				precioEntrada = PRECIO_ENTRADA * (1 - MENOR_EDAD);
+			} else if (edad >= 18 && edad <= 65) {
+				System.out.println("Es usted socio ? (si/no)");
+				String socio = sc.nextLine();
+				// SOLUCIÓN CON EXPRESIÓN REGULAR
+				Pattern regex = Pattern.compile("^s[iíÍ]?$", Pattern.CASE_INSENSITIVE);
+				Matcher m = regex.matcher(socio);
+				if (m.matches()) {
+					precioEntrada = PRECIO_ENTRADA * (1 - SOCIO);
+				}
+			} else {
+				precioEntrada = PRECIO_ENTRADA * (1 - MAYOR_65);
+			}
+			precioTotal += precioEntrada;
+		}
+		System.out.println("El precio total de las entradas para el grupo es de: " + precioTotal + "€");
+	}
 
 	private static void ejercicio12GrupoWhile() {
-		 Scanner sc = new Scanner(System.in);
-		 	final double PRECIO_ENTRADA = 50;
-	        final double MENOR_EDAD = 0.25;
-	        final double SOCIO = 0.40;
-	        final double MAYOR_65 = 0.75;
-	        double precioTotal = 0;
-	        double precioEntrada = PRECIO_ENTRADA;
-	        
-	        System.out.println("Cuantas personas vienen en grupo?");
-	        int numeroDePersonas = sc.nextInt();
-	        sc.nextLine();
-	        
-	        int i = 1;
-	        while (i <= numeroDePersonas) {
-	            System.out.println("Dime la edad de la persona " + i + ":");
-	            int edad = sc.nextInt();
-	            sc.nextLine();
-	            precioEntrada = PRECIO_ENTRADA;
-	            
-	            if (edad <= 18) {
-	                precioEntrada = PRECIO_ENTRADA * (1 - MENOR_EDAD);
-	            } else if (edad > 18 && edad <= 65) {
-	                System.out.println("Es usted socio ? (si/no)");
-	                String socio = sc.nextLine();
-	                //SOLUCIÓN CON EXPRESIÓN REGULAR 
-	                Pattern regex = Pattern.compile("^s[iíÍ]?$", Pattern.CASE_INSENSITIVE);
-	                Matcher m = regex.matcher(socio);
-	                if (m.matches()) {
-	                    precioEntrada = PRECIO_ENTRADA * (1 - SOCIO);
-	                }
-	            } else {
-	                precioEntrada = PRECIO_ENTRADA * (1 - MAYOR_65);
-	            }
-	            precioTotal += precioEntrada;
-	            i++;
-	        }
-	        System.out.println("El precio total de las entradas para el grupo es de: " + precioTotal + "€");
-	        sc.close();
+		Scanner sc = new Scanner(System.in);
+		final double PRECIO_ENTRADA = 50;
+		final double MENOR_EDAD = 0.25;
+		final double SOCIO = 0.40;
+		final double MAYOR_65 = 0.75;
+		double precioTotal = 0;
+		double precioEntrada = PRECIO_ENTRADA;
+
+		System.out.println("Cuantas personas vienen en grupo?");
+		int numeroDePersonas = sc.nextInt();
+		sc.nextLine();
+
+		int i = 1;
+		while (i <= numeroDePersonas) {
+			System.out.println("Dime la edad de la persona " + i + ":");
+			int edad = sc.nextInt();
+			sc.nextLine();
+			precioEntrada = PRECIO_ENTRADA;
+
+			if (edad <= 18) {
+				precioEntrada = PRECIO_ENTRADA * (1 - MENOR_EDAD);
+			} else if (edad > 18 && edad <= 65) {
+				System.out.println("Es usted socio ? (si/no)");
+				String socio = sc.nextLine();
+				// SOLUCIÓN CON EXPRESIÓN REGULAR
+				Pattern regex = Pattern.compile("^s[iíÍ]?$", Pattern.CASE_INSENSITIVE);
+				Matcher m = regex.matcher(socio);
+				if (m.matches()) {
+					precioEntrada = PRECIO_ENTRADA * (1 - SOCIO);
+				}
+			} else {
+				precioEntrada = PRECIO_ENTRADA * (1 - MAYOR_65);
+			}
+			precioTotal += precioEntrada;
+			i++;
+		}
+		System.out.println("El precio total de las entradas para el grupo es de: " + precioTotal + "€");
+		sc.close();
 	}
 
 	private static void ejercicio13() {
-		
-		for ( int i=0; i <=20; i++) {
-			System.out.print((i<20) ? i + ",": i + ".");
+
+		for (int i = 0; i <= 20; i++) {
+			System.out.print((i < 20) ? i + "," : i + ".");
 		}
 	}
-	
+
 	private static void ejercicio18() {
-		for (int i=0; i>=0 && i <=100; i+=5) { // i=i+5
-			System.out.print((i<100) ? i+",": i+".");
-			
+		for (int i = 0; i >= 0 && i <= 100; i += 5) { // i=i+5
+			System.out.print((i < 100) ? i + "," : i + ".");
+
 		}
 	}
-	
+
 	private static void ejercicio21NPrimos() {
 		int contador = 0;
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Introduzca el número para saber si es primo");
 		int numero = Integer.parseInt(sc.nextLine());
-		
+
 		for (int i = 1; i <= numero; i++) {
-			if(numero%i==0) {
-				contador ++;
+			if (numero % i == 0) {
+				contador++;
 			}
 		}
-		
-		System.out.println((contador==2 || numero==1)? "Es primo" : "No es primo");
+
+		System.out.println((contador == 2 || numero == 1) ? "Es primo" : "No es primo");
 		sc.close();
 	}
-	
+
 	public static void main(String[] args) {
 		ejercicio18();
 

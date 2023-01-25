@@ -122,19 +122,19 @@ public class EjerciciosTema2 {
 
 	private static void ejercicio7() {
 		Scanner sc = new Scanner(System.in);
-		
+
 		System.out.println("Escriba la hora (HH) ");
 		int horas = sc.nextInt();
 
 		if (horas >= 00 && horas <= 23) {
 			System.out.println("Escriba los minutos (MM) ");
 			int minutos = sc.nextInt();
-				if (minutos >= 0 && minutos <= 59) {
+			if (minutos >= 0 && minutos <= 59) {
 				System.out.println("Escriba los segundos(SS ) ");
 				int segundos = sc.nextInt();
-					if (segundos >= 0 && segundos <= 59) {
+				if (segundos >= 0 && segundos <= 59) {
 					System.out.println(
-					"Tú hora es: " + horas + " horas, " + minutos + " minutos y " + segundos + " segundos");
+							"Tú hora es: " + horas + " horas, " + minutos + " minutos y " + segundos + " segundos");
 				} else {
 					System.out.println("La hora introducida es errónea");
 				}
@@ -375,7 +375,6 @@ public class EjerciciosTema2 {
 		sc.close();
 	}
 
-
 	private static void ejercicio13b() {
 		/*
 		 * BUCLE CON WHILE int i = 20; while(i<=20 && i > 0) { System.out.print(i+", ");
@@ -389,10 +388,11 @@ public class EjerciciosTema2 {
 			}
 		}
 	}
-	/** 
-	 * . Inicializa una variable entera a 0. Después, pregunta al usuario por un número y súmaselo a la 
-	 * variable inicial. Repite esto hasta que el usuario introduzca el número cero. Utiliza el bucle 
-	 * do..while.
+
+	/**
+	 * . Inicializa una variable entera a 0. Después, pregunta al usuario por un
+	 * número y súmaselo a la variable inicial. Repite esto hasta que el usuario
+	 * introduzca el número cero. Utiliza el bucle do..while.
 	 */
 	private static void ejercicio14() {
 		Scanner sc = new Scanner(System.in);
@@ -408,26 +408,27 @@ public class EjerciciosTema2 {
 	}
 
 	/**
-	 * Pide al usuario un número y calcula cuantas cifras tiene dicho número. Para ello puedes dividir
-	 * el número entre 10 hasta que el resultado sea cero.
+	 * Pide al usuario un número y calcula cuantas cifras tiene dicho número. Para
+	 * ello puedes dividir el número entre 10 hasta que el resultado sea cero.
 	 */
 	private static void ejercicio15() {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Dime un número: ");
 		int num = sc.nextInt();
 		int cifras = 0; // contador de cifras
-		
+
 		while (num != 0) {
-			num /= 10; // achicamos el numero = num = num / 10 
+			num /= 10; // achicamos el numero = num = num / 10
 			cifras++; // sube el contador
 		}
 		System.out.println("El número tiene " + cifras + " cifras");
 		sc.close();
 
 	}
-	
+
 	/**
-	 * . Pide al usuario un número y dibuja una línea con tantos asteriscos como el número introducido.
+	 * . Pide al usuario un número y dibuja una línea con tantos asteriscos como el
+	 * número introducido.
 	 */
 	private static void ejercicio16() {
 		Scanner sc = new Scanner(System.in);
@@ -454,7 +455,7 @@ public class EjerciciosTema2 {
 	 * Muestra de 5 en 5, los números del 0 al 100.
 	 */
 	private static void ejercicio18() {
-		for (int i = 0; i >= 0 && i <= 100; i+=5) {
+		for (int i = 0; i >= 0 && i <= 100; i += 5) {
 			System.out.print(i + ", ");
 		}
 	}
@@ -467,7 +468,7 @@ public class EjerciciosTema2 {
 		System.out.print("\nNumeros del 1 al " + num + ": ");
 
 		for (int i = 1; i <= num; i++) {
-			System.out.print((i!=num)?i+",":i+".");
+			System.out.print((i != num) ? i + "," : i + ".");
 		}
 	}
 

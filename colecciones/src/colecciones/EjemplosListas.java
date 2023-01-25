@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class EjemplosListas {
-	//MEMORIA DINÁMICA
+	// MEMORIA DINÁMICA
 	private static void ejemplo1() {
 		// Crear listas
 		List<String> nombres = new ArrayList<String>();
@@ -89,7 +89,16 @@ public class EjemplosListas {
 		System.out.println(alumnosDam);
 
 	}
-
+	public static void ejemplo2() {
+		List<String> nombres = new ArrayList<String>();
+		// añadir elementos
+		nombres.add("Thiago");
+		nombres.add("Camila");
+		nombres.add("Jaquelina");
+		nombres.add("Tomas");
+		
+		System.out.println(String.join(", ", nombres));
+	}
 	public static void buscarLista() {
 
 		List<String> meses = new ArrayList<String>(Arrays.asList("Enero", "febrero", "Marzo", "Abril", "Mayo", "Junio",
@@ -226,9 +235,9 @@ public class EjemplosListas {
 		meses.retainAll(subconjunto);
 	}
 
-
 	public static void main(String[] args) {
-		//ejercicio1();
+		// ejercicio1();
+		ejemplo2();
 
 	}
 }

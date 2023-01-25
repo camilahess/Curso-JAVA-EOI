@@ -4,10 +4,10 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class EjemplosArrays {
-	//Coleccion de datos: LOS ARRAYS SON DE MEMORIA ESTÁTICA. 
-	//Si no sabemos cuantos datos tendremos, usamos listas
-	//Se usan mucho en INTELIGENCIA ARTIFICIAL y en JavaScript
-	
+	// Coleccion de datos: LOS ARRAYS SON DE MEMORIA ESTÁTICA.
+	// Si no sabemos cuantos datos tendremos, usamos listas
+	// Se usan mucho en INTELIGENCIA ARTIFICIAL, JavaScript y motores de videojuegos
+
 	public static void nuevosEjemplos() {
 		int[] numeros = { 1, 2, 3, 4, 5 };
 		// Si necesito saber la posición
@@ -23,7 +23,7 @@ public class EjemplosArrays {
 		System.out.println("\n");
 		// suma
 		System.out.println(numeros[1] + "+" + numeros[3] + "=" + (numeros[1] + numeros[3]));
-		
+
 	}
 
 	private static void ejemplo1() {
@@ -60,7 +60,7 @@ public class EjemplosArrays {
 		for (String mes : meses) {
 			System.out.println(mes);
 		}
-		
+
 		System.out.println(String.join(", ", meses));
 
 		int numeroMes = 1;
@@ -141,15 +141,15 @@ public class EjemplosArrays {
 
 	public static void busquedaFuncional() {
 		String[] nombres = { "Juan", "Ana", "Pedro", "Eva", "Paco" };
-		boolean encontrado = false; 
-		String buscar = "PEDRO"; 
-		
-		if(Arrays.stream(nombres).anyMatch(n -> n.equalsIgnoreCase(buscar))) {
-			 System.out.println("El nombre " + buscar + " está en el array");
-			} else {
-			 System.out.println(buscar + " no encontrado...");
-			}
-		
+		boolean encontrado = false;
+		String buscar = "PEDRO";
+
+		if (Arrays.stream(nombres).anyMatch(n -> n.equalsIgnoreCase(buscar))) {
+			System.out.println("El nombre " + buscar + " está en el array");
+		} else {
+			System.out.println(buscar + " no encontrado...");
+		}
+
 	}
 
 	public static void ordenarArrays() {
@@ -220,43 +220,55 @@ public class EjemplosArrays {
 	}
 
 	public static void redimensiones() {
-		//Existe ya una función de Java que genera una copia del array con un nuevo
-		//tamaño, por lo que si la utilizamos nos queda un código más compacto.
-		
+		// Existe ya una función de Java que genera una copia del array con un nuevo
+		// tamaño, por lo que si la utilizamos nos queda un código más compacto.
+
 		String[] nombres = { "Juan", "Ana", "Pedro", "Eva", "Paco" };
 
-		nombres = Arrays.copyOf(nombres, 10); //agregamos nueva dimensión y se lo asignamos a nombres
+		nombres = Arrays.copyOf(nombres, 10); // agregamos nueva dimensión y se lo asignamos a nombres
 		nombres[5] = "Marta";
 		System.out.println(nombres.length); // 10
 		System.out.println(String.join(", ", nombres)); // Juan, Ana, Pedro, Eva, Paco, Marta, null, null
-		
-		for(String nombre : nombres) {
-			if(nombre!=null)
+
+		for (String nombre : nombres) {
+			if (nombre != null)
 				System.out.println(nombre + " tiene " + nombre.length() + " letras");
 		}
 	}
-	
+
 	public static void ejemploAumentarUno() {
 		Scanner sc = new Scanner(System.in);
 		String[] alumnos = { "Juan", "Ana", "Pedro", "Eva", "Paco" };
 		System.out.println("Introduzca nuevo nombre del array:");
-		String alumno = sc.nextLine();
-		alumnos = Arrays.copyOf(alumnos, alumnos.length+1);
-		alumnos[alumnos.length-1] = alumno;
+		String newAlumno = sc.nextLine();
+		alumnos = Arrays.copyOf(alumnos, alumnos.length + 1);
+		alumnos[alumnos.length - 1] = newAlumno;
+		
+		//tres formas de recorrer e imprimir 
+		for(String alumno:alumnos) {
+			System.out.println(alumno);
+		}
+		Arrays.stream(alumnos).forEach(e->System.out.println(e)); //programacion funcional
 		
 		System.out.println(String.join(", ", alumnos));
+		
 		sc.close();
-		
-		
+
 	}
 	
+	public static void stringJoin() {
+		String[] alumnos = { "Juan", "Ana", "Pedro", "Eva", "Paco" };
+		System.out.println(String.join(", ", alumnos));
+	}
+
 	public static void main(String[] args) {
-		//ejemplo1();
+		// ejemplo1();
 		// buscarEnArray();
 		// nuevosEjemplos();
-		//busquedaFuncional();
-		//redimensiones();
-		ejemploAumentarUno();
+		// busquedaFuncional();
+		// redimensiones();
+		//ejemploAumentarUno();
+		stringJoin();
 	}
 
 }
