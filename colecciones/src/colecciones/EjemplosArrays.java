@@ -5,13 +5,27 @@ import java.util.Scanner;
 
 public class EjemplosArrays {
 
+	public static void nuevosEjemplos() {
+		int[] numeros = { 1, 2, 3, 4, 5 };
+		// Si necesito saber la posición
+		for (int i = 0; i < numeros.length; i++) {
+			System.out.print(numeros[i]);
+		}
+		System.out.println("\n");
+		// FOR-EACH EN JAVA
+		for (int numero : numeros) {
+			System.out.print(numero);
+
+		}
+		System.out.println("\n");
+		// suma
+		System.out.println(numeros[1] + "+" + numeros[3] + "=" + (numeros[1] + numeros[3]));
+	}
+
 	private static void ejemplo1() {
-		// String [] meses = {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
-		// "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }
-		int a;
 		String[] meses = { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre",
 				"Octubre", "Noviembre", "Diciembre" }; // Del 0 al 11
-		int[] numeros = new int[5]; // de la posición 0 a la 4.
+		int[] numeros = new int[5]; // Asignamos memoria.
 		// Asignación de valores a los elementos de un array
 		numeros[0] = 3;
 		numeros[1] = 4;
@@ -38,6 +52,7 @@ public class EjemplosArrays {
 		}
 
 		// No sé la posición
+		// BUCLE FOREACH
 		for (String mes : meses) {
 			System.out.println(mes);
 		}
@@ -49,7 +64,7 @@ public class EjemplosArrays {
 		}
 	}
 
-	private static void buscarEnArray() {
+	public static void buscarEnArray() {
 		String[] meses = { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre",
 				"Octubre", "Noviembre", "Diciembre" }; // Del 0 al 11
 		int[] numeros = new int[5]; // de la posición 0 a la 4.
@@ -87,7 +102,6 @@ public class EjemplosArrays {
 		}
 
 		// Busca un número negativo en el cojunto del array
-		// Siempre que aparezca '->' estamos con programación funcional
 		if (Arrays.stream(numeros).anyMatch(numero -> numero < 0)) {
 			System.out.println("Hay algún número negativo");
 		} else {
@@ -100,6 +114,35 @@ public class EjemplosArrays {
 			System.out.println("Hay algún número negativo");
 		}
 
+	}
+
+	public static void buscar2Basico() {
+		String[] nombres = { "Juan", "Ana", "Pedro", "Eva", "Paco" };
+		boolean encontrado = false; // Nos indicará si hemos encontrado el valor
+		String buscar = "pedro"; // Valor a buscar en el array
+		// La condición también incluye que no hayamos encontrado lo que buscamos
+		for (int i = 0; i < nombres.length && !encontrado; i++) {
+			if (nombres[i].equalsIgnoreCase(buscar)) {
+				encontrado = true;
+			}
+		}
+		if (encontrado) {
+			System.out.println("El nombre " + buscar + " está en el array");
+		} else {
+			System.out.println(buscar + " no encontrado...");
+		}
+	}
+
+	public static void buscar3Funcional() {
+		String[] nombres = { "Juan", "Ana", "Pedro", "Eva", "Paco" };
+		boolean encontrado = false; 
+		String buscar = "PEDRO"; 
+		
+		if(Arrays.stream(nombres).anyMatch(n -> n.equalsIgnoreCase(buscar))) {
+			 System.out.println("El nombre " + buscar + " está en el array");
+			} else {
+			 System.out.println(buscar + " no encontrado...");
+			}
 	}
 
 	public static void ordenarArrays() {
@@ -170,9 +213,10 @@ public class EjemplosArrays {
 	}
 
 	public static void main(String[] args) {
-		ejemplo1();
+		// ejemplo1();
 		// buscarEnArray();
-
+		// nuevosEjemplos();
+		buscar3Funcional();
 	}
 
 }

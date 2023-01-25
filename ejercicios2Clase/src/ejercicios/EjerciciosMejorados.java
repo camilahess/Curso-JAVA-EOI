@@ -328,6 +328,13 @@ public class EjerciciosMejorados {
 		}
 	}
 	
+	private static void ejercicio18() {
+		for (int i=0; i>=0 && i <=100; i+=5) { // i=i+5
+			System.out.print((i<100) ? i+",": i+".");
+			
+		}
+	}
+	
 	private static void ejercicio21NPrimos() {
 		int contador = 0;
 		Scanner sc = new Scanner(System.in);
@@ -345,7 +352,7 @@ public class EjerciciosMejorados {
 	}
 	
 	public static void main(String[] args) {
-		ejercicio21NPrimos();
+		ejercicio18();
 
 	}
 

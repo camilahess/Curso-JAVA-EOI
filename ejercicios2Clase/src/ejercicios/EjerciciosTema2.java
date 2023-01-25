@@ -467,12 +467,7 @@ public class EjerciciosTema2 {
 		System.out.print("\nNumeros del 1 al " + num + ": ");
 
 		for (int i = 1; i <= num; i++) {
-			if (i < num) {
-				System.out.print(i + ", ");
-			} else {
-				System.out.print(i + ".");
-			}
-
+			System.out.print((i!=num)?i+",":i+".");
 		}
 	}
 
@@ -674,7 +669,7 @@ public class EjerciciosTema2 {
 	}
 
 	public static void main(String[] args) {
-		ejercicio23();
+		ejercicio19();
 
 	}
 

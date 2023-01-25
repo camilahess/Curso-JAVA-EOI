@@ -9,7 +9,7 @@ import java.util.List;
 public class CamiProbando {
 
 	private static void prueba1() {
-		
+		//LISTAS
 		// CREAR UNA LISTA
 		List<String> cad = new ArrayList<String>();
 	
