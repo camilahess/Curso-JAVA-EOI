@@ -11,7 +11,9 @@ public class EjerciciosArrays {
 				"Octubre", "Noviembre", "Diciembre" };
 		System.out.println("Introduce un número de mes: (1 al 12):  ");
 		int numero = sc.nextInt();
+		if(numero>1 && numero <=12) {
 		System.out.println(meses[numero-1]); // imprimo del array meses ( el numero - 1 ) ya que va de 0 a 11 
+		} else System.out.println("Mes no encontrado");
 		sc.close();
 		
 	}
@@ -164,7 +166,7 @@ public class EjerciciosArrays {
 	
 		
 	public static void main(String[] args) {
-		ejercicio4();
+		ejercicio1();
 		
 	}
 

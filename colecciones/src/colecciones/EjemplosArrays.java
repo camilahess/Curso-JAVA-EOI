@@ -1,6 +1,7 @@
 package colecciones;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class EjemplosArrays {
@@ -152,10 +153,10 @@ public class EjemplosArrays {
 
 	}
 
-	public static void ordenarArrays() {
+	public static void algoritmoBurbuja() {
+		//bubble sort
 		int[] nums = { 15, 6, 9, 12, 20 };
 
-		// Algoritmo de la burbuja
 		for (int i = 0; i < nums.length; i++) {
 			for (int j = i + 1; j < nums.length; j++) {
 				if (nums[j] < nums[i]) { // Intercambiamos
@@ -172,16 +173,31 @@ public class EjemplosArrays {
 
 	}
 
-	public static void ordenarArrays2() {
-		int[] nums = { 15, 6, 9, 12, 20 };
-		Arrays.sort(nums); // Me ordena el array
-		System.out.println(Arrays.toString(nums)); // [6, 9, 12, 15, 20] (Ordenados)
+	public static void ordenarArrays1() {
+		 Integer[] nums = {11, 2, 4, 5, 3, 21, 80};
+		 Arrays.sort(nums);
+		 System.out.print("\nArray ordenado de menor a mayor:");
+		 for (int n:nums) 
+		 System.out.print(" "+n);
+		 
+		 
+		 Arrays.sort(nums, Collections.reverseOrder());
+		 System.out.print("\nArray ordenado de mayor a menor:");
+		 for (int n:nums)
+			 System.out.print(" "+n);
+	
 	}
 
-	public static void ordenarArrays3() {
+	public static void ordenarArrays2() {
 		String[] meses = { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre",
 				"Octubre", "Noviembre", "Diciembre" }; // Del 0 al 11
-		Arrays.sort(meses); // Orden lexicográfico con sort
+		Arrays.sort(meses); // Orden lexicográfico con sort, es case sensitive.
+		//Si hay algo en minuscula, lo pondrá después
+		System.out.println(Arrays.toString(meses));
+		Arrays.stream(meses).forEach(e->System.out.println(e)); //funcional
+		
+		//Ordenar mayor a menor
+		Collections.reverse(Arrays.asList(meses));
 		System.out.println(Arrays.toString(meses));
 	}
 
@@ -261,6 +277,13 @@ public class EjemplosArrays {
 		System.out.println(String.join(", ", alumnos));
 	}
 
+	public static void eliminarElemento() {
+		String[] alumnos = { "Juan", "Ana", "Pedro", "Eva", "Paco" };
+		alumnos = Arrays.copyOf(alumnos, alumnos.length-1);
+		for(String alumno:alumnos) {
+			System.out.println(alumno);
+		}
+	}
 	public static void main(String[] args) {
 		// ejemplo1();
 		// buscarEnArray();
@@ -268,7 +291,9 @@ public class EjemplosArrays {
 		// busquedaFuncional();
 		// redimensiones();
 		//ejemploAumentarUno();
-		stringJoin();
+		//stringJoin();
+		//eliminarElemento();
+		ordenarArrays1();
 	}
 
 }
