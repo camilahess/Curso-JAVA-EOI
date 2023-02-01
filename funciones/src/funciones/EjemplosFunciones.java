@@ -51,14 +51,17 @@ public class EjemplosFunciones {
 		System.out.println("La cadena ha quedado así: " + cadena);
 	}
 
-	public static void funcion1() {
-		System.out.println("hola mundo");
+	/**
+	 * 
+	 * @param num1
+	 * @param num2
+	 * @return devuelve la suma de dos números, int
+	 */
+	public static int devuelveSuma(int num1, int num2) {
+		int resultado=0;
+		resultado=num1+num2;
+		return resultado;
 	}
-
-	public static void funcion2() {
-		System.out.println("adiós mundo");
-	}
-
 	/**
 	 * Función que dado un número imprime su cuadrado
 	 * 
@@ -237,9 +240,6 @@ public class EjemplosFunciones {
 
 	public static void main(String[] args) {
 		//Scanner sc = new Scanner(System.in);
-
-		// funcion1();
-		// funcion2();
 		/*
 		 * System.out.println("Primera búsqueda");
 		 * buscarSiguiente("Esta es la cadena en la que quiero buscar", "la");

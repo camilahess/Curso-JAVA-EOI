@@ -1,9 +1,10 @@
 package funciones;
 
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
-public class EjerciciosFunciones {
+public class Ejercicios {
 
 	public static void ejercicio1() {
 		for (int i = 0; i <= 20; i++) {
@@ -128,10 +129,8 @@ public class EjerciciosFunciones {
 		return true;
 	}
 
-	public static double ejercicio6(int[] array) {
-
+	public static double ejercicio6(double[] array) {
 		double suma = 0.0;
-
 		for (int i = 0; i < array.length; i++) {
 			suma = suma + array[i];
 			// o suma += array[i];
@@ -139,6 +138,18 @@ public class EjerciciosFunciones {
 		return suma / array.length;
 	}
 
+	public static double ejercicio6b(double...numeros) {
+		double resultado=0;
+		for(double numero:numeros) {
+			resultado +=numero;
+		}
+		return resultado/numeros.length;
+	}
+	
+	public static double ejercicio6Average(double[] numeros) {
+		return Arrays.stream(numeros).average().getAsDouble();
+	}
+	
 	public static String ejercicio7(String [] palabras) {
 		//Llegue hasta devolver la posicion pero ya no se como seguir
 		
@@ -146,11 +157,25 @@ public class EjerciciosFunciones {
 		return palabras[pos];
 	}
 
-	public static void ejercicio8(int...numeros) {
+	public static int ejercicio8Funcional(int...numeros) {
+		return Arrays.stream(numeros).max().orElse(0);
+	}
 	
+	public static int ejercicio8b(int...numeros) {
+		int maximo = Integer.MIN_VALUE;
+		if (numeros.length==0) {
+			return 0 ;
+		}
+		for(int numero:numeros) {
+			if(numero>maximo) {
+				maximo=numero;
+			}
+		}
+		return maximo;
+		
 	}
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+		//Scanner sc = new Scanner(System.in);
 		// ejercicio1();
 		// ejercicio1();
 		// ejercicio1();
@@ -179,30 +204,38 @@ public class EjerciciosFunciones {
 		// System.out.println("Tu número es un número primo? : " + ejercicio5(5));
 		// System.out.println("Tu número es un número primo? : " + ejercicio5(7));
 
-		// int[] array = {4,7,8,9};
-		// System.out.println("La media de tu array es: " + ejercicio6(array));
+//		 double[] array = {4,7,8,9};
+//		 System.out.println("La media de tu array es: " + ejercicio6(array));
+//		 System.out.println("La media es: " + ejercicio6b(20,10,5,3,7));
+//		 System.out.println(ejercicio6Average(array));
+//		 
 
 		// String [] array = {"Camila", "Tomas", "Thiago", "Jaqui"};
 		
-		String[] palabras = {"casa", "gato", "mano", "cara", "silla"};
-		String palabraAdivinar = ejercicio7(palabras);
-		
-		boolean adivinada = false;
-		int intentos = 0;
-		while(!adivinada && intentos < 3) {
-			System.out.print("Adivina la palabra (intento " + (intentos + 1) + "): ");
-			String palabra = sc.nextLine();
-			if(palabra.equals(palabraAdivinar)) {
-				adivinada = true;
-			}
-			intentos++;
-		}
-		
-		if(adivinada) {
-			System.out.println("Enhorabuena, has acertado!");
-		} else {
-			System.out.println("La palabra correcta era " + palabraAdivinar);
-	}
+//		String[] palabras = {"casa", "gato", "mano", "cara", "silla"};
+//		String palabraAdivinar = ejercicio7(palabras);
+//		
+//		boolean adivinada = false;
+//		int intentos = 0;
+//		while(!adivinada && intentos < 3) {
+//			System.out.print("Adivina la palabra (intento " + (intentos + 1) + "): ");
+//			String palabra = sc.nextLine();
+//			if(palabra.equals(palabraAdivinar)) {
+//				adivinada = true;
+//			}
+//			intentos++;
+//		}
+//		
+//		if(adivinada) {
+//			System.out.println("Enhorabuena, has acertado!");
+//		} else {
+//			System.out.println("La palabra correcta era " + palabraAdivinar);
+//	}
+		//ejercicio8 estructurado
+		int maximo = ejercicio8b(2,10,25,100,1000);
+		System.out.println(maximo);
+		//ejercicio8 funcional
+		System.out.println(ejercicio8Funcional(2,40,50,1000,2000));
 		
 		
 
