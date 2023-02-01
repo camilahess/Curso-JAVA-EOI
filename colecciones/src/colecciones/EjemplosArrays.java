@@ -26,6 +26,15 @@ public class EjemplosArrays {
 		System.out.println(numeros[1] + "+" + numeros[3] + "=" + (numeros[1] + numeros[3]));
 
 	}
+	
+	private static void recorrerCaracteres() {
+		String cadena = "Hola que tal";
+		System.out.println("Cuarta letra: " + cadena.charAt(3)); // Cuarta letra: a
+		
+		for (int i = 0; i < cadena.length(); i++) {
+		 System.out.println("[" + i + "]: " + cadena.charAt(i));
+		}
+	}
 
 	private static void ejemplo1() {
 		String[] meses = { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre",
@@ -202,6 +211,7 @@ public class EjemplosArrays {
 	}
 
 	public static void arraysMultidimensionales() {
+		//MATRIZ DE DATOS , ARRAY BIDIMENSIONAL, 2D
 		// Ejemplo de tabla no escalonada
 		int[][] tabla = new int[4][3]; // crear el array y darle memoria
 		tabla[0][0] = 5;
@@ -293,7 +303,9 @@ public class EjemplosArrays {
 		//ejemploAumentarUno();
 		//stringJoin();
 		//eliminarElemento();
-		ordenarArrays1();
+		//ordenarArrays1();
+		//recorrerCaracteres();
+		arraysMultidimensionales();
 	}
 
 }
