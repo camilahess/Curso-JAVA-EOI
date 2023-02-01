@@ -284,7 +284,7 @@ public class EjerciciosArrays {
 	public static void ejercicio13() {
 		// 3 productos con 3 datos
 		String[][] productos = { { "Silla", "45.50", "2" }, // primera fila, 3 columnas
-				{ "Mesa", "58.68", "1" }, // segunda fila, 3 columnas
+				{ "Mesa", "58,68", "1" }, // segunda fila, 3 columnas
 				{ "Armarios", "40", "3" }, // tercera fila, 3 columnas
 		};
 
@@ -292,7 +292,7 @@ public class EjerciciosArrays {
 		System.out.println(String.valueOf('-').repeat(44));
 		
 		for (int i = 0; i < productos.length; i++) {
-			double precio = Double.parseDouble(productos[i][1]); // porque j no varía en cuanto a posición
+			double precio = Double.parseDouble(productos[i][1].replace(',', '.')); // porque j no varía en cuanto a posición
 			int cantidad = Integer.parseInt(productos[i][2]);
 			double total = precio * cantidad;
 			System.out.printf("%-14s%9.2f€%8d%11.2f€\n", productos[i][0], precio, cantidad, total); // productos = solo
@@ -304,7 +304,7 @@ public class EjerciciosArrays {
 
 	public static void main(String[] args) {
 		//ejercicio9Pattern();
-		//ejercicio13();
+		ejercicio13();
 
 	}
 
