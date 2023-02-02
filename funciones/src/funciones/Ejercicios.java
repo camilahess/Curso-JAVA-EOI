@@ -150,11 +150,35 @@ public class Ejercicios {
 		return Arrays.stream(numeros).average().getAsDouble();
 	}
 	
-	public static String ejercicio7(String [] palabras) {
+	public static String devolverAzar(String [] palabras) {
 		
 		int aleatoria = new Random().nextInt(palabras.length);
 		return palabras[aleatoria];
 		// return palabras[new Random().nextInt(palabras.length)]; lo mismo
+	}
+	public static void ejercicio7() {
+		Scanner sc = new Scanner(System.in);
+		String[] palabras = {"casa", "gato", "mano", "cara", "silla"};
+		System.out.println("Tienes que adivinar una de estas palabras: " + Arrays.asList(palabras));
+		String palabraAdivinar = devolverAzar(palabras);
+		
+		boolean adivinada = false;
+		int intentos = 0;
+		final int MAXIMO_INTENTOS=3;
+		while(!adivinada && intentos < MAXIMO_INTENTOS) {
+			System.out.print("Adivina la palabra (intento " + (intentos + 1) + "): ");
+			String palabra = sc.nextLine();
+			if(palabra.equals(palabraAdivinar)) {
+				adivinada = true;
+			}
+			intentos++;
+		}
+		
+		if(adivinada) {
+			System.out.println("Enhorabuena, has acertado!");
+		} else {
+			System.out.println("La palabra correcta era " + palabraAdivinar);
+	}
 	}
 
 	public static int ejercicio8Funcional(int...numeros) {
@@ -211,28 +235,6 @@ public class Ejercicios {
 //		 
 
 		// String [] array = {"Camila", "Tomas", "Thiago", "Jaqui"};
-		
-		String[] palabras = {"casa", "gato", "mano", "cara", "silla"};
-		System.out.println("Tienes que adivinar una de estas palabras: " + Arrays.asList(palabras));
-		String palabraAdivinar = ejercicio7(palabras);
-		
-		boolean adivinada = false;
-		int intentos = 0;
-		final int MAXIMO_INTENTOS=3;
-		while(!adivinada && intentos < MAXIMO_INTENTOS) {
-			System.out.print("Adivina la palabra (intento " + (intentos + 1) + "): ");
-			String palabra = sc.nextLine();
-			if(palabra.equals(palabraAdivinar)) {
-				adivinada = true;
-			}
-			intentos++;
-		}
-		
-		if(adivinada) {
-			System.out.println("Enhorabuena, has acertado!");
-		} else {
-			System.out.println("La palabra correcta era " + palabraAdivinar);
-	}
 //		//ejercicio8 estructurado
 //		int maximo = ejercicio8b(2,10,25,100,1000);
 //		System.out.println(maximo);
