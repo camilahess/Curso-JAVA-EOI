@@ -3,6 +3,8 @@ package funciones;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Ejercicios {
 
@@ -216,6 +218,16 @@ public class Ejercicios {
 	    return contador;
 	}
 	
+	public static int ejercicio9Pattern(String cadena, String subcadena) {
+		Pattern p = Pattern.compile(subcadena);
+	    Matcher m = p.matcher(cadena);
+	    int contador = 0;
+	    while (m.find()) {
+	        contador++;
+	    }
+	    return contador;
+	}
+	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		// ejercicio1();
@@ -262,7 +274,7 @@ public class Ejercicios {
 		//ejercicio7();
 		String cadena = "cocinando cocos con chocolate";
 		String busca = "co";
-		int apariciones = ejercicio9(cadena,busca);
+		int apariciones = ejercicio9Pattern(cadena,busca);
 		System.out.println(apariciones == -1 ? "La cadena no se encuentra" : "La cadena aparece "+ apariciones + " veces");
 
 	}
