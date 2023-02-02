@@ -156,15 +156,24 @@ public class Ejercicios {
 		return palabras[aleatoria];
 		// return palabras[new Random().nextInt(palabras.length)]; lo mismo
 	}
+	
+	public static void mostrarElementos(String[] cadenas) {
+		for (String cadena:cadenas) {
+			System.out.print(cadena+"-");
+		}
+		//Arrays.stream(cadenas).forEach(e->System.out.println(e)); //funcional
+	}
 	public static void ejercicio7() {
 		Scanner sc = new Scanner(System.in);
 		String[] palabras = {"casa", "gato", "mano", "cara", "silla"};
-		System.out.println("Tienes que adivinar una de estas palabras: " + Arrays.asList(palabras));
+		System.out.println("Tienes que adivinar una de estas palabras: " + Arrays.asList(palabras)); 
+		//mostrarElementos(palabras);
 		String palabraAdivinar = devolverAzar(palabras);
 		
 		boolean adivinada = false;
 		int intentos = 0;
 		final int MAXIMO_INTENTOS=3;
+		
 		while(!adivinada && intentos < MAXIMO_INTENTOS) {
 			System.out.print("Adivina la palabra (intento " + (intentos + 1) + "): ");
 			String palabra = sc.nextLine();
@@ -174,11 +183,7 @@ public class Ejercicios {
 			intentos++;
 		}
 		
-		if(adivinada) {
-			System.out.println("Enhorabuena, has acertado!");
-		} else {
-			System.out.println("La palabra correcta era " + palabraAdivinar);
-	}
+		System.out.println((adivinada?"Enhorabuena, has acertado!":("La palabra correcta era " + palabraAdivinar)));
 	}
 
 	public static int ejercicio8Funcional(int...numeros) {
@@ -241,7 +246,7 @@ public class Ejercicios {
 //		//ejercicio8 funcional
 //		System.out.println(ejercicio8Funcional(2,40,50,1000,2000));
 		
-		
+		ejercicio7();
 
 	}
 
