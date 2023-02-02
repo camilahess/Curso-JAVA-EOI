@@ -219,10 +219,11 @@ public class Ejercicios {
 	}
 	
 	public static int ejercicio9Pattern(String cadena, String subcadena) {
+		//el patrón hace match con la cadena? : 
 		Pattern p = Pattern.compile(subcadena);
 	    Matcher m = p.matcher(cadena);
 	    int contador = 0;
-	    while (m.find()) {
+	    while (m.find()) { //mientras haya matches y se encuentre, se aumenta el contador
 	        contador++;
 	    }
 	    return contador;
@@ -272,10 +273,10 @@ public class Ejercicios {
 //		System.out.println(ejercicio8Funcional(2,40,50,1000,2000));
 		
 		//ejercicio7();
-		String cadena = "cocinando cocos con chocolate";
-		String busca = "co";
+		String cadena = "cocinando cococos con chococolate";
+		String busca = "coco";
 		int apariciones = ejercicio9Pattern(cadena,busca);
-		System.out.println(apariciones == -1 ? "La cadena no se encuentra" : "La cadena aparece "+ apariciones + " veces");
+		System.out.println(apariciones == 0 ? "La cadena no se encuentra" : "La cadena aparece "+ apariciones + " veces");
 
 	}
 
