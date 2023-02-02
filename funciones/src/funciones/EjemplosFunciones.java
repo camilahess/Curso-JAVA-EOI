@@ -189,9 +189,18 @@ public class EjemplosFunciones {
 		s = s.replace("perro", "koala");
 		System.out.println(s); // Mi koala se llama Comeniños
 		s = "Mi perro se llama Comeniños";
+		// el replace es igual al replace all
+		String s3 = "Mi perro perro perro perro se llama Comeniños";
+		s3 = s3.replace("perro", "koala"); //imprime Mi koala koala koala koala se llama Comeniños
+
+		System.out.println(s);
 		String animal = s.substring(3, 8);
 		System.out.println(animal); // perro
-		s = "pato-gato-perro-koala";
+		
+	}
+	
+	public static void stringSplit() {
+		String s = "pato-gato-perro-koala";
 		String[] animales = s.split("-");
 		System.out.println("Hay " + animales.length + " animales"); // Hay 4 animales
 		for (String animalString : animales) {
@@ -200,9 +209,12 @@ public class EjemplosFunciones {
 
 		String tiempo = "51.50853,-0.12574,1546300800,2019-01-01 00:00:00 +0000 UTC,1546300800,2019-01-01 00:00:00 +0000 UTC,8.08,4.63,1034.848,1029.908,78.61,,2.959,292.075,,,,,,,,,";
 		String[] datos = tiempo.split(",");
-		System.out.println(datos[6]); // 8.08 (obtiene la temperatura)
+		System.out.println("La temperatura es: " + datos[6]); // 8.08 (obtiene la temperatura)
 
-	}
+		String cuenta = "111;Camila;27/01/2024;ES;10000";
+		String[] datos2 =cuenta.split(";");
+		System.out.println(datos2[1] + " tiene " + datos2[4] + " € en la cuenta");
+ 	}
 
 	public static void ejemplosFechas() {
 		
@@ -246,14 +258,14 @@ public class EjemplosFunciones {
 	
 
 	public static void main(String[] args) {
-		//Scanner sc = new Scanner(System.in);
-		/*
-		 * System.out.println("Primera búsqueda");
-		 * buscarSiguiente("Esta es la cadena en la que quiero buscar", "la");
-		 * System.out.println("Segunda búsqueda");
-		 * buscarSiguiente("Esto es otra cadena", "ot");
-		 */
-		// reemplazar("Esto es una cadena donde aparece esto y esto","esto","aquello");
+//		//Scanner sc = new Scanner(System.in);
+//		/*
+//		 * System.out.println("Primera búsqueda");
+//		 * buscarSiguiente("Esta es la cadena en la que quiero buscar", "la");
+//		 * System.out.println("Segunda búsqueda");
+//		 * buscarSiguiente("Esto es otra cadena", "ot");
+//		 */
+//		// reemplazar("Esto es una cadena donde aparece esto y esto","esto","aquello");
 
 		// Programa que te va imprimiendo el cuadrado de los números que mete el usuario
 		// por pantalla
@@ -314,7 +326,8 @@ public class EjemplosFunciones {
 		//ejemplosMath();
 		//ejemplosCadenas();
 		//ejemplosFechas();
-		buscarArrayInteger();
+		//buscarArrayInteger();
+		stringSplit();
 	}
 
 }

@@ -52,6 +52,8 @@ public class Ejemplos2 {
 		numeros[0] = 99;
 	}
 	
+
+	
 	public static void main(String[] args) {
 //		String cadena2 = "Hola que tal";
 //		imprimirCadena(cadena2);
@@ -74,8 +76,7 @@ public class Ejemplos2 {
 		int[] var1ref = {num1}; // {5}
 		porReferencia(var1ref); // {99}
 		System.out.println(var1ref[0]); // 99
-		
-		
+	
 	}
 
 }
