@@ -151,10 +151,10 @@ public class Ejercicios {
 	}
 	
 	public static String ejercicio7(String [] palabras) {
-		//Llegue hasta devolver la posicion pero ya no se como seguir
 		
-		int pos = new Random().nextInt(palabras.length);
-		return palabras[pos];
+		int aleatoria = new Random().nextInt(palabras.length);
+		return palabras[aleatoria];
+		// return palabras[new Random().nextInt(palabras.length)]; lo mismo
 	}
 
 	public static int ejercicio8Funcional(int...numeros) {
@@ -162,7 +162,7 @@ public class Ejercicios {
 	}
 	
 	public static int ejercicio8b(int...numeros) {
-		int maximo = Integer.MIN_VALUE;
+		int maximo = Integer.MIN_VALUE; // la inicialización siempre será el máximo, para no poner cero y que tome numeros negativos
 		if (numeros.length==0) {
 			return 0 ;
 		}
@@ -175,7 +175,7 @@ public class Ejercicios {
 		
 	}
 	public static void main(String[] args) {
-		//Scanner sc = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 		// ejercicio1();
 		// ejercicio1();
 		// ejercicio1();
@@ -212,30 +212,32 @@ public class Ejercicios {
 
 		// String [] array = {"Camila", "Tomas", "Thiago", "Jaqui"};
 		
-//		String[] palabras = {"casa", "gato", "mano", "cara", "silla"};
-//		String palabraAdivinar = ejercicio7(palabras);
-//		
-//		boolean adivinada = false;
-//		int intentos = 0;
-//		while(!adivinada && intentos < 3) {
-//			System.out.print("Adivina la palabra (intento " + (intentos + 1) + "): ");
-//			String palabra = sc.nextLine();
-//			if(palabra.equals(palabraAdivinar)) {
-//				adivinada = true;
-//			}
-//			intentos++;
-//		}
-//		
-//		if(adivinada) {
-//			System.out.println("Enhorabuena, has acertado!");
-//		} else {
-//			System.out.println("La palabra correcta era " + palabraAdivinar);
-//	}
-		//ejercicio8 estructurado
-		int maximo = ejercicio8b(2,10,25,100,1000);
-		System.out.println(maximo);
-		//ejercicio8 funcional
-		System.out.println(ejercicio8Funcional(2,40,50,1000,2000));
+		String[] palabras = {"casa", "gato", "mano", "cara", "silla"};
+		System.out.println("Tienes que adivinar una de estas palabras: " + Arrays.asList(palabras));
+		String palabraAdivinar = ejercicio7(palabras);
+		
+		boolean adivinada = false;
+		int intentos = 0;
+		final int MAXIMO_INTENTOS=3;
+		while(!adivinada && intentos < MAXIMO_INTENTOS) {
+			System.out.print("Adivina la palabra (intento " + (intentos + 1) + "): ");
+			String palabra = sc.nextLine();
+			if(palabra.equals(palabraAdivinar)) {
+				adivinada = true;
+			}
+			intentos++;
+		}
+		
+		if(adivinada) {
+			System.out.println("Enhorabuena, has acertado!");
+		} else {
+			System.out.println("La palabra correcta era " + palabraAdivinar);
+	}
+//		//ejercicio8 estructurado
+//		int maximo = ejercicio8b(2,10,25,100,1000);
+//		System.out.println(maximo);
+//		//ejercicio8 funcional
+//		System.out.println(ejercicio8Funcional(2,40,50,1000,2000));
 		
 		
 

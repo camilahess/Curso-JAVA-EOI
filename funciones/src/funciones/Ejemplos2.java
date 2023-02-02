@@ -1,5 +1,7 @@
 package funciones;
 
+import java.util.Random;
+
 public class Ejemplos2 {
 
 	
@@ -35,6 +37,10 @@ public class Ejemplos2 {
 		System.out.println(Integer.parseInt(num1)+Integer.parseInt(num2));
 	}
 	
+	public static String adivinar(String[] palabras) {
+		int aleatoria = new Random().nextInt(palabras.length);
+		return palabras[aleatoria];
+	}
 	
 	public static void main(String[] args) {
 //		String cadena2 = "Hola que tal";
@@ -45,7 +51,8 @@ public class Ejemplos2 {
 //		imprimirSuma(2.5,2.8); //utiliza la funcion de imprimirsuma con double
 //		imprimirSuma(2,8); //utiliza la misma función con int, etc.
 //		imprimirSuma("10","20");
-
+		
+		
 	}
 
 }
