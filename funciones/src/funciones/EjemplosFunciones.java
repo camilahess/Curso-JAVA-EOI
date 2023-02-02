@@ -3,6 +3,7 @@ package funciones;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -27,7 +28,12 @@ public class EjemplosFunciones {
 			}
 		}
 	}
-
+	
+	public static void buscarArrayInteger() {
+		int [] numeros = {5,9,10,15,20};
+		boolean encontrado = Arrays.stream(numeros).anyMatch(e->e==5);
+		System.out.println(encontrado);
+	}
 	public static void reemplazar(String cadena, String cadenaBuscada, String cadenaReemplazar) {
 		Scanner sc = new Scanner(System.in);
 		boolean salir = false;
@@ -109,7 +115,7 @@ public class EjemplosFunciones {
 		return numero;
 	}
 
-	// La linea del cambio de número2 se piere al salir
+	// La linea del cambio de número2 se pierde al salir
 	public static int cambiarValor(int numero, int numero2) {
 		numero = numero + 1;
 		numero2 = numero2 + 1;
@@ -147,10 +153,10 @@ public class EjemplosFunciones {
 		System.out.println(Math.round(n2)); // 2. Redondea. A partir de .50 hacia arriba y sino hacia abajo
 		System.out.println(Math.floor(n3)); // 2. Duvuelve el número por debajo del argumento
 		System.out.println(Math.floor(n4)); // ??? -> -3
-		System.out.println(Math.ceil(n3)); // ??? -> 3 Devuelve el siguiente número al argumento pasado
+		System.out.println(Math.ceil(n3)); // ??? -> 3 Devuelve el siguiente número al argumento pasado(el techo)
 		System.out.println(Math.ceil(n4)); // ??? -> -2
-		System.out.println(Math.max(23, 43)); // 43
-		System.out.println(Math.min(4, 5)); // 4
+		System.out.println(Math.max(23, 43)); // 43 mayoy de los nums
+		System.out.println(Math.min(4, 5)); // 4 menor de los nums
 		System.out.println(Math.sqrt(25)); // 5 . raiz cuadrada
 		System.out.println(Math.pow(5, 2)); // 25 . elevar al cuadrado
 		System.out.println(Math.pow(5, 3)); // 125 . elevar al cuadrado
@@ -179,6 +185,7 @@ public class EjemplosFunciones {
 		System.out.println(s.indexOf("gato")); // -1
 		System.out.println(s.contains("perro")); // true
 		System.out.println(s.contains("gato")); // false
+		//inmutabilidad de las cadenas, mutan cuando se vuelven a asignar a si mismas
 		s = s.replace("perro", "koala");
 		System.out.println(s); // Mi koala se llama Comeniños
 		s = "Mi perro se llama Comeniños";
@@ -271,7 +278,7 @@ public class EjemplosFunciones {
 		 * System.out.println(concatenarCadenas("Hola"));
 		 * System.out.println(concatenarCadenas("Hola", "Camila"));
 		 */
-		  System.out.println(concatenarCadenas("Hola", "mundo", "cruel"));
+		  //System.out.println(concatenarCadenas("Hola", "mundo", "cruel"));
 		  /*
 		 * System.out.println(concatenarCadenas("Adiós"));
 		 * System.out.println(concatenarCadenas());
@@ -307,7 +314,7 @@ public class EjemplosFunciones {
 		//ejemplosMath();
 		//ejemplosCadenas();
 		//ejemplosFechas();
-
+		buscarArrayInteger();
 	}
 
 }

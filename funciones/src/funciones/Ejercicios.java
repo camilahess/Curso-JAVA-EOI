@@ -203,6 +203,19 @@ public class Ejercicios {
 		return maximo;
 		
 	}
+	
+	public static int ejercicio9(String cadena, String subCadena) {
+		int contador = 0;
+	    int indice = 0;
+	    while ((indice = cadena.indexOf(subCadena, indice)) != -1) {
+	        // Se encontró una coincidencia, se aumenta el contador
+	        contador++;
+	        // Se mueve el índice para buscar la siguiente coincidencia
+	        indice += subCadena.length();
+	    }
+	    return contador;
+	}
+	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		// ejercicio1();
@@ -246,7 +259,11 @@ public class Ejercicios {
 //		//ejercicio8 funcional
 //		System.out.println(ejercicio8Funcional(2,40,50,1000,2000));
 		
-		ejercicio7();
+		//ejercicio7();
+		String cadena = "cocinando cocos con chocolate";
+		String busca = "co";
+		int apariciones = ejercicio9(cadena,busca);
+		System.out.println(apariciones == -1 ? "La cadena no se encuentra" : "La cadena aparece "+ apariciones + " veces");
 
 	}
 

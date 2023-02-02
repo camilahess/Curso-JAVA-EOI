@@ -1,5 +1,6 @@
 package funciones;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class Ejemplos2 {
@@ -42,6 +43,15 @@ public class Ejemplos2 {
 		return palabras[aleatoria];
 	}
 	
+	//parámetros por valor y por referencia
+	public static void porValor(int num) {
+		num = 99;
+	}
+	
+	public static void porReferencia(int[] numeros) {
+		numeros[0] = 99;
+	}
+	
 	public static void main(String[] args) {
 //		String cadena2 = "Hola que tal";
 //		imprimirCadena(cadena2);
@@ -51,6 +61,19 @@ public class Ejemplos2 {
 //		imprimirSuma(2.5,2.8); //utiliza la funcion de imprimirsuma con double
 //		imprimirSuma(2,8); //utiliza la misma función con int, etc.
 //		imprimirSuma("10","20");
+		int num1= 5;
+		porValor(num1);
+		System.out.println(num1); // el número no cambia, sigue siendo 5
+		
+		int[] array = {1, 2, 3, 4};
+		porReferencia(array);
+		System.out.println(Arrays.toString(array)); // [99, 2, 3, 4] Aquí si cambia
+		
+		//si queremos cambiar el valor de una variable es mejor trabajar con arrays
+		//los valores primitivos no cambian
+		int[] var1ref = {num1}; // {5}
+		porReferencia(var1ref); // {99}
+		System.out.println(var1ref[0]); // 99
 		
 		
 	}
