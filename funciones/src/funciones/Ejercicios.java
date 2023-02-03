@@ -1,6 +1,9 @@
 package funciones;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -229,6 +232,99 @@ public class Ejercicios {
 	    return contador;
 	}
 	
+	/**
+	 * Crea una función que reciba un array de cadenas y te lo devuelva ordenado
+	 * alfabéticamente de la ‘z’ a la ‘a’
+	 */
+	public static void ejercicio12(String[] cadenas) {
+		//Arrays.sort(cadenas);  // Orden ascendente y se modifica fuera del método
+		Arrays.sort(cadenas, Comparator.reverseOrder());  // orden descendente
+	}
+	
+	/*13. Crea una función que reciba un array de números y un número. y te devuelva cuantas
+	veces aparece ese número en el array.*/
+	
+	public static void ejercicio13(int[] numeros, int n) {
+		int veces = 0;
+		for (int i = 0; i < numeros.length; i++) { //cuantas veces el numero aparce ene l array de numeros
+			if(numeros[i] == n)
+				veces++;
+		}
+		System.out.println("El "+n+" aparece "+ veces+" veces");
+	}
+	
+	/*15. Crea una función que reciba una fecha en formato dd-mm-yyyy, conviértela a fecha
+	(LocalDate) utilizando la función subString o split para extraer el día, mes y año, o usa
+	el DateTimeFormatter, súmale 2 años, 3 meses y 5 días, y muestra la fecha resultante.*/
+	public static LocalDate ejercicio15(String fechaCadena) {
+		 //LocalDate fecha = convertirFechaSubString(fechaCadena);
+		 //LocalDate fecha = convertirFechaSplit(fechaCadena);
+		 LocalDate fecha = convertirDateTimeFormatter(fechaCadena);
+	     fecha = sumarTiempos(fecha,5,3,2);
+	     return fecha;
+		
+	}
+	/**
+	 * Recibe una fecha y devuelve otra fecha con los dias, meses y años que le pasamos sumados
+	 * @param fechaInicio fecha a la que queremos sumarle días, meses y años
+	 * @param dias
+	 * @param meses
+	 * @param anios
+	 * @return fecha sumada
+	 */
+	public static LocalDate sumarTiempos(LocalDate fechaInicio, int dias, int meses, int anios) {
+		return fechaInicio.plusYears(anios).plusMonths(meses).plusDays(dias);
+		
+	}
+	/**
+	 * Dada una fecha inicial en formato cadena la convierte en LocalDate y le suma los días, meses y años
+	 * pasados por parámetros. Ejemplos fechas de entrada: "27-07-1976", "27/07/1976"
+	 * @param fechaCadena Fecha inicial de la cual partimos
+	 * @param dias Días que queremos sumar. Si no quieres sumar días pon 0.
+	 * @param meses Meses que queremos sumar. Si no quieres sumar meses pon 0.
+	 * @param anios Años que queremos sumar. Si no quieres sumar años pon 0.
+	 * @return
+	 */
+	public static LocalDate sumarTiemposCadenaFecha(String fechaCadena, int dias, int meses,int anios) {
+		LocalDate fecha = convertirDateTimeFormatter(fechaCadena);
+		fecha = sumarTiempos(fecha,dias,meses,anios);
+		return fecha;
+	}
+	/**
+	 *  Dada una fecha en formato "dd-mm-aaaa" y un separador la devuelve en LocalDate usando split
+	 * @param fechaCadena
+	 * @return
+	 */
+	public static LocalDate convertirFechaSplit(String fechaCadena) {
+		String[] fechaArray = fechaCadena.split("-");
+//        int dia = Integer.parseInt(fechaArray[0]);
+//        int mes = Integer.parseInt(fechaArray[1]);
+//        int anio = Integer.parseInt(fechaArray[2]);
+        return LocalDate.of((Integer.parseInt(fechaArray[2])), //año
+        		(Integer.parseInt(fechaArray[1])), //mes
+        		(Integer.parseInt(fechaArray[0]))); //día
+	}
+	
+	/**
+	 * Dada una fecha en formato "dd-mm-aaaa" la devuelve en LocalDate usando subString
+	 * @param fechaCadena
+	 * @return
+	 */
+	public static LocalDate convertirFechaSubString(String fechaCadena) {
+		return LocalDate.of((Integer.parseInt(fechaCadena.substring(6,10))),
+				Integer.parseInt(fechaCadena.substring(3,5)),
+				Integer.parseInt(fechaCadena.substring(0,2)));
+	}
+	
+	/**
+	 * Dada una fecha en formato "dd-mm-aaaa" la devuelve en LocalDate usando DateTimeFormatter
+	 * @param fechaCadena
+	 * @return
+	 */
+	public static LocalDate convertirDateTimeFormatter (String fechaCadena) {
+		return LocalDate.parse(fechaCadena.replace("-","/"), DateTimeFormatter.ofPattern("d/M/y"));
+	}
+	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		// ejercicio1();
@@ -272,12 +368,16 @@ public class Ejercicios {
 //		//ejercicio8 funcional
 //		System.out.println(ejercicio8Funcional(2,40,50,1000,2000));
 		
-		//ejercicio7();
-		String cadena = "cocinando cococos con chococolate";
-		String busca = "coco";
-		int apariciones = ejercicio9Pattern(cadena,busca);
-		System.out.println(apariciones == 0 ? "La cadena no se encuentra" : "La cadena aparece "+ apariciones + " veces");
-
+//		//ejercicio7();
+//		String cadena = "cocinando cococos con chococolate";
+//		String busca = "coco";
+//		int apariciones = ejercicio9Pattern(cadena,busca);
+//		System.out.println(apariciones == 0 ? "La cadena no se encuentra" : "La cadena aparece "+ apariciones + " veces");
+		String fecha = "04-04-1995";
+		System.out.println("Fecha de inicio en String:" + fecha);
+		System.out.println("La fecha con 2 años, 3 meses y 5 días más es : " + ejercicio15(fecha));
+		System.out.println(sumarTiemposCadenaFecha("04-04-1995",5,3,2));
 	}
+	
 
 }

@@ -2,8 +2,10 @@ package funciones;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -254,7 +256,41 @@ public class EjemplosFunciones {
 		System.out.println("Día: " + fechaHoraMarca.getDayOfMonth() + " hora: " + fechaHoraMarca.getHour());
 
 	}
+	
+	public static void ejemplosFechas2() {
+		Date noUsar = new Date(); // No usar nunca Date si trabajamos en un proyecto Java 8+
+		LocalDate fecha = LocalDate.now();
+		System.out.println(fecha); // 2023-02-02
+		LocalDate hoyMas15 = fecha.plusDays(15);
+		System.out.println(hoyMas15);
+		LocalDate anteAyer = fecha.minusDays(2);
+		System.out.println(anteAyer);
+		System.out.println(fecha.getDayOfMonth() + " " + fecha.getMonthValue() + " " + fecha.getYear());
+		System.out.println(fecha.getDayOfYear()); // día del año 1-365,366
+		LocalDate fechaConcierto = LocalDate.of(2024, 3, 30); // 30-3-2024
+		if (fecha.isBefore(fechaConcierto) || fecha.isEqual(fechaConcierto)) {
+			System.out.println("Puedes comprar entradas");
+		} else {
+			System.out.println("El concierto ya pasó");
+		}
 
+		String[] dias = { "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo" };
+		LocalDate fechaHoy = LocalDate.now();
+		String diaHoy = dias[fechaHoy.getDayOfWeek().getValue()-1];
+		System.out.printf("Hoy es %s, %02d/%02d/%d\n", diaHoy, fechaHoy.getDayOfMonth(), fechaHoy.getMonthValue(),
+				fechaHoy.getYear()); // Hoy es Jueves, 02/02/2023
+		
+		// Usando un patrón del sistema
+		System.out.println(fecha.format(DateTimeFormatter.ofPattern("'Hoy es' MMMM eeee, dd/MM/y")));
+		
+		LocalTime ahora = LocalTime.now();
+		System.out.println(ahora);
+		LocalTime dentro1Hora = ahora.plusHours(1);
+		System.out.println(dentro1Hora);
+
+		LocalDateTime fechaAhora = LocalDateTime.now();
+		System.out.println(fechaAhora);
+	}
 	
 
 	public static void main(String[] args) {
