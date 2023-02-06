@@ -30,13 +30,12 @@ public class EjemplosFunciones {
 			}
 		}
 	}
-
+	
 	public static void buscarArrayInteger() {
-		int[] numeros = { 5, 9, 10, 15, 20 };
-		boolean encontrado = Arrays.stream(numeros).anyMatch(e -> e == 5);
+		int [] numeros = {5,9,10,15,20};
+		boolean encontrado = Arrays.stream(numeros).anyMatch(e->e==5);
 		System.out.println(encontrado);
 	}
-
 	public static void reemplazar(String cadena, String cadenaBuscada, String cadenaReemplazar) {
 		Scanner sc = new Scanner(System.in);
 		boolean salir = false;
@@ -67,11 +66,10 @@ public class EjemplosFunciones {
 	 * @return devuelve la suma de dos números, int
 	 */
 	public static int devuelveSuma(int num1, int num2) {
-		int resultado = 0;
-		resultado = num1 + num2;
+		int resultado=0;
+		resultado=num1+num2;
 		return resultado;
 	}
-
 	/**
 	 * Función que dado un número imprime su cuadrado
 	 * 
@@ -111,9 +109,9 @@ public class EjemplosFunciones {
 		return resultado;
 
 	}
-	// INT DE SALIDA ------( INT ENTRADA)
-
-	// Método que cambia el valor de un numero entero.
+			// INT DE SALIDA ------( INT ENTRADA)
+	
+	//Método que cambia el valor de un numero entero.
 	public static int cambiarValor(int numero) {
 		numero = numero + 1;
 		return numero;
@@ -131,8 +129,7 @@ public class EjemplosFunciones {
 		numeros[1] = numeros[1] + 1;
 	}
 
-	// Método para cambiar String, solo si lo volvemos a asignar en sí mismo // cad
-	// = cambiarString(cad);
+	//Método para cambiar String, solo si lo volvemos a asignar en sí mismo // cad = cambiarString(cad);
 	public static String cambiarString(String cadena) {
 		cadena = cadena + " hola";
 		return cadena;
@@ -190,20 +187,20 @@ public class EjemplosFunciones {
 		System.out.println(s.indexOf("gato")); // -1
 		System.out.println(s.contains("perro")); // true
 		System.out.println(s.contains("gato")); // false
-		// inmutabilidad de las cadenas, mutan cuando se vuelven a asignar a si mismas
+		//inmutabilidad de las cadenas, mutan cuando se vuelven a asignar a si mismas
 		s = s.replace("perro", "koala");
 		System.out.println(s); // Mi koala se llama Comeniños
 		s = "Mi perro se llama Comeniños";
 		// el replace es igual al replace all
 		String s3 = "Mi perro perro perro perro se llama Comeniños";
-		s3 = s3.replace("perro", "koala"); // imprime Mi koala koala koala koala se llama Comeniños
+		s3 = s3.replace("perro", "koala"); //imprime Mi koala koala koala koala se llama Comeniños
 
 		System.out.println(s);
 		String animal = s.substring(3, 8);
 		System.out.println(animal); // perro
-
+		
 	}
-
+	
 	public static void stringSplit() {
 		String s = "pato-gato-perro-koala";
 		String[] animales = s.split("-");
@@ -217,18 +214,18 @@ public class EjemplosFunciones {
 		System.out.println("La temperatura es: " + datos[6]); // 8.08 (obtiene la temperatura)
 
 		String cuenta = "111;Camila;27/01/2024;ES;10000";
-		String[] datos2 = cuenta.split(";");
+		String[] datos2 =cuenta.split(";");
 		System.out.println(datos2[1] + " tiene " + datos2[4] + " € en la cuenta");
-	}
+ 	}
 
 	public static void ejemplosFechas() {
-
-		// CLASES PARA MANEJAR FECHAS
-		// LocalDate y LocalDateTime
-		// Métodos para sumar días, meses, años, etc a una fecha por ejemplo
-		// También como convertir la fecha a número, o de string a fechas con .parse o
-		// DateTimeFormatter
-
+		
+		// CLASES PARA MANEJAR FECHAS 
+		//LocalDate y LocalDateTime
+		// Métodos para sumar días, meses, años, etc a una fecha por ejemplo 
+		//También como convertir la fecha a número, o de string a fechas con .parse o DateTimeFormatter
+		
+		
 		String fechaTexto = "01/12/2010";
 		LocalDate fechaAhora = LocalDate.now();
 		LocalDate fechaAyer = LocalDate.now().minusDays(1);
@@ -255,11 +252,11 @@ public class EjemplosFunciones {
 		System.out.println(LocalDate.parse("27/07/2000", DateTimeFormatter.ofPattern("d/M/yyyy")));
 		System.out.println(LocalDate.parse("2000-01-30+05:00", DateTimeFormatter.ISO_DATE));
 		String fechaMarcaTexto = "Wed, 19 Oct 2022 16:21:35 +0200";
-		LocalDateTime fechaHoraMarca = LocalDateTime.parse(fechaMarcaTexto, DateTimeFormatter.RFC_1123_DATE_TIME);
+		LocalDateTime fechaHoraMarca = LocalDateTime.parse(fechaMarcaTexto,DateTimeFormatter.RFC_1123_DATE_TIME);
 		System.out.println("Día: " + fechaHoraMarca.getDayOfMonth() + " hora: " + fechaHoraMarca.getHour());
 
 	}
-
+	
 	public static void ejemplosFechas2() {
 		Date noUsar = new Date(); // No usar nunca Date si trabajamos en un proyecto Java 8+
 		LocalDate fecha = LocalDate.now();
@@ -279,13 +276,13 @@ public class EjemplosFunciones {
 
 		String[] dias = { "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo" };
 		LocalDate fechaHoy = LocalDate.now();
-		String diaHoy = dias[fechaHoy.getDayOfWeek().getValue() - 1];
+		String diaHoy = dias[fechaHoy.getDayOfWeek().getValue()-1];
 		System.out.printf("Hoy es %s, %02d/%02d/%d\n", diaHoy, fechaHoy.getDayOfMonth(), fechaHoy.getMonthValue(),
 				fechaHoy.getYear()); // Hoy es Jueves, 02/02/2023
-
+		
 		// Usando un patrón del sistema
 		System.out.println(fecha.format(DateTimeFormatter.ofPattern("'Hoy es' MMMM eeee, dd/MM/y")));
-
+		
 		LocalTime ahora = LocalTime.now();
 		System.out.println(ahora);
 		LocalTime dentro1Hora = ahora.plusHours(1);
@@ -294,6 +291,7 @@ public class EjemplosFunciones {
 		LocalDateTime fechaAhora = LocalDateTime.now();
 		System.out.println(fechaAhora);
 	}
+	
 
 	public static void main(String[] args) {
 //		//Scanner sc = new Scanner(System.in);
@@ -328,8 +326,8 @@ public class EjemplosFunciones {
 		 * System.out.println(concatenarCadenas("Hola"));
 		 * System.out.println(concatenarCadenas("Hola", "Camila"));
 		 */
-		// System.out.println(concatenarCadenas("Hola", "mundo", "cruel"));
-		/*
+		  //System.out.println(concatenarCadenas("Hola", "mundo", "cruel"));
+		  /*
 		 * System.out.println(concatenarCadenas("Adiós"));
 		 * System.out.println(concatenarCadenas());
 		 */
@@ -342,20 +340,18 @@ public class EjemplosFunciones {
 		 * int[2]; numeros[0] = 5; numeros[1] = 6; cambiarValorArray(numeros);
 		 * System.out.println("Número 0: " + numeros[0] + " Número 1: " + numeros[1]);
 		 */
-		// Cambiar String String
-		// String cad = "Camila";
-		// cambiarString(cad);
-		// System.out.println(cad);
-		/*
+		 //Cambiar String String 
+		 //String cad = "Camila"; 
+		 //cambiarString(cad);
+		 //System.out.println(cad); 
+		  /*
+		 
+		 * // "Fran" o "Fran hola"? -> Fran  "Solo saca FRAN porque las cadenas son inmutables"
 		 * 
-		 * // "Fran" o "Fran hola"? -> Fran
-		 * "Solo saca FRAN porque las cadenas son inmutables"
-		 * 
-		 * cad = cambiarString(cad); System.out.println(cad); // "Fran" o "Fran hola"?
-		 * -> Fran hola String otra = "otra"; otra.concat(" cadena");
-		 * System.out.println(otra); // "otra" o "otra cadena"? otra, no concatena otra
-		 * = otra.concat(" cadena"); System.out.println(otra); // "otra" o
-		 * "otra cadena"? -> otra cadena
+		 * cad = cambiarString(cad); System.out.println(cad); // "Fran" o "Fran hola"? -> Fran
+		 * hola String otra = "otra"; otra.concat(" cadena"); System.out.println(otra);
+		 * // "otra" o "otra cadena"? otra, no concatena otra = otra.concat(" cadena");
+		 * System.out.println(otra); // "otra" o "otra cadena"? -> otra cadena
 		 * 
 		 * // No cambia: int, float, double, char, String (se pasan por valor, se hace
 		 * una copia y se trabaja sobre la copia) // Si cambia: Arrays, Listas, Objetos
@@ -363,10 +359,10 @@ public class EjemplosFunciones {
 		 * modificaciones le afectan)
 		 * 
 		 */
-		// ejemplosMath();
-		// ejemplosCadenas();
-		// ejemplosFechas();
-		// buscarArrayInteger();
+		//ejemplosMath();
+		//ejemplosCadenas();
+		//ejemplosFechas();
+		//buscarArrayInteger();
 		stringSplit();
 	}
 
