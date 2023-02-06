@@ -240,39 +240,41 @@ public class EjerciciosArrays {
 
 	}
 
-	/*9. Pide al usuario que escriba un nombre y guárdalo. A continuación, muestra las vocales
-	que contiene ese nombre (debes recorrer la cadena y comparar sus caracteres).*/
+	/*
+	 * 9. Pide al usuario que escriba un nombre y guárdalo. A continuación, muestra
+	 * las vocales que contiene ese nombre (debes recorrer la cadena y comparar sus
+	 * caracteres).
+	 */
 	public static void ejercicio9() {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Dime un nombre ");
 		String nombre = sc.nextLine().toLowerCase();
-		
+
 		char c;
 		for (int i = 0; i < nombre.length(); i++) {
 			c = nombre.charAt(i);
-			if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
-			          c == 'á' || c == 'é' || c == 'í' || c == 'ó' || c == 'ú') {
-			        System.out.print(c + " ");
-			      }
+			if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'á' || c == 'é' || c == 'í' || c == 'ó'
+					|| c == 'ú') {
+				System.out.print(c + " ");
 			}
 		}
-	
-	//Mismo ejercicio con expresión regular
+	}
+
+	// Mismo ejercicio con expresión regular
 	public static void ejercicio9Pattern() {
 		Scanner sc = new Scanner(System.in);
-	    System.out.print("Escribe un nombre: ");
-	    String nombre = sc.nextLine();
-	    sc.close();
-	    
-	    Pattern pattern = Pattern.compile("[aeiouáéíóú]", Pattern.CASE_INSENSITIVE);
-	    Matcher matcher = pattern.matcher(nombre);
-	    
-	    System.out.print("Vocales en el nombre: ");
-	    while (matcher.find()) {
-	      System.out.print(matcher.group() + " ");
-	    }
-	  }
-	
+		System.out.print("Escribe un nombre: ");
+		String nombre = sc.nextLine();
+		sc.close();
+
+		Pattern pattern = Pattern.compile("[aeiouáéíóú]", Pattern.CASE_INSENSITIVE);
+		Matcher matcher = pattern.matcher(nombre);
+
+		System.out.print("Vocales en el nombre: ");
+		while (matcher.find()) {
+			System.out.print(matcher.group() + " ");
+		}
+	}
 
 	/*
 	 * 13. Crea un array bidimensional de cadenas. En este array almacenaremos
@@ -290,9 +292,10 @@ public class EjerciciosArrays {
 
 		System.out.printf("%-14s%10s%8s%12s\n", "NOMBRE", "PRECIO", "CANT", "TOTAL");
 		System.out.println(String.valueOf('-').repeat(44));
-		
+
 		for (int i = 0; i < productos.length; i++) {
-			double precio = Double.parseDouble(productos[i][1].replace(',', '.')); // porque j no varía en cuanto a posición
+			double precio = Double.parseDouble(productos[i][1].replace(',', '.')); // porque j no varía en cuanto a
+																					// posición
 			int cantidad = Integer.parseInt(productos[i][2]);
 			double total = precio * cantidad;
 			System.out.printf("%-14s%9.2f€%8d%11.2f€\n", productos[i][0], precio, cantidad, total); // productos = solo
@@ -303,7 +306,7 @@ public class EjerciciosArrays {
 	}
 
 	public static void main(String[] args) {
-		//ejercicio9Pattern();
+		// ejercicio9Pattern();
 		ejercicio13();
 
 	}

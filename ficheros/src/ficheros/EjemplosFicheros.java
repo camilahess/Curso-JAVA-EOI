@@ -65,19 +65,12 @@ public class EjemplosFicheros {
 
 	// DEVOLVER LINEAS DE FICHERO
 	public static List<String> devolverLineasFichero(String directorio, String nombreFichero) {
-
 		try {
-
 			return Files.readAllLines(Paths.get(directorio + File.separator + nombreFichero));
-
 		} catch (IOException e) {
-
 			e.printStackTrace();
-
 		}
-
 		return null;
-
 	}
 
 	// CREAR UN FICHERO DE CERO, E INCLUIR LINEAS DENTRO.
@@ -148,8 +141,8 @@ public class EjemplosFicheros {
 				longitudCadena = cadena.length();
 			else
 				throw new Exception("Cadena Nula");
-			
-			enteros[2] = longitudCadena; //La posición 2 del array no existe. ArrayIndexOutOfBounds
+
+			enteros[2] = longitudCadena; // La posición 2 del array no existe. ArrayIndexOutOfBounds
 			int division = numero1 / numero2;
 			Files.write(Paths.get("/Users/camilahess/Desktop/ficheros/eoi.txt"), Arrays.asList("" + division),
 					StandardOpenOption.CREATE_NEW);
@@ -174,27 +167,23 @@ public class EjemplosFicheros {
 	public static void main(String[] args) {
 		// leerFichero("/Users/camilahess/Desktop/ficheros", "eoi.txt");
 		// leerFichero("/Users/camilahess/Desktop/ficheros/eoi.txt");
-		//devolverLineasFichero("/Users/camilahess/Desktop/ficheros", "eoi.txt");
-		//System.out.println();
-		
-		//Opcion 1. Devolver lineas de un fichero, buscar info
+		// devolverLineasFichero("/Users/camilahess/Desktop/ficheros", "eoi.txt");
+		// System.out.println();
+
+		// Opcion 1. Devolver lineas de un fichero, buscar info
 		List<String> lineas = devolverLineasFichero("/Users/camilahess/Desktop/ficheros", "eoi.txt");
-		//Sin programación funciona, programacion estructurada
+		// Sin programación funciona, programacion estructurada
 		for (String linea : lineas) {
-			if(linea.contains("Camila"))
+			if (linea.contains("Camila"))
 				System.out.println(linea);
 		}
-		
-		//Opcion 2. Con programacion funcional
-		lineas.stream()
-		.filter(l->l.contains("Camila"))
-		.forEach(l->System.out.println(l));
-		
-		//en un paso
+
+		// Opcion 2. Con programacion funcional
+		lineas.stream().filter(l -> l.contains("Camila")).forEach(l -> System.out.println(l));
+
+		// en un paso
 		devolverLineasFichero("/Users/camilahess/Desktop/ficheros", "eoi.txt").stream()
-		.filter(l->l.contains("Camila"))
-		.forEach(l->System.out.println(l));
-		
+				.filter(l -> l.contains("Camila")).forEach(l -> System.out.println(l));
 
 		// List<String> lineas = Arrays.asList("Linea 1" , "Línea 2"); // creamos una
 		// lista para escribir en un nuevo fichero
@@ -206,7 +195,7 @@ public class EjemplosFicheros {
 		// leerRutaEntera("/Users/camilahess/Desktop/ficheros/eoi.txt"); //Lee bien el
 		// fichero
 		// ejemploTry3();
-		//ejemploTryProfe();
+		// ejemploTryProfe();
 
 	}
 

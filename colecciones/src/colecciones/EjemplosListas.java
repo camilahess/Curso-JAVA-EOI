@@ -89,6 +89,7 @@ public class EjemplosListas {
 		System.out.println(alumnosDam);
 
 	}
+
 	public static void ejemplo2() {
 		List<String> nombres = new ArrayList<String>();
 		// añadir elementos
@@ -96,9 +97,10 @@ public class EjemplosListas {
 		nombres.add("Camila");
 		nombres.add("Jaquelina");
 		nombres.add("Tomas");
-		
+
 		System.out.println(String.join(", ", nombres));
 	}
+
 	public static void buscarLista() {
 
 		List<String> meses = new ArrayList<String>(Arrays.asList("Enero", "febrero", "Marzo", "Abril", "Mayo", "Junio",

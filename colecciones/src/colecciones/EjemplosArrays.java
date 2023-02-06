@@ -26,13 +26,13 @@ public class EjemplosArrays {
 		System.out.println(numeros[1] + "+" + numeros[3] + "=" + (numeros[1] + numeros[3]));
 
 	}
-	
+
 	private static void recorrerCaracteres() {
 		String cadena = "Hola que tal";
 		System.out.println("Cuarta letra: " + cadena.charAt(3)); // Cuarta letra: a
-		
+
 		for (int i = 0; i < cadena.length(); i++) {
-		 System.out.println("[" + i + "]: " + cadena.charAt(i));
+			System.out.println("[" + i + "]: " + cadena.charAt(i));
 		}
 	}
 
@@ -163,7 +163,7 @@ public class EjemplosArrays {
 	}
 
 	public static void algoritmoBurbuja() {
-		//bubble sort
+		// bubble sort
 		int[] nums = { 15, 6, 9, 12, 20 };
 
 		for (int i = 0; i < nums.length; i++) {
@@ -183,35 +183,34 @@ public class EjemplosArrays {
 	}
 
 	public static void ordenarArrays1() {
-		 Integer[] nums = {11, 2, 4, 5, 3, 21, 80};
-		 Arrays.sort(nums);
-		 System.out.print("\nArray ordenado de menor a mayor:");
-		 for (int n:nums) 
-		 System.out.print(" "+n);
-		 
-		 
-		 Arrays.sort(nums, Collections.reverseOrder());
-		 System.out.print("\nArray ordenado de mayor a menor:");
-		 for (int n:nums)
-			 System.out.print(" "+n);
-	
+		Integer[] nums = { 11, 2, 4, 5, 3, 21, 80 };
+		Arrays.sort(nums);
+		System.out.print("\nArray ordenado de menor a mayor:");
+		for (int n : nums)
+			System.out.print(" " + n);
+
+		Arrays.sort(nums, Collections.reverseOrder());
+		System.out.print("\nArray ordenado de mayor a menor:");
+		for (int n : nums)
+			System.out.print(" " + n);
+
 	}
 
 	public static void ordenarArrays2() {
 		String[] meses = { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre",
 				"Octubre", "Noviembre", "Diciembre" }; // Del 0 al 11
 		Arrays.sort(meses); // Orden lexicográfico con sort, es case sensitive.
-		//Si hay algo en minuscula, lo pondrá después
+		// Si hay algo en minuscula, lo pondrá después
 		System.out.println(Arrays.toString(meses));
-		Arrays.stream(meses).forEach(e->System.out.println(e)); //funcional
-		
-		//Ordenar mayor a menor
+		Arrays.stream(meses).forEach(e -> System.out.println(e)); // funcional
+
+		// Ordenar mayor a menor
 		Collections.reverse(Arrays.asList(meses));
 		System.out.println(Arrays.toString(meses));
 	}
 
 	public static void arraysMultidimensionales() {
-		//MATRIZ DE DATOS , ARRAY BIDIMENSIONAL, 2D
+		// MATRIZ DE DATOS , ARRAY BIDIMENSIONAL, 2D
 		// Ejemplo de tabla no escalonada
 		int[][] tabla = new int[4][3]; // crear el array y darle memoria
 		tabla[0][0] = 5;
@@ -269,19 +268,19 @@ public class EjemplosArrays {
 		String newAlumno = sc.nextLine();
 		alumnos = Arrays.copyOf(alumnos, alumnos.length + 1);
 		alumnos[alumnos.length - 1] = newAlumno;
-		
-		//tres formas de recorrer e imprimir 
-		for(String alumno:alumnos) {
+
+		// tres formas de recorrer e imprimir
+		for (String alumno : alumnos) {
 			System.out.println(alumno);
 		}
-		Arrays.stream(alumnos).forEach(e->System.out.println(e)); //programacion funcional
-		
+		Arrays.stream(alumnos).forEach(e -> System.out.println(e)); // programacion funcional
+
 		System.out.println(String.join(", ", alumnos));
-		
+
 		sc.close();
 
 	}
-	
+
 	public static void stringJoin() {
 		String[] alumnos = { "Juan", "Ana", "Pedro", "Eva", "Paco" };
 		System.out.println(String.join(", ", alumnos));
@@ -289,22 +288,23 @@ public class EjemplosArrays {
 
 	public static void eliminarElemento() {
 		String[] alumnos = { "Juan", "Ana", "Pedro", "Eva", "Paco" };
-		alumnos = Arrays.copyOf(alumnos, alumnos.length-1);
-		for(String alumno:alumnos) {
+		alumnos = Arrays.copyOf(alumnos, alumnos.length - 1);
+		for (String alumno : alumnos) {
 			System.out.println(alumno);
 		}
 	}
+
 	public static void main(String[] args) {
 		// ejemplo1();
 		// buscarEnArray();
 		// nuevosEjemplos();
 		// busquedaFuncional();
 		// redimensiones();
-		//ejemploAumentarUno();
-		//stringJoin();
-		//eliminarElemento();
-		//ordenarArrays1();
-		//recorrerCaracteres();
+		// ejemploAumentarUno();
+		// stringJoin();
+		// eliminarElemento();
+		// ordenarArrays1();
+		// recorrerCaracteres();
 		arraysMultidimensionales();
 	}
 

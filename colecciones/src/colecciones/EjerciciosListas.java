@@ -6,8 +6,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class EjerciciosListas {
-	
-	
+
 	private static void ejercicio1() {
 		List<Integer> numeros = new ArrayList<Integer>(Arrays.asList(10, 20, 30, 40));
 		System.out.println(numeros);
@@ -28,9 +27,8 @@ public class EjerciciosListas {
 
 	}
 
-
 	public static void main(String[] args) {
-	ejercicio1();
+		ejercicio1();
 
 	}
 
