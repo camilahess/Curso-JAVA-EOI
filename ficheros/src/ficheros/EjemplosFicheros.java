@@ -79,7 +79,12 @@ public class EjemplosFicheros {
 		}
 	}
 
-	// CREAR UN FICHERO DE CERO, E INCLUIR LINEAS DENTRO.
+	/**
+	 *  Crear un fichero desde cero y escribir líneas dentro pasándole una lista
+	 * @param directorio Ruta donde queremos alojar el documento
+	 * @param nombreFichero Nombre que le daremos al nuevo fichero
+	 * @param lineas Lista de líneas que estarán dentro
+	 */
 	public static void escribir1(String directorio, String nombreFichero, List<String> lineas) {
 		try {
 			Files.write(Paths.get(directorio + File.separator + nombreFichero), lineas, StandardOpenOption.CREATE_NEW);
@@ -88,13 +93,14 @@ public class EjemplosFicheros {
 		}
 	}
 
-	public static void ejemploTry() {
-		int numero1 = 10;
-		int numero2 = 0;
+	public static int ejemploTry(int numerador, int denominador) {
+		
 		try {
-			int division = numero1 / numero2;
+			int division = numerador / denominador;
+			return division;
 		} catch (Exception e) {
-			System.out.println("Error en la división"); // controlamos la división
+			System.out.println("No se puede dividir por cero"); // controlamos la división
+			return 0;
 		}
 	}
 
@@ -178,15 +184,16 @@ public class EjemplosFicheros {
 		
 //		//Opcion 1. Devolver lineas de un fichero, buscar info
 		List<String> lineas = devolverLineasFichero("/Users/camilahess/Desktop/ficheros", "eoi.txt");
-//		//Programacion estructurada
+		//Programacion estructurada
 //		for (String linea : lineas) {
-//			if(linea.contains("Camila"))
+//			if(linea.charAt(0)=='C') //cojo la primera letra
+//			//if(linea.contains("Camila"))
 //				System.out.println(linea);
 //		}
 //		
-		//Opcion 2. Con programacion funcional
-		lineas.stream().filter(l->l.contains("Camila"))
-		.forEach(l->System.out.println(l));
+//		//Opcion 2. Con programacion funcional
+//		lineas.stream().filter(l->l.contains("Camila"))
+//		.forEach(l->System.out.println(l));
 //		
 		//en un paso
 //		devolverLineasFichero("/Users/camilahess/Desktop/ficheros", "eoi.txt").stream()
@@ -203,7 +210,7 @@ public class EjemplosFicheros {
 		// apropósito
 		// leerRutaEntera("/Users/camilahess/Desktop/ficheros/eoi.txt"); //Lee bien el
 		// fichero
-		// ejemploTry3();
+		 ejemploTry(4,0);
 		//ejemploTryProfe();
 
 	}
