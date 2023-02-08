@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Prueba {
-//Este lleva el main, las demás clases que llevan objetos NO VA EL MAIN
+//Este lleva el main, las demás clases que llevan objetos NO TIENEN EL MAIN
     
     static Scanner sc; // El scanner declarado arriba para usar en todo el programa
     
@@ -44,6 +44,11 @@ public class Prueba {
     public static void ejemplosCoches() {
         //Crear coches
         Coche vacio = new Coche(); //Crea un coche vacío 
+        vacio.setMarca("Seat"); // solo podemos acceder por encapsulamiento
+        vacio.setModelo("Panda");
+        vacio.setAnyo(2019);
+        System.out.println(vacio);
+        
         Coche todosParametros = new Coche("000AAA", "Panda", "Seat", 1990, 80000); //Coche con todos los parámetros
         Coche tresParametros = new Coche("111BBB", "Z3", "BMW"); //Crear coche con algunos parámetros
         Coche copia = new Coche(todosParametros); //Esto usa el constructor de copia, con un coche ya creado
@@ -58,7 +63,7 @@ public class Prueba {
         todosParametros.setKms(-40000);
         System.out.println(todosParametros.getKms()); //pasa los kms a positivo 
         
-        System.out.println(todosParametros); //Llamamos al toString sin kms 
+        System.out.println(todosParametros); //Llamamos al toString completo
         
         //Si la matricula es la misma, será el mismo coche
         
@@ -163,11 +168,11 @@ public class Prueba {
     }
     
 	public static void main (String[] args) {
-	    sc = new Scanner (System.in);
-		//ejemploPersonas();
-	    //ejemplosCoches();
-	    menu();
-	    sc.close();
-		
+//	    sc = new Scanner (System.in);
+//		//ejemploPersonas();
+	    ejemplosCoches();
+//	    menu();
+//	    sc.close();
+//		
 	}
 }

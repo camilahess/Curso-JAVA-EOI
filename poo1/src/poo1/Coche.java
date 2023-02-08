@@ -13,7 +13,8 @@ import java.util.Objects;
 public class Coche {
 
     // Atributos - lo mejor es que sean privados para que no se pueda acceder desde
-    // fuera fácilmente
+    // fuera fácilmente, desde ninguna otra clase o carpeta. 
+    //Utilizamos luego getters y setters para acceder a los datos.
     private String matricula;
     private String modelo;
     private String marca;
@@ -62,6 +63,7 @@ public class Coche {
     
     
     //GENERAMOS GETTERS Y SETTERS PUBLICOS 
+    //((Solo podemos acceder al coche desde fuera solo con estos get y set))
     //Podemos modificar los getters y setters y hacer un método con excepciones 
     
     public String getMatricula() {
@@ -107,7 +109,7 @@ public class Coche {
     public void setKms(int kms) {
         //evitamos que me pasen un numero negativo
         
-        this.kms = Math.abs(kms); // lo pasa a negativo
+        this.kms = Math.abs(kms); // lo pasa a positivo
         /*if (kms < 0)
             this.kms = -kms;
         else
