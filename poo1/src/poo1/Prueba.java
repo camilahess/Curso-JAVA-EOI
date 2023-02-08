@@ -2,6 +2,7 @@ package poo1;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -66,7 +67,7 @@ public class Prueba {
         System.out.println(todosParametros); //Llamamos al toString completo
         
         //Si la matricula es la misma, será el mismo coche
-        
+        //utilizamos el hashcode and equals
         if(todosParametros.equals(tresParametros)) {//comprueba si son el mismo coche por el criterio del hash and equals
         System.out.println("Son el mismo coche");
         } else { 
@@ -84,6 +85,67 @@ public class Prueba {
         }
     }
     
+    public static void ejercicioJugador() {
+        Jugador num1 = new Jugador("Pepito", 20, -2000);
+        Jugador num2 = new Jugador ("Pedrito", -28, 3400);
+        Jugador num3 = new Jugador ("Tomi", 26, 2500);
+        Jugador num4 = new Jugador ("Thiago", 19, 3800);
+        System.out.println(num1);
+        System.out.println(num2);
+        
+    }
+    
+    public static void ejemplosJugador() {
+      //Creo lista vacía de jugadores para almacenar a todos
+        List<Jugador> jugadores = new ArrayList<Jugador>();
+        Jugador fran = new Jugador("Fran", 45, 50000);
+        Jugador david = new Jugador("David", 20, 60000);
+        Jugador barbara = new Jugador("Bárbara", 23, 70000);
+        Jugador camila = new Jugador("Camila", 22, 80000);
+        Jugador joseLuis = new Jugador("José Luis", 18, 60000);
+        Jugador enrique = new Jugador("Enrique", 15, 50000);
+        Jugador atenea = new Jugador("Atenea", 20, 40000);
+        Jugador angel = new Jugador("Ángel", 22, 1000000);
+        Jugador nestor = new Jugador();
+        nestor.setNombre("Néstor");
+        nestor.setEdad(-20);
+        nestor.setSueldo(-50000);
+        Jugador francisco = new Jugador(fran);
+        
+        // Meter jugadores en la lista
+          Collections.addAll(jugadores, fran,david,barbara,camila,joseLuis,enrique,atenea,angel,nestor);
+//        jugadores.add(fran);
+//        jugadores.add(david);
+//        jugadores.add(barbara);
+//        jugadores.add(camila);
+//        jugadores.add(joseLuis);
+//        jugadores.add(enrique);
+//        jugadores.add(atenea);
+//        jugadores.add(angel);
+//        jugadores.add(nestor);      
+//        jugadores.add(francisco);
+//        jugadores.add(new Jugador("Naomi",20,80000));
+        
+        // Imprmir todos los jugadores
+        jugadores.forEach(e->System.out.println(e));
+        // Filtra e imprime:
+        System.out.println("Jugadores que ganan más de 60000 euros");
+        jugadores.stream()
+            .filter(e->e.getSueldo()>60000)
+            .forEach(e->System.out.println(e));
+        // Filtra e imprime:
+        System.out.println("Jugadores que ganan entre 50000 y 70000 euros y su nombre tenga más de 5 letras");
+        jugadores.stream()
+            .filter(e->e.getSueldo()>=50000 && e.getSueldo()<= 70000)
+            .filter(e->e.getNombre().length()>5)
+            .forEach(e->System.out.println(e));
+        // Filtra e imprime:
+        System.out.println("Jugadores que tengan una 'N' en su nombre");
+        jugadores.stream()
+            .filter(e->e.getNombre().toLowerCase().contains("n"))
+            .forEach(e->System.out.println(e));
+           
+    }
     
     
     public static void darAlta() {
@@ -170,9 +232,10 @@ public class Prueba {
 	public static void main (String[] args) {
 //	    sc = new Scanner (System.in);
 //		//ejemploPersonas();
-	    ejemplosCoches();
+	    //ejemplosCoches();
 //	    menu();
 //	    sc.close();
-//		
+//	    ejercicioJugador();
+		ejemplosJugador();
 	}
 }

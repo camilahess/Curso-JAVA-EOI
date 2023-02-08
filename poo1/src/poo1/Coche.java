@@ -3,11 +3,11 @@ package poo1;
 import java.util.Objects;
 
 //1- CREAR LOS ATRIBUTOS
-//2 - Crear los constructores ( vacío, todos los parámetros )
+//2 - Crear los constructores ( vacío, todos los parámetros ) source: generate..
 //2b (opcional) - Crear más constructores y el de copia
-//3 - Crear Getters and Setters
-//4 - Crear toString
-//5 - Crear  hashCode and Equals
+//3 - Crear Getters and Setters - source: generate..
+//4 - Crear toString - source: generate..
+//5 - Crear  hashCode and Equals -source: generate..
 //6 (opcional) - Métodos adicionales
 
 public class Coche {
@@ -15,11 +15,11 @@ public class Coche {
     // Atributos - lo mejor es que sean privados para que no se pueda acceder desde
     // fuera fácilmente, desde ninguna otra clase o carpeta. 
     //Utilizamos luego getters y setters para acceder a los datos.
-    private String matricula;
-    private String modelo;
-    private String marca;
-    private int anyo;
-    private int kms;
+    private String matricula; //this.matricula
+    private String modelo; // this.modelo
+    private String marca; //this.marca
+    private int anyo; //this.anyo
+    private int kms; //this.kms
 
     
     //Generamos constructor vacío
@@ -50,7 +50,7 @@ public class Coche {
     }
     
     
-    //Constructor de copia ( copiamos un coche a partir de otro)
+    //Constructor de copia ( Clonamos un coche a partir de otro) //optativo
     public Coche(Coche c) {
         super();
         this.matricula = c.matricula;
@@ -133,7 +133,7 @@ public class Coche {
 
     
 
-    //
+    // No tocamos nunca este método, lo usa Java por debajo
     @Override
     public int hashCode() {
         return Objects.hash(matricula);
