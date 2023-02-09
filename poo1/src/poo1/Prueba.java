@@ -78,22 +78,110 @@ public class Prueba {
         System.out.println(vacio.estado());
         
         //Método de estado rodado o no // RODADO
-        if(vacio.rodado()) {
+        if(todosParametros.rodado()) {
             System.out.println("El coche está en condiciones de uso");
         } else {
             System.out.println("El coche no ha sido probado");
         }
     }
     
-    public static void ejercicioJugador() {
+    public static void ejercicio1Jugador() {
         Jugador num1 = new Jugador("Pepito", 20, -2000);
         Jugador num2 = new Jugador ("Pedrito", -28, 3400);
         Jugador num3 = new Jugador ("Tomi", 26, 2500);
         Jugador num4 = new Jugador ("Thiago", 19, 3800);
         System.out.println(num1);
         System.out.println(num2);
-        
     }
+    /**
+     * Crea una lista o array y añade los 2 jugadores anteriores y 2 más a la misma y pon 2 posiciones intermedias a
+     * null (6 elementos en la lista → 4 jugadores y 2 null)
+     * Recorre la lista y muestra los datos de los jugadores (¡Cuidado con los null! Debes comprobarlos)
+     */
+    public static void ejercicio2Jugador() {
+        // Creo una lista vacía para almacenar los jugadores
+        List<Jugador> jugadores = new ArrayList<Jugador>();
+        Jugador jugador1 = new Jugador("Fran", 45, 50000);
+        Jugador jugador2 = new Jugador("David", 20, 60000);
+        jugadores.add(jugador1);  // jugador que ocupa la posición 0 de la lista
+        jugadores.add(jugador2); // jugador que ocupa la posición 1 de la lista
+        jugadores.add(null);     // jugador que ocupa la posición 2 de la lista
+        jugadores.add(null);     // jugador que ocupa la posición 3 de la lista
+        Jugador jugador4 = new Jugador("Paco", 45, 50000);
+        Jugador jugador5 = new Jugador("Luis", 20, 60000);
+        jugadores.add(jugador4);
+        jugadores.add(jugador5);
+        //System.out.println(jugadores);
+        
+        // Programación estructurada
+        /*for(Jugador jugador : jugadores) {
+            //System.out.println(jugador);
+            try {
+                System.out.println(jugador.getNombre());
+            } catch (Exception e) {
+                System.out.println("Este jugador es un nulo");
+            }
+        }*/
+        // Programación estructurada
+        /*for(Jugador jugador : jugadores) {
+            //System.out.println(jugador);
+            if(jugador!=null)
+                System.out.println(jugador.getNombre());            
+        }*/
+
+        jugadores.stream()
+            .filter(e->e!=null)  // filtro para no trabajar con los nulos
+            .forEach(e->System.out.println(e.getNombre()));  // obtengo el nombre de los que quedan
+
+        /*
+        jugadores.stream()
+            .forEach(e->{
+                if(e!=null)
+                    System.out.println(e.getNombre());
+            }); */
+        /*
+        jugadores.stream()
+            .forEach(e->System.out.print((e!=null)?e.getNombre() + "\n":""));
+        */
+    }
+    /**
+     * Genera una nueva lista que sea una copia de la anterior. Que tenga los mismos elementos que la original.
+     * Accede a un jugador en esta segunda lista y modifícale el nombre. Muestra por pantalla los datos del mismo
+     * jugador en la otra lista.
+     * ¿Han cambiado los datos del jugador en la misma posición de la primera lista?.
+     * Intenta evitar que eso ocurra generando una copia de los jugadores de la primera lista para la segunda.
+     */
+    public static void ejercicio3Jugador() {
+        List<Jugador> jugadores = new ArrayList<Jugador>();
+        Jugador jugador1 = new Jugador("Fran", 45, 50000);
+        Jugador jugador2 = new Jugador("David", 20, 60000);
+        jugadores.add(jugador1);  // jugador que ocupa la posición 0 de la lista
+        jugadores.add(jugador2); // jugador que ocupa la posición 1 de la lista
+        jugadores.add(null);     // jugador que ocupa la posición 2 de la lista
+        jugadores.add(null);     // jugador que ocupa la posición 3 de la lista
+        Jugador jugador4 = new Jugador("Paco", 45, 50000);
+        Jugador jugador5 = new Jugador("Luis", 20, 60000);
+        jugadores.add(jugador4);
+        jugadores.add(jugador5);
+        List<Jugador> jugadores2 = new ArrayList<Jugador>(); // La segunda lista inicialmente está vacía
+        // Copiar una lista a partir de otra con programación estructurada
+        for(Jugador jugador : jugadores) {
+            if(jugador!=null)
+                jugadores2.add(new Jugador(jugador));
+            else
+                jugadores2.add(null);
+        }
+        /*jugadores.stream().forEach(e->{
+            if(e!=null)
+                jugadores2.add(new Jugador(e));
+            else
+                jugadores2.add(null);
+        });*/
+        jugadores2.get(0).setNombre("Posición 0");
+        System.out.println(jugadores);
+        System.out.println(jugadores2);
+    }
+    
     
     public static void ejemplosJugador() {
       //Creo lista vacía de jugadores para almacenar a todos
@@ -111,6 +199,9 @@ public class Prueba {
         nestor.setEdad(-20);
         nestor.setSueldo(-50000);
         Jugador francisco = new Jugador(fran);
+        
+        //utilizo el nuevo método para ocultar nombres
+        System.out.println(nestor.nombreOculto());
         
         // Meter jugadores en la lista
           Collections.addAll(jugadores, fran,david,barbara,camila,joseLuis,enrique,atenea,angel,nestor);
@@ -186,8 +277,7 @@ public class Prueba {
         }
     }
     
-    
-    
+
     public static void menu () {
         int opcion;
         do {
@@ -229,13 +319,62 @@ public class Prueba {
         
     }
     
-	public static void main (String[] args) {
+	public static void ejemplosEquipos () {
+	    Equipo barsa = new Equipo(); // creo equipo 
+	    barsa.setNombre("F.C. Barcelona");
+	    barsa.setPresuAnual(40000000);
+	    Estadio campNou = new Estadio(); //creo estadio 
+	    campNou.setNombre("Camp Nou");
+	    campNou.setCapacidad(100000);
+	    barsa.setEstadio(campNou); //asigno el estadio al equipo
+	    
+	    //creo una lista de jugadores 
+	    List<Jugador> jugadoresBarsa = new ArrayList<Jugador>(); //inicialmente vacía
+	    //añado jugadores a la lista
+	    jugadoresBarsa.add(new Jugador("Fran", 45, 100000));
+	    jugadoresBarsa.add(new Jugador("Dani", 38, 200000));
+	    jugadoresBarsa.add(new Jugador("Paco", 25, 150000));
+	    jugadoresBarsa.add(new Jugador("Pedro ",30, 180000));
+	    jugadoresBarsa.add(new Jugador("Juan", 33, 180000));
+	    barsa.setJugadores(jugadoresBarsa); // asigno la lista de jugadores creada al equipo=barsa
+	    
+	    System.out.println(barsa);
+	    
+	    //probamos el constructor de copia
+	    Equipo madrid = new Equipo(barsa);
+	    madrid.setNombre("Real Madrid");
+	    madrid.setPresuAnual(10000);
+	    barsa.getEstadio().setNombre("Nuevo Campo");
+	    madrid.getEstadio().setNombre("Santiago Bernabeu");
+	    madrid.getEstadio().setCapacidad(80000);
+	    
+	    //Cambiar cosas de los jugadores
+	    barsa.getJugadores().get(0).setNombre("Francisco");
+	    madrid.getJugadores().get(1).setNombre("Ate");
+	    
+	    //impresión de los equipos
+	    System.out.println(barsa);
+	    System.out.println(madrid);
+	    
+	}
+	
+	public static void falloSiNoSeCorrige() {
+        Equipo equipo = new Equipo();
+        Jugador fran = new Jugador("Fran", 45, 50000);
+        equipo.getJugadores().add(fran);
+        equipo.getEstadio().setNombre("Mi estadio");
+        System.out.println("Fin del programa");
+    }
+	
+	
+    public static void main (String[] args) {
 //	    sc = new Scanner (System.in);
 //		//ejemploPersonas();
-	    //ejemplosCoches();
+//	    ejemplosCoches();
 //	    menu();
 //	    sc.close();
-//	    ejercicioJugador();
-		ejemplosJugador();
+	    //ejercicioJugador();
+		//ejemplosJugador();
+        ejemplosEquipos();
 	}
 }

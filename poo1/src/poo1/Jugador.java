@@ -11,6 +11,7 @@ public class Jugador {
     public Jugador() {
     }
     
+    //Filtrar en los setter y en los constructores
     public Jugador(String nombre, int edad, double sueldo) {
         super();
         this.nombre = nombre;
@@ -44,10 +45,14 @@ public class Jugador {
     public void setSueldo(double sueldo) {
         this.sueldo = Math.abs(sueldo);
     }
+    
+    
     @Override
     public String toString() {
-        return "Jugador [nombre=" + nombre + ", edad=" + edad + ", sueldo=" + sueldo + "]";
+        return "[nombre=" + nombre + ", edad=" + edad + ", sueldo=" + sueldo + "]";
     }
+    
+    
     @Override
     public int hashCode() {
         return Objects.hash(edad, nombre, sueldo);
@@ -65,6 +70,11 @@ public class Jugador {
                 && Double.doubleToLongBits(sueldo) == Double.doubleToLongBits(other.sueldo);
     }
     
+    //método adicional nombre oculto
+    
+    public String nombreOculto() {
+         return nombre.substring(0,2) + "*".repeat(nombre.length()-2);
+    }
     
     
 }
