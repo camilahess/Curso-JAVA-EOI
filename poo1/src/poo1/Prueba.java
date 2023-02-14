@@ -197,7 +197,11 @@ public class Prueba {
         Jugador nestor = new Jugador();
         nestor.setNombre("Néstor");
         nestor.setEdad(-20);
-        nestor.setSueldo(-50000);
+        nestor.setSueldo(-50000); 
+        //USANDO INTERFACE
+        System.out.println("Nestor habla o grita:");
+        nestor.hablar(); //interface implementada 
+        nestor.gritar();
         Jugador francisco = new Jugador(fran);
         
         //utilizo el nuevo método para ocultar nombres
@@ -395,9 +399,10 @@ public class Prueba {
 //	    menu();
 //	    sc.close();
 	    //ejercicioJugador();
-		//ejemplosJugador();
+		ejemplosJugador();
         //ejemplosEquipos();
-        ejercicio4();
+        //ejercicio4();
+        
         
 	}
 }
