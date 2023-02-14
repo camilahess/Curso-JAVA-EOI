@@ -366,7 +366,28 @@ public class Prueba {
         System.out.println("Fin del programa");
     }
 	
-	
+	   public static void ejercicio4() {
+	        Equipo equipo = new Equipo();
+	        equipo.setNombre("Equipo EOI");
+	        equipo.addJugador(new Jugador("Fran",25,100000));  // añade jugadores a la lista
+	        equipo.addJugador(new Jugador("Paco",25,100000));
+	        equipo.addJugador(new Jugador("Luis",25,100000));
+	        equipo.addJugador(new Jugador("Jose",25,100000));
+	        //equipo.deleteJugador(0);  // borra el primer elemento
+	        equipo.getJugadores().forEach(e->System.out.println(e));  // Muestra todos los jugadores de la lista
+	        System.out.println("El sueldo de todos los jugadores es: " + equipo.totalSueldos());                
+	    }
+	    
+	    /*public static void ejercicio4ampliacionConceptoNoVoid() {
+	        Equipo equipo = new Equipo();
+	        equipo.setNombre("Equipo EOI");
+	        //equipo.setJugadores(null);
+	        if(equipo.addJugador(new Jugador("Fran",25,100000)))
+	            System.out.println(equipo);
+	        else
+	            System.out.println("No se ha podido añadir el jugador");
+	    }*/
+	   
     public static void main (String[] args) {
 //	    sc = new Scanner (System.in);
 //		//ejemploPersonas();
@@ -375,6 +396,8 @@ public class Prueba {
 //	    sc.close();
 	    //ejercicioJugador();
 		//ejemplosJugador();
-        ejemplosEquipos();
+        //ejemplosEquipos();
+        ejercicio4();
+        
 	}
 }

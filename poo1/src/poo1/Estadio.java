@@ -3,9 +3,9 @@ package poo1;
 import java.util.Objects;
 
 public class Estadio {
-
-    String nombre;
-    int capacidad;
+    //con el private encapsulamos las variables
+    private String nombre;
+    private int capacidad;
     
     public Estadio() {
     }

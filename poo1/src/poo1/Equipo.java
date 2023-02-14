@@ -109,5 +109,82 @@ public class Equipo {
         return Objects.equals(nombre, other.nombre);
     }
     
+    /**
+     * Añadir el jugador a la lista de jugadores del equipo
+     * @param j
+     */
+    public void addJugador(Jugador j) {
+        jugadores.add(j);
+    }
+    
+    /*public boolean addJugador(Jugador j) {
+        try {
+            jugadores.add(j);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }*/
+    /**
+     * Devuelve el numero de jugadores del equipo
+     * @return
+     */
+    public int getNumJugadores() {
+        return jugadores.size();  // size devuelve el tamaño de la lista
+    }
+    
+    /**
+     * Devuelve el jugador si existe esa posición en la lista, null en caso contrario
+     * @param posicion
+     * @return
+     */
+    public Jugador getJugador(int posicion) {
+        try {
+            return jugadores.get(posicion);  // get accede a una posición de la lista
+        } catch (Exception e) {
+            return null;
+        }
+    }
+    
+    /**
+     * Borra el jugador, si existe, de la posición que le pasamos
+     * @param posicion
+     */
+    public void deleteJugador(int posicion) {
+        try {
+            jugadores.remove(posicion);
+        } catch (Exception e) {         
+        
+        }
+    }
+    
+    /**
+     * Devuelve la suma de los sueldos de todos los jugadores del equipo
+     * @return
+     */
+    public double totalSueldos() {
+        // Estructurada
+        /*
+        double sumaSueldos=0;
+        for(Jugador jugador : jugadores) {
+            sumaSueldos += jugador.getSueldo();
+        }
+        return sumaSueldos;*/
+        // Funcional A:
+        /*
+        double[] sumaSueldos= new double[1];
+        jugadores.forEach(e->sumaSueldos[0]+=e.getSueldo());
+        return sumaSueldos[0];
+        */
+        // Funcional B:
+        return jugadores.stream()
+                .mapToDouble(e->e.getSueldo())  // Nos quedamos solo con los sueldos
+                .sum(); // Sumo los sueldos
+            
+    }
+    
+  
+    
+    
     
 }
