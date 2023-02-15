@@ -15,4 +15,10 @@ public class Mamifero extends Animal {
 		super.comer(); //llamo al comer de Animal 
 		System.out.println("He comido: " + (carnivoro ? "carne" : "hierba"));
 	}
+
+	@Override
+	public String toString() {
+		return "Esto es un mamífero";
+	}
+	
 }

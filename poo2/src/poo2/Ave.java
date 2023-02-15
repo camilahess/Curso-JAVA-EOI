@@ -2,7 +2,7 @@ package poo2;
 
 import java.util.Random;
 
-public class Ave extends Animal {
+public class Ave extends Animal implements IAnidar {
 
 	private boolean puedeVolar;
 
@@ -37,4 +37,21 @@ public class Ave extends Animal {
 		setPeso(getPeso() * 1.05);
 		System.out.printf("Pio pio. He comido y ahora peso %.2f kilos\n", getPeso());
 	}
+
+	@Override
+	public String toString() {
+		return "Esto es un ave";
+	}
+
+	@Override
+	public int pollitos(String nombre) {
+		if (nombre.equals("Animal desconocido")) {
+			return 2;
+		} else if (nombre.equals("Gallina")) {
+			return 3;
+		} else {
+			return 4;
+		}
+	}
+
 }
