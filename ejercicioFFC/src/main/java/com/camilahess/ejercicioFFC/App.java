@@ -46,11 +46,8 @@ public class App {
 		} else {
 			
 			if (cliente.getCodigoPais().equals("ES")) {
-				//mensajeBienvenida = "¡Bienvenid@ " + cliente.getNombre() + "!, hoy es " + fechaActual + " a las " + horaActual + ".";
 				System.out.println("Bienvenid@ "+ cliente.getNombre() + "!\n" + getFormatoFecha(cliente.getCodigoPais()));
-				
 			} else {
-				//mensajeBienvenida = "Welcome " + cliente.getNombre() + "! Today is " + fechaActual + " at " + horaActual + ".";
 				System.out.println("Welcome "+ cliente.getNombre() + "!\n" + getFormatoFecha(cliente.getCodigoPais()));
 			}
 		}
