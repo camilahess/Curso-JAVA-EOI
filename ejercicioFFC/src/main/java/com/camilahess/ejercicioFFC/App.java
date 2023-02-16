@@ -37,7 +37,14 @@ public class App {
 //		System.out.println(clientesConMismoDniCif);
 		//Guardo en una lista los clientes con mismo DNI para comparar sus fechas de nacimiento
 		
-
+//		//PROBANDO STREAMS
+//		clientes.stream()
+//	            .filter(c -> c.getDniCif().equals(dniCif))
+//	            .map(Cliente::getFechaNacimiento)
+//	            .distinct()
+//	            .collect(Collectors.toList())
+//	            .forEach(System.out::println);
+		
 		// Mostrar el mensaje de bienvenida utilizando la función creada
 		mostrarMensajeBienvenida(cliente);
 		buscarFechaNacimiento(clientes, dniCif);
@@ -67,26 +74,23 @@ public class App {
 //		
 //	}
 	private static void buscarFechaNacimiento(List<Cliente> clientes, String dniCif) {
-	    List<LocalDate> fechasNacimiento = clientes.stream()
+		List<LocalDate> fechasNacimiento = clientes.stream()
 	            .filter(c -> c.getDniCif().equals(dniCif))
 	            .map(Cliente::getFechaNacimiento)
-	            .collect(Collectors.toList());
-
-	        List<LocalDate> fechasDistintas = fechasNacimiento.stream()
 	            .distinct()
 	            .collect(Collectors.toList());
-
-	        if (fechasDistintas.size() == 1) {
-	            System.out.println("Fecha de nacimiento: " + fechasDistintas.get(0));
+	            
+	        if (fechasNacimiento.size() == 1) {
+	            System.out.println("Fecha de nacimiento: " + fechasNacimiento.get(0));
 	        } else {
-	            System.out.println("Tienes " + fechasDistintas.size() + " fechas de nacimiento diferentes, elige la correcta:");
-	            for (int i = 0; i < fechasDistintas.size(); i++) {
-	                System.out.println((i+1) + ") " + fechasDistintas.get(i));
+	            System.out.println("Tienes " + fechasNacimiento.size() + " fechas de nacimiento diferentes, elige la correcta:");
+	            for (int i = 0; i < fechasNacimiento.size(); i++) {
+	                System.out.println((i+1) + ") " + fechasNacimiento.get(i));
 	            }
 	            Scanner scanner = new Scanner(System.in);
-	            System.out.println("(1, 2 o 3): ");
+	            System.out.println((fechasNacimiento.size() == 2)? "(1 o 2): " : "(1, 2 o 3): ");
 	            int opcion = scanner.nextInt();
-	            System.out.println("La fecha de nacimiento seleccionada es: " + fechasDistintas.get(opcion - 1));
+	            System.out.println("La fecha de nacimiento seleccionada es: " + fechasNacimiento.get(opcion - 1));
 	        }
 	    }
 
