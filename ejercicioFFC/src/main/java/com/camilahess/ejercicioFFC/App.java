@@ -44,13 +44,24 @@ public class App {
 		LocalDate fecha = buscarFechaNacimiento(clientesConMismoDniCif, dniCliente);
 		System.out.println(edadCliente(fecha));
 		System.out.println(saldoTotal(clientesConMismoDniCif));
-		
+		System.out.println(recomendarProducto(edadCliente(fecha), saldoTotal(clientesConMismoDniCif), listaProductos));
 	
 	}
 
-	private static double saldoTotal(List<Cliente> clientesConMismoDniCif) {
-		double saldoTotal = clientesConMismoDniCif.stream()
-				.mapToDouble(Cliente::getSaldo).sum();
+	private static String recomendarProducto(int edadCliente, int saldoTotal,List<Producto> listaProductos) {
+	    for (Producto producto : listaProductos) {
+	        if (edadCliente >= producto.getEdadMinima() && edadCliente <= producto.getEdadMaxima() &&
+	            saldoTotal >= producto.getSaldoMinimo() && saldoTotal <= producto.getSaldoMaximo()) {
+	            return producto.getNombre();
+	        }
+	    }
+	    return "No se ha encontrado un producto adecuado para el cliente";
+	}
+		
+	
+	private static int saldoTotal(List<Cliente> clientesConMismoDniCif) {
+		int saldoTotal = clientesConMismoDniCif.stream()
+				.mapToInt(Cliente::getSaldo).sum();
 		return saldoTotal;
 	}
 	

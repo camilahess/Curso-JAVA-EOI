@@ -16,9 +16,9 @@ public class Cliente {
 	private String nombre;
 	private LocalDate fechaNacimiento;
 	private String codigoPais;
-	private double saldo;
+	private int saldo;
 
-	public Cliente(String dniCif, String nombre, String fechaNacimiento, String codigoPais, double saldo) {
+	public Cliente(String dniCif, String nombre, String fechaNacimiento, String codigoPais, int saldo) {
 		super();
 		this.dniCif = dniCif;
 		this.nombre = nombre;
@@ -47,7 +47,7 @@ public class Cliente {
 		return codigoPais;
 	}
 
-	public double getSaldo() {
+	public int getSaldo() {
 		return saldo;
 	}
 
@@ -67,7 +67,7 @@ public class Cliente {
 				List<String> lineas = Files.readAllLines(path);
 				for (String linea : lineas) {
 					String[] datos = linea.split(";");
-					Cliente cliente = new Cliente(datos[0], datos[1], datos[2], datos[3], Double.parseDouble(datos[4]));
+					Cliente cliente = new Cliente(datos[0], datos[1], datos[2], datos[3], Integer.parseInt(datos[4]));
 					clientes.add(cliente);
 				}
 			} catch (IOException e) {

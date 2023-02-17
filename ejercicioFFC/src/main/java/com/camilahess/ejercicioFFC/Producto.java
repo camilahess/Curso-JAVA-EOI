@@ -11,11 +11,11 @@ public class Producto {
 	
 	private int edadMinima;
 	private int edadMaxima;
-	private double saldoMinimo;
-	private double saldoMaximo;
+	private int saldoMinimo;
+	private int saldoMaximo;
 	private String nombre;
 
-	public Producto(int edadMinima, int edadMaxima, double saldoMinimo, double saldoMaximo, String nombre) {
+	public Producto(int edadMinima, int edadMaxima, int saldoMinimo, int saldoMaximo, String nombre) {
 		super();
 		this.edadMinima = edadMinima;
 		this.edadMaxima = edadMaxima;
@@ -38,12 +38,12 @@ public class Producto {
 	}
 
 
-	public double getSaldoMinimo() {
+	public int getSaldoMinimo() {
 		return saldoMinimo;
 	}
 
 
-	public double getSaldoMaximo() {
+	public int getSaldoMaximo() {
 		return saldoMaximo;
 	}
 
@@ -61,7 +61,7 @@ public class Producto {
 	        List<String> lineas = Files.readAllLines(path);
 	        for (String linea : lineas) {
 	            String[] datos = linea.split(";");
-	            Producto producto = new Producto(Integer.parseInt(datos[0]), Integer.parseInt(datos[1]), Double.parseDouble(datos[2]), Double.parseDouble(datos[3]), datos[4]);
+	            Producto producto = new Producto(Integer.parseInt(datos[0]), Integer.parseInt(datos[1]), Integer.parseInt(datos[2]), Integer.parseInt(datos[3]), datos[4]);
 	            productos.add(producto);
 	        }
 	    } catch (IOException e) {
