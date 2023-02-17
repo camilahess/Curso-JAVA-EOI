@@ -15,7 +15,7 @@ public class App {
 		final String ruta = "ficheros/";
 
 		// Leer la información de los clientes de los archivos txt y la almacena en una lista de objetos Cliente
-		System.out.println(Cliente.leerClientes(ruta));
+		List<Cliente> listaClientes = Cliente.leerClientes(ruta);
 		
 		//Leo la info de los productos a ofrecer
 		List<Producto> listaProductos = Producto.leerProductos(ruta);
@@ -37,39 +37,39 @@ public class App {
 
 		String dniCliente = dniCifIngresado; //copio para poder utilizarlo en la función lambda
 		clientesConMismoDniCif = listaClientes.stream()
-				.filter(c -> c.getDniCif()
-				.equals(dniCliente))
+				.filter(c -> c.getDniCif().equals(dniCliente))
 				.collect(Collectors.toList());
 		
 		mostrarMensajeBienvenida(clientesConMismoDniCif.get(0)); //recibe un Cliente
-		buscarFechaNacimiento(clientesConMismoDniCif, dniCliente);
+		LocalDate fecha = buscarFechaNacimiento(clientesConMismoDniCif, dniCliente);
+		System.out.println(edadCliente(fecha));
+		System.out.println(saldoTotal(clientesConMismoDniCif));
 		
-
+	
 	}
 
-	private static void buscarFechaNacimiento(List<Cliente> clientesConMismoDniCif, String dniCliente) {
-//		List<LocalDate> fechasNacimiento = clientesConMismoDniCif.stream()
-//				.map(Cliente::getFechaNacimiento) // esto es lo mismo que c->c.getFechaNacimiento()
-//				.distinct()
-//				.collect(Collectors.toList());
-//
-//		if (fechasNacimiento.size() == 1) {
-//			System.out.println("Fecha de nacimiento: " + fechasNacimiento.get(0));
-//		} else {
-//			System.out.println(
-//					"Tienes " + fechasNacimiento.size() + " fechas de nacimiento diferentes, elige la correcta:");
-//			for (int i = 0; i < fechasNacimiento.size(); i++) {
-//				System.out.println((i + 1) + ") " + fechasNacimiento.get(i));
-//			}
-//			Scanner scanner = new Scanner(System.in);
-//			System.out.println((fechasNacimiento.size() == 2) ? "(1 o 2): " : "(1, 2 o 3): ");
-//			int opcion = scanner.nextInt();
-//			System.out.println("La fecha de nacimiento seleccionada es: " + fechasNacimiento.get(opcion - 1));
-//		}
-//	}
+	private static double saldoTotal(List<Cliente> clientesConMismoDniCif) {
+		double saldoTotal = clientesConMismoDniCif.stream()
+				.mapToDouble(Cliente::getSaldo).sum();
+		return saldoTotal;
+	}
+	
+	private static int edadCliente(LocalDate fecha) {
+		LocalDate fechaActual = LocalDate.now();
+		
+		  int edad = fechaActual.getYear() - fecha.getYear();
+		  if (fechaActual.getMonthValue() < fecha.getMonthValue() ||
+	                (fechaActual.getMonthValue() == fecha.getMonthValue() && 
+	                 fechaActual.getDayOfMonth() < fecha.getDayOfMonth())) {
+	            edad--;
+	        }
+		return edad;
+	}
+	
+	private static LocalDate buscarFechaNacimiento(List<Cliente> clientesConMismoDniCif, String dniCliente) {
 
 		    List<LocalDate> fechasNacimiento = clientesConMismoDniCif.stream()
-		            .map(Cliente::getFechaNacimiento)
+		            .map(Cliente::getFechaNacimiento) // esto es lo mismo que c->c.getFechaNacimiento()
 		            .distinct()
 		            .collect(Collectors.toList());
 
@@ -85,6 +85,7 @@ public class App {
 
 		    if (fechasNacimiento.size() == 1) {
 		        System.out.println(mensaje1 + fechasNacimiento.get(0));
+		        return fechasNacimiento.get(0);
 		    } else {
 		        System.out.println(mensaje2);
 		        for (int i = 0; i < fechasNacimiento.size(); i++) {
@@ -94,10 +95,9 @@ public class App {
 		        System.out.println((fechasNacimiento.size() == 2) ? "(1 or 2): " : "(1, 2 or 3): ");
 		        int opcion = scanner.nextInt();
 		        System.out.println(mensaje1 + fechasNacimiento.get(opcion - 1));
+		        return fechasNacimiento.get(opcion - 1);
 		    }
 		}
-
-
 
 
 
