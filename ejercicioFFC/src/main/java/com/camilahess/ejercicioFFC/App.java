@@ -1,14 +1,8 @@
 package com.camilahess.ejercicioFFC;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
@@ -21,8 +15,11 @@ public class App {
 		final String ruta = "ficheros/";
 
 		// Leer la información de los clientes de los archivos txt y la almacena en una lista de objetos Cliente
-		List<Cliente> listaClientes = Cliente.leerClientes(ruta);
-
+		System.out.println(Cliente.leerClientes(ruta));
+		
+		//Leo la info de los productos a ofrecer
+		List<Producto> listaProductos = Producto.leerProductos(ruta);
+		System.out.println(listaProductos);
 		
 		//MENÚ PARA PEDIR EL NÚMERO DNI
 		List<Cliente> clientesConMismoDniCif;
