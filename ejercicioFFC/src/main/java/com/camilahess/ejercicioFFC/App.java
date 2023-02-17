@@ -3,6 +3,7 @@ package com.camilahess.ejercicioFFC;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
@@ -48,15 +49,17 @@ public class App {
 	
 	}
 
-	private static String recomendarProducto(int edadCliente, int saldoTotal,List<Producto> listaProductos) {
-	    for (Producto producto : listaProductos) {
-	        if (edadCliente >= producto.getEdadMinima() && edadCliente <= producto.getEdadMaxima() &&
-	            saldoTotal >= producto.getSaldoMinimo() && saldoTotal <= producto.getSaldoMaximo()) {
-	            return producto.getNombre();
+	private static String recomendarProducto(int edadCliente, int saldoTotal, List<Producto> listaProductos) {
+	    List<Producto> productosElegibles = listaProductos.stream()
+	            .filter(producto -> edadCliente >= producto.getEdadMinima() && edadCliente <= producto.getEdadMaxima() &&
+	                saldoTotal >= producto.getSaldoMinimo() && saldoTotal <= producto.getSaldoMaximo())
+	            .sorted((p1, p2) -> p2.getSaldoMinimo() - p1.getSaldoMinimo())
+	            .collect(Collectors.toList());
+	        if (!productosElegibles.isEmpty()) {
+	            return productosElegibles.get(0).getNombre();
 	        }
+	        return "No se ha encontrado un producto adecuado para el cliente";
 	    }
-	    return "No se ha encontrado un producto adecuado para el cliente";
-	}
 		
 	
 	private static int saldoTotal(List<Cliente> clientesConMismoDniCif) {
