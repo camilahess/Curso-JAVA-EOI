@@ -15,7 +15,7 @@ public class Metodos {
 	 * 
 	 * @param listaClientes   Recibe la lista de clientes de los 3 bancos
 	 * @param dniCifIngresado Recibe el DNI-CIF que se ha ingresado por consola
-	 * @return Devuelve la lista de cuentas del mismo cliente
+	 * @return Devuelve la lista de cuentas del cliente en caso de que lo haya encontrado, sino , devuelve una lista vacía.
 	 */
 	public static List<Cliente> buscarClientePorDniIngresado(List<Cliente> listaClientes, String dniCifIngresado) {
 	    List<Cliente> clientesEncontrados = listaClientes.stream().filter(c -> c.getDniCif().equals(dniCifIngresado)).collect(Collectors.toList());
