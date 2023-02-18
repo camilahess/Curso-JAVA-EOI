@@ -2,6 +2,7 @@ package com.camilahess.ejercicioFFC;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Locale;
@@ -19,10 +20,8 @@ public class App {
 		
 		//Leo la info de los productos a ofrecer
 		List<Producto> listaProductos = Producto.leerProductos(ruta);
-		//System.out.println(listaProductos);
 		
 		//MENÚ PARA PEDIR EL NÚMERO DNI
-		List<Cliente> clientesConMismoDniCif;
 		Scanner scanner = new Scanner(System.in);
 		String dniCifIngresado;
 		do {
@@ -33,87 +32,25 @@ public class App {
 		    }
 		} while (dniCifIngresado.length() != 3);
 
-		// Buscar en la lista de clientes el cliente con el dni-cif introducido por el usuario
+		
+		List<Cliente> cuentasMismoDni = buscarClientePorDniIngresado(listaClientes,dniCifIngresado);
+		mostrarMensajeBienvenida(cuentasMismoDni.get(0)); //recibe un Cliente
+		LocalDate fecha = buscarFechaNacimiento(cuentasMismoDni, dniCifIngresado);
+		int edad = Period.between(fecha, LocalDate.now()).getYears();
+		System.out.println(saldoTotal(cuentasMismoDni));
+		System.out.println(recomendarProducto(edad, saldoTotal(cuentasMismoDni), listaProductos));
+	
+	}
 
-		String dniCliente = dniCifIngresado; //copio para poder utilizarlo en la función lambda
+	private static List<Cliente> buscarClientePorDniIngresado(List<Cliente> listaClientes, String dniCifIngresado) {
+		List<Cliente> clientesConMismoDniCif;
+//		String dniCliente = dniCifIngresado; //copio para poder utilizarlo en la función lambda
 		clientesConMismoDniCif = listaClientes.stream()
-				.filter(c -> c.getDniCif().equals(dniCliente))
+				.filter(c -> c.getDniCif().equals(dniCifIngresado))
 				.collect(Collectors.toList());
-		
-		mostrarMensajeBienvenida(clientesConMismoDniCif.get(0)); //recibe un Cliente
-		LocalDate fecha = buscarFechaNacimiento(clientesConMismoDniCif, dniCliente);
-		System.out.println(edadCliente(fecha));
-		System.out.println(saldoTotal(clientesConMismoDniCif));
-		System.out.println(recomendarProducto(edadCliente(fecha), saldoTotal(clientesConMismoDniCif), listaProductos));
-	
-	}
-
-	private static String recomendarProducto(int edadCliente, int saldoTotal, List<Producto> listaProductos) {
-	    List<Producto> productosElegibles = listaProductos.stream()
-	            .filter(producto -> edadCliente >= producto.getEdadMinima() && edadCliente <= producto.getEdadMaxima() &&
-	                saldoTotal >= producto.getSaldoMinimo() && saldoTotal <= producto.getSaldoMaximo())
-	            .sorted((p1, p2) -> p2.getSaldoMinimo() - p1.getSaldoMinimo())
-	            .collect(Collectors.toList());
-	        if (!productosElegibles.isEmpty()) {
-	            return productosElegibles.get(0).getNombre();
-	        }
-	        return "No se ha encontrado un producto adecuado para el cliente";
-	    }
-		
-	
-	private static int saldoTotal(List<Cliente> clientesConMismoDniCif) {
-		int saldoTotal = clientesConMismoDniCif.stream()
-				.mapToInt(Cliente::getSaldo).sum();
-		return saldoTotal;
+		return clientesConMismoDniCif;
 	}
 	
-	private static int edadCliente(LocalDate fecha) {
-		LocalDate fechaActual = LocalDate.now();
-		
-		  int edad = fechaActual.getYear() - fecha.getYear();
-		  if (fechaActual.getMonthValue() < fecha.getMonthValue() ||
-	                (fechaActual.getMonthValue() == fecha.getMonthValue() && 
-	                 fechaActual.getDayOfMonth() < fecha.getDayOfMonth())) {
-	            edad--;
-	        }
-		return edad;
-	}
-	
-	private static LocalDate buscarFechaNacimiento(List<Cliente> clientesConMismoDniCif, String dniCliente) {
-			DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-
-		    List<LocalDate> fechasNacimiento = clientesConMismoDniCif.stream()
-		            .map(Cliente::getFechaNacimiento) // esto es lo mismo que c->c.getFechaNacimiento()
-		            .distinct()
-		            .collect(Collectors.toList());
-
-		    String mensaje1 = "";
-		    String mensaje2 = "";
-		    if (clientesConMismoDniCif.stream().anyMatch(c -> c.getCodigoPais().equals("ES"))) {
-		        mensaje1 = "Fecha de nacimiento: ";
-		        mensaje2 = "Tienes " + fechasNacimiento.size() + " fechas de nacimiento diferentes, elige la correcta:";
-		    } else {
-		        mensaje1 = "Date of birth: ";
-		        mensaje2 = "You have " + fechasNacimiento.size() + " different dates of birth, choose the correct one:";
-		    }
-
-		    if (fechasNacimiento.size() == 1) {
-		        System.out.println(mensaje1 + fechasNacimiento.get(0).format(formato));
-		        return fechasNacimiento.get(0);
-		    } else {
-		        System.out.println(mensaje2);
-		        for (int i = 0; i < fechasNacimiento.size(); i++) {
-		            System.out.println((i + 1) + ") " + fechasNacimiento.get(i).format(formato));
-		        }
-		        Scanner scanner = new Scanner(System.in);
-		        System.out.println((fechasNacimiento.size() == 2) ? "(1 or 2): " : "(1, 2 or 3): ");
-		        int opcion = scanner.nextInt();
-		        System.out.println(mensaje1 + fechasNacimiento.get(opcion - 1).format(formato));
-		        return fechasNacimiento.get(opcion - 1);
-		    }
-		}
-
-
 
 	// Función para mostrar el mensaje de bienvenida
 	private static void mostrarMensajeBienvenida(Cliente cliente) {
@@ -138,5 +75,61 @@ public class App {
 					DateTimeFormatter.ofPattern("'Date: 'eeee',' MMMM dd',' yyyy\n'Time: 'HH:mm:ss", Locale.UK));
 		}
 	}
+
+	private static LocalDate buscarFechaNacimiento(List<Cliente> cuentasMismoDni, String dniCliente) {
+		DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+
+	    List<LocalDate> fechasNacimiento = cuentasMismoDni.stream()
+	            .map(Cliente::getFechaNacimiento) // esto es lo mismo que c->c.getFechaNacimiento()
+	            .distinct()
+	            .collect(Collectors.toList());
+
+	    String mensaje1 = "";
+	    String mensaje2 = "";
+	    if (cuentasMismoDni.stream().anyMatch(c -> c.getCodigoPais().equals("ES"))) {
+	        mensaje1 = "Fecha de nacimiento: ";
+	        mensaje2 = "Tienes " + fechasNacimiento.size() + " fechas de nacimiento diferentes, elige la correcta:";
+	    } else {
+	        mensaje1 = "Date of birth: ";
+	        mensaje2 = "You have " + fechasNacimiento.size() + " different dates of birth, choose the correct one:";
+	    }
+
+	    if (fechasNacimiento.size() == 1) {
+	        System.out.println(mensaje1 + fechasNacimiento.get(0).format(formato));
+	        return fechasNacimiento.get(0);
+	    } else {
+	        System.out.println(mensaje2);
+	        for (int i = 0; i < fechasNacimiento.size(); i++) {
+	            System.out.println((i + 1) + ") " + fechasNacimiento.get(i).format(formato));
+	        }
+	        Scanner scanner = new Scanner(System.in);
+	        System.out.println((fechasNacimiento.size() == 2) ? "(1 or 2): " : "(1, 2 or 3): ");
+	        int opcion = scanner.nextInt();
+	        System.out.println(mensaje1 + fechasNacimiento.get(opcion - 1).format(formato));
+	        return fechasNacimiento.get(opcion - 1);
+	    }
+	}
+
+	
+	private static String recomendarProducto(int edad, int saldoTotal, List<Producto> listaProductos) {
+	    List<Producto> productosElegibles = listaProductos.stream()
+	            .filter(producto -> edad >= producto.getEdadMinima() && edad <= producto.getEdadMaxima() &&
+	                saldoTotal >= producto.getSaldoMinimo() && saldoTotal <= producto.getSaldoMaximo())
+	            .sorted((p1, p2) -> p2.getSaldoMinimo() - p1.getSaldoMinimo())
+	            .collect(Collectors.toList());
+	        if (!productosElegibles.isEmpty()) {
+	            return productosElegibles.get(0).getNombre();
+	        }
+	        return "No se ha encontrado un producto adecuado para el cliente";
+	    }
+		
+	
+	private static int saldoTotal(List<Cliente> cuentasMismoDni) {
+		int saldoTotal = cuentasMismoDni.stream()
+				.mapToInt(Cliente::getSaldo).sum();
+		return saldoTotal;
+	}
+	
+
 
 }
