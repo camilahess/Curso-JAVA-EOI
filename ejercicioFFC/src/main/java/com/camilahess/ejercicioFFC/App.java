@@ -19,21 +19,32 @@ public class App {
 		// Leo la info de los productos a ofrecer
 		List<Producto> listaProductos = Producto.leerProductos(ruta);
 
-		// MENÚ PARA PEDIR EL NÚMERO DNI
-		Scanner scanner = new Scanner(System.in);
-		String dniCifIngresado;
-		do {
-			System.out.println("Introduzca el dni-cif del cliente: ");
-			dniCifIngresado = scanner.nextLine();
-			if (dniCifIngresado.length() != 3) {
-				System.out.println("DNI/CIF inválido. Por favor, introduce un DNI/CIF válido de 3 caracteres.");
-			}
-		} while (dniCifIngresado.length() != 3);
+//		// MENÚ PARA PEDIR EL NÚMERO DNI
+//		Scanner sc = new Scanner(System.in);
+//		String dniCifIngresado;
+//		do {
+//			System.out.println("Introduzca el dni-cif del cliente: ");
+//			dniCifIngresado = sc.nextLine();
+//			if (dniCifIngresado.length() != 3) {
+//				System.out.println("DNI/CIF inválido. Por favor, introduce un DNI/CIF válido de 3 caracteres.");
+//			}
+//		} while (dniCifIngresado.length() != 3);
+//		sc.close();
 		
+		List<Cliente> clientesEncontrados = null;
+		String dniCifIngresado="";
+		while (clientesEncontrados == null) {
+		    Scanner sc = new Scanner(System.in);
+		    System.out.println("Introduzca el dni-cif del cliente: ");
+		    dniCifIngresado = sc.nextLine();
+		    clientesEncontrados = Metodos.buscarClientePorDniIngresado(listaClientes, dniCifIngresado);
+		    if (dniCifIngresado.length() != 3 || clientesEncontrados == null ) {
+		        System.out.println("DNI/CIF inválido o no encontrado. Por favor, introduce un DNI/CIF válido de 3 caracteres.");
+		    }
+		}
 	
 		List<Cliente> cuentasMismoDni = Metodos.buscarClientePorDniIngresado(listaClientes, dniCifIngresado);
-		final String codigo = Metodos.codigoPais(cuentasMismoDni.get(0));
-		System.out.println(codigo);
+		String codigo = Metodos.codigoPais(cuentasMismoDni.get(0));
 		Metodos.mostrarMensajeBienvenida(cuentasMismoDni.get(0), codigo); // recibe un Cliente
 		LocalDate fecha = Metodos.buscarFechaNacimiento(cuentasMismoDni, dniCifIngresado, codigo);
 		int edad = Period.between(fecha, LocalDate.now()).getYears();

@@ -18,8 +18,10 @@ public class Metodos {
 	 * @return Devuelve la lista de cuentas del mismo cliente
 	 */
 	public static List<Cliente> buscarClientePorDniIngresado(List<Cliente> listaClientes, String dniCifIngresado) {
-		return listaClientes.stream().filter(c -> c.getDniCif().equals(dniCifIngresado)).collect(Collectors.toList());
+	    List<Cliente> clientesEncontrados = listaClientes.stream().filter(c -> c.getDniCif().equals(dniCifIngresado)).collect(Collectors.toList());
+	    return clientesEncontrados.isEmpty() ? null : clientesEncontrados;
 	}
+
 
 	public static String codigoPais(Cliente cliente) {
 		return cliente.getCodigoPais();
