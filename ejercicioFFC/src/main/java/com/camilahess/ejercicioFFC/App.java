@@ -3,7 +3,6 @@ package com.camilahess.ejercicioFFC;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
@@ -20,7 +19,7 @@ public class App {
 		
 		//Leo la info de los productos a ofrecer
 		List<Producto> listaProductos = Producto.leerProductos(ruta);
-		System.out.println(listaProductos);
+		//System.out.println(listaProductos);
 		
 		//MENÚ PARA PEDIR EL NÚMERO DNI
 		List<Cliente> clientesConMismoDniCif;
@@ -81,6 +80,7 @@ public class App {
 	}
 	
 	private static LocalDate buscarFechaNacimiento(List<Cliente> clientesConMismoDniCif, String dniCliente) {
+			DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
 		    List<LocalDate> fechasNacimiento = clientesConMismoDniCif.stream()
 		            .map(Cliente::getFechaNacimiento) // esto es lo mismo que c->c.getFechaNacimiento()
@@ -98,17 +98,17 @@ public class App {
 		    }
 
 		    if (fechasNacimiento.size() == 1) {
-		        System.out.println(mensaje1 + fechasNacimiento.get(0));
+		        System.out.println(mensaje1 + fechasNacimiento.get(0).format(formato));
 		        return fechasNacimiento.get(0);
 		    } else {
 		        System.out.println(mensaje2);
 		        for (int i = 0; i < fechasNacimiento.size(); i++) {
-		            System.out.println((i + 1) + ") " + fechasNacimiento.get(i));
+		            System.out.println((i + 1) + ") " + fechasNacimiento.get(i).format(formato));
 		        }
 		        Scanner scanner = new Scanner(System.in);
 		        System.out.println((fechasNacimiento.size() == 2) ? "(1 or 2): " : "(1, 2 or 3): ");
 		        int opcion = scanner.nextInt();
-		        System.out.println(mensaje1 + fechasNacimiento.get(opcion - 1));
+		        System.out.println(mensaje1 + fechasNacimiento.get(opcion - 1).format(formato));
 		        return fechasNacimiento.get(opcion - 1);
 		    }
 		}
