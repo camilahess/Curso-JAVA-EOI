@@ -29,12 +29,15 @@ public class App {
 				System.out.println("DNI/CIF inválido. Por favor, introduce un DNI/CIF válido de 3 caracteres.");
 			}
 		} while (dniCifIngresado.length() != 3);
-
+		
+	
 		List<Cliente> cuentasMismoDni = Metodos.buscarClientePorDniIngresado(listaClientes, dniCifIngresado);
-		Metodos.mostrarMensajeBienvenida(cuentasMismoDni.get(0)); // recibe un Cliente
-		LocalDate fecha = Metodos.buscarFechaNacimiento(cuentasMismoDni, dniCifIngresado);
+		final String codigo = Metodos.codigoPais(cuentasMismoDni.get(0));
+		System.out.println(codigo);
+		Metodos.mostrarMensajeBienvenida(cuentasMismoDni.get(0), codigo); // recibe un Cliente
+		LocalDate fecha = Metodos.buscarFechaNacimiento(cuentasMismoDni, dniCifIngresado, codigo);
 		int edad = Period.between(fecha, LocalDate.now()).getYears();
-		System.out.println(Metodos.recomendarProducto(edad, Metodos.saldoTotal(cuentasMismoDni), listaProductos));
+		System.out.println(Metodos.recomendarProducto(edad, Metodos.saldoTotal(cuentasMismoDni), listaProductos, codigo));
 
 	}
 }

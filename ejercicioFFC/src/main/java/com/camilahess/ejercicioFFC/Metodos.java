@@ -21,17 +21,20 @@ public class Metodos {
 		return listaClientes.stream().filter(c -> c.getDniCif().equals(dniCifIngresado)).collect(Collectors.toList());
 	}
 
+	public static String codigoPais(Cliente cliente) {
+		return cliente.getCodigoPais();
+	}
 	/**
 	 * Función para mostrar el mensaje de bienvenida del cliente que ha ingresado,
 	 * según su código de país
 	 * 
 	 * @param Recibe la cuenta del cliente ingresado
 	 */
-	public static void mostrarMensajeBienvenida(Cliente cliente) {
-		if (cliente.getCodigoPais().equals("ES")) {
-			System.out.println("Bienvenid@ " + cliente.getNombre() + "!\n" + getFormatoFecha(cliente.getCodigoPais()));
+	public static void mostrarMensajeBienvenida(Cliente cliente, String codigo) {
+		if (codigo.equalsIgnoreCase("ES")) {
+			System.out.println("Bienvenid@ " + cliente.getNombre() + "!\n" + getFormatoFecha(codigo));
 		} else {
-			System.out.println("Welcome " + cliente.getNombre() + "!\n" + getFormatoFecha(cliente.getCodigoPais()));
+			System.out.println("Welcome " + cliente.getNombre() + "!\n" + getFormatoFecha(codigo));
 		}
 	}
 
@@ -42,8 +45,8 @@ public class Metodos {
 	 * @param codigoPais del cliente ingresado
 	 * @return Devuelve el formato de fecha correcto para cada país
 	 */
-	public static String getFormatoFecha(String codigoPais) {
-		if (codigoPais.equals("ES")) {
+	public static String getFormatoFecha(String codigo) {
+		if (codigo.equalsIgnoreCase("ES")) {
 			return LocalDateTime.now()
 					.format(DateTimeFormatter.ofPattern("'Hoy es' eeee dd 'de' MMMM 'de' yyyy\n'Hora: 'HH:mm:ss"));
 		} else {
@@ -61,16 +64,15 @@ public class Metodos {
 	 * @param Recibe el DNI-CIF del cliente
 	 * @return Devuelve su fecha de nacimiento correcta
 	 */
-	public static LocalDate buscarFechaNacimiento(List<Cliente> cuentasMismoDni, String dniCliente) {
+	public static LocalDate buscarFechaNacimiento(List<Cliente> cuentasMismoDni, String dniCliente, String codigo) {
 		DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-
 		List<LocalDate> fechasNacimiento = cuentasMismoDni.stream()
 				.map(Cliente::getFechaNacimiento).distinct()
 				.collect(Collectors.toList());
 
 		String mensaje1 = "";
 		String mensaje2 = "";
-		if (cuentasMismoDni.stream().anyMatch(c -> c.getCodigoPais().equals("ES"))) {
+		if (codigo.equalsIgnoreCase("ES")){
 			mensaje1 = "Fecha de nacimiento: ";
 			mensaje2 = "Tienes " + fechasNacimiento.size() + " fechas de nacimiento diferentes, elige la correcta:";
 		} else {
@@ -86,12 +88,13 @@ public class Metodos {
 			for (int i = 0; i < fechasNacimiento.size(); i++) {
 				System.out.println((i + 1) + ") " + fechasNacimiento.get(i).format(formato));
 			}
-			Scanner scanner = new Scanner(System.in);
+			Scanner sc = new Scanner(System.in);
 			System.out.println((fechasNacimiento.size() == 2) ? "(1 or 2): " : "(1, 2 or 3): ");
-			int opcion = scanner.nextInt();
+			int opcion = sc.nextInt();
 			System.out.println(mensaje1 + fechasNacimiento.get(opcion - 1).format(formato));
 			return fechasNacimiento.get(opcion - 1);
 		}
+		
 	}
 
 	/**
@@ -103,17 +106,17 @@ public class Metodos {
 	 * @param Recibe la lista de productos a ofrecer
 	 * @return Devuelve un String con el producto adecuado en caso de haber uno,
 	 *         sino, otro String avisando que no hay productos adecuados para ese
-	 *         cliente.
+	 *         cliente (en inglés o español según su código de país)
 	 */
-	public static String recomendarProducto(int edad, int saldoTotal, List<Producto> listaProductos) {
+	public static String recomendarProducto(int edad, int saldoTotal, List<Producto> listaProductos, String codigo) {
 		List<Producto> productosElegibles = listaProductos.stream()
 				.filter(producto -> edad >= producto.getEdadMinima() && edad <= producto.getEdadMaxima()
 						&& saldoTotal >= producto.getSaldoMinimo() && saldoTotal <= producto.getSaldoMaximo())
 				.sorted((p1, p2) -> p2.getSaldoMinimo() - p1.getSaldoMinimo()).collect(Collectors.toList());
 		if (!productosElegibles.isEmpty()) {
-			return "Producto recomendado: " + productosElegibles.get(0).getNombre();
+			return ((codigo.equalsIgnoreCase("ES"))?"Producto recomendado: " + productosElegibles.get(0).getNombre() : "Recommended product: " + productosElegibles.get(0).getNombre());
 		}
-		return "No se ha encontrado un producto adecuado para el cliente";
+		return (codigo.equalsIgnoreCase("ES"))?"No se ha encontrado un producto adecuado para el cliente":"No suitable product found for the customer";
 	}
 
 	public static int saldoTotal(List<Cliente> cuentasMismoDni) {
