@@ -5,8 +5,6 @@ import java.util.Objects;
 
 public abstract class Cuenta {
 	
-	public static final String RUTA = "ficheros/";
-	
 	private String dniCif;
 	private String nombreCliente;
 	private LocalDate fechaNacimiento;
