@@ -1,4 +1,4 @@
-package com.camilahess.ejercicioFFC;
+package com.camilahess.proyectoFFC;
 
 import java.io.IOException;
 import java.nio.file.Files;
