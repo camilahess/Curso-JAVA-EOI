@@ -17,7 +17,7 @@ public class App {
 		
 		List<Cliente> clientesEncontrados = null;
 		String dniCifIngresado="";
-		while (clientesEncontrados == null) {
+		while (clientesEncontrados == null || dniCifIngresado.length() != 3) {
 		    Scanner sc = new Scanner(System.in);
 		    System.out.println("Introduzca el dni-cif del cliente: ");
 		    dniCifIngresado = sc.nextLine();
