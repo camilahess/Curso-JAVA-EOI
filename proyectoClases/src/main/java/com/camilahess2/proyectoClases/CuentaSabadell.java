@@ -38,10 +38,20 @@ public class CuentaSabadell extends Cuenta {
 			this.nivelCatalan = nivelCatalan;
 		}
 		
+		@Override
+		public String toString() {
+			return "DNI-CIF: " +getDniCif() 
+			+ "\nCliente: " +getNombreCliente() 
+			+ "\nFecha Nacimiento: " + getFechaNacimiento().format(FORMATO)
+			+ "\nCódigo País: "+ ((getCodigoPais().equals("ES"))? "(España)" :  "(Reino Unido)")
+			+"\nSaldo: " +(double)(getSaldo())+"€"
+			+"\nNivel Catalán: "+nivelCatalan + "\n";
+		}
+
 		public static List<CuentaSabadell> listaSabadell(String RUTA) {
 			List<CuentaSabadell> datosBanco = new ArrayList<>();
 			try {
-				Path path = Paths.get(RUTA, "caixa.txt"); //transformo la ruta
+				Path path = Paths.get(RUTA, "sabadell.txt"); //transformo la ruta
 				List<String> lineas = Files.readAllLines(path);
 				for (String linea:lineas) {
 					List<String> datosLinea = new ArrayList<>(Arrays.asList(linea.split(";")));

@@ -1,10 +1,12 @@
 package com.camilahess2.proyectoClases;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 public abstract class Cuenta {
 	
+	protected static final DateTimeFormatter FORMATO = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 	private String dniCif;
 	private String nombreCliente;
 	private LocalDate fechaNacimiento;

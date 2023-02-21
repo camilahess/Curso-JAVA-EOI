@@ -39,6 +39,15 @@ public class CuentaCaixa extends Cuenta {
 			this.nivelCatalan = nivelCatalan;
 		}
 		
+		@Override
+		public String toString() {
+			return "DNI-CIF: " +getDniCif() 
+			+ "\nCliente: " +getNombreCliente() 
+			+ "\nFecha Nacimiento: " + getFechaNacimiento().format(FORMATO)
+			+ "\nCódigo País: "+ getCodigoPais()
+			+"\nSaldo: " +getSaldo()+"€"
+			+"\nNivel Catalán: "+nivelCatalan + "\n";
+		}
 		
 		public static List<CuentaCaixa> listaCaixa(String RUTA) {
 			List<CuentaCaixa> datosBanco = new ArrayList<>();
