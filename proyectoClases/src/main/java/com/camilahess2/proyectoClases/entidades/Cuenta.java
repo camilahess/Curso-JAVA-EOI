@@ -1,4 +1,4 @@
-package com.camilahess2.proyectoClases;
+package com.camilahess2.proyectoClases.entidades;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -20,12 +20,19 @@ public abstract class Cuenta {
 
 
 	public Cuenta(String dniCif, String nombreCliente, LocalDate fechaNacimiento, String codigoPais, int saldo) {
-		super();
 		this.dniCif = dniCif;
 		this.nombreCliente = nombreCliente;
 		this.fechaNacimiento = fechaNacimiento;
 		this.codigoPais = codigoPais;
 		this.saldo = saldo;
+	}
+
+	public Cuenta(Cuenta c) {
+		this.dniCif = c.dniCif;
+		this.nombreCliente = c.nombreCliente;
+		this.fechaNacimiento = c.fechaNacimiento;
+		this.codigoPais = c.codigoPais;
+		this.saldo = c.saldo;
 	}
 
 

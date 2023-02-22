@@ -1,4 +1,4 @@
-package com.camilahess2.proyectoClases;
+package com.camilahess2.proyectoClases.entidades;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -10,10 +10,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.camilahess2.proyectoClases.enumerados.NivelCatalan;
 
-public class CuentaCaixa extends Cuenta {
+public final class CuentaSabadell extends Cuenta {
+	
 		private NivelCatalan nivelCatalan;
-
 
 		public NivelCatalan getNivelCatalan() {
 			return nivelCatalan;
@@ -23,17 +24,17 @@ public class CuentaCaixa extends Cuenta {
 			this.nivelCatalan = nivelCatalan;
 		}
 		
-		public CuentaCaixa() {
+		public CuentaSabadell() {
 			super();
 		}
 
-		public CuentaCaixa(String dniCif, String nombreCliente, LocalDate fechaNacimientoCliente, String codigoPais,
+		public CuentaSabadell(String dniCif, String nombreCliente, LocalDate fechaNacimientoCliente, String codigoPais,
 				int saldo) {
 			super(dniCif, nombreCliente, fechaNacimientoCliente, codigoPais, saldo);
 			this.nivelCatalan = NivelCatalan.Bajo;
 		}
 		
-		public CuentaCaixa(String dniCif, String nombreCliente, LocalDate fechaNacimientoCliente, String codigoPais,
+		public CuentaSabadell(String dniCif, String nombreCliente, LocalDate fechaNacimientoCliente, String codigoPais,
 				int saldo, NivelCatalan nivelCatalan) {
 			super(dniCif, nombreCliente, fechaNacimientoCliente, codigoPais, saldo);
 			this.nivelCatalan = nivelCatalan;
@@ -44,24 +45,24 @@ public class CuentaCaixa extends Cuenta {
 			return "DNI-CIF: " +getDniCif() 
 			+ "\nCliente: " +getNombreCliente() 
 			+ "\nFecha Nacimiento: " + getFechaNacimiento().format(FORMATO)
-			+ "\nCódigo País: "+ getCodigoPais()
-			+"\nSaldo: " +getSaldo()+"€"
+			+ "\nCódigo País: "+ ((getCodigoPais().equals("ES"))? "(España)" :  "(Reino Unido)")
+			+"\nSaldo: " +(double)(getSaldo())+"€"
 			+"\nNivel Catalán: "+nivelCatalan + "\n";
 		}
-		
-		public static List<CuentaCaixa> listaCaixa(String RUTA) {
-			List<CuentaCaixa> datosBanco = new ArrayList<>();
+
+		public static List<CuentaSabadell> listaSabadell(String RUTA) {
+			List<CuentaSabadell> datosBanco = new ArrayList<>();
 			try {
-				Path path = Paths.get(RUTA, "caixa.txt"); //transformo la ruta
+				Path path = Paths.get(RUTA, "sabadell.txt"); //transformo la ruta
 				List<String> lineas = Files.readAllLines(path);
 				for (String linea:lineas) {
 					List<String> datosLinea = new ArrayList<>(Arrays.asList(linea.split(";")));
-					datosBanco.add(new CuentaCaixa(
-							datosLinea.get(0), 
-							datosLinea.get(1), 
-							LocalDate.parse(datosLinea.get(2), DateTimeFormatter.ofPattern("dd/MM/yyyy")), 
-							datosLinea.get(3),
-							Integer.parseInt(datosLinea.get(4))));
+					datosBanco.add(new CuentaSabadell(
+							datosLinea.get(0), // dni_cif
+							datosLinea.get(1), //nombre_cliente
+							LocalDate.parse(datosLinea.get(2), DateTimeFormatter.ofPattern("dd/MM/yyyy")), // fechaNacimiento
+							datosLinea.get(3), // codigo_pais
+							Integer.parseInt(datosLinea.get(4)))); // saldo
 				}
 			} catch (IOException e) {
 				System.err.println("Error leyendo el archivo ");

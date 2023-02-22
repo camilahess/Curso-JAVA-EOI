@@ -1,7 +1,13 @@
 package com.camilahess2.proyectoClases;
 
 
+import java.util.ArrayList;
 import java.util.List;
+
+import com.camilahess2.proyectoClases.entidades.Cuenta;
+import com.camilahess2.proyectoClases.entidades.CuentaCaixa;
+import com.camilahess2.proyectoClases.entidades.CuentaSabadell;
+import com.camilahess2.proyectoClases.entidades.CuentaSantander;
 
 public class App {
 	private static final String RUTA = "ficheros/";
@@ -10,11 +16,25 @@ public class App {
 	public static void main(String[] args) {
 
 		List<CuentaCaixa> cuentasCaixa = CuentaCaixa.listaCaixa(RUTA);
-		System.out.println("Cuentas CAIXA: \n" + cuentasCaixa + "\n");
 		List<CuentaSabadell> cuentasSabadell = CuentaSabadell.listaSabadell(RUTA);
-		System.out.println("Cuentas SABADELL: \n" + cuentasSabadell + "\n");
 		List<CuentaSantander> cuentasSantander = CuentaSantander.listaSantander(RUTA);
-		System.out.println("Cuentas SANTANDER: \n" + cuentasSantander + "\n");
 		
+		
+		List<Cuenta> todasLasCuentas = new ArrayList<Cuenta>();
+		todasLasCuentas.addAll(cuentasCaixa);
+		todasLasCuentas.addAll(cuentasSabadell);
+		todasLasCuentas.addAll(cuentasSantander);
+		
+		for (Object cuenta : todasLasCuentas) {
+		    if (cuenta instanceof CuentaCaixa) {
+		        System.out.println("Cuenta CAIXA: " + cuenta);
+		    } else if (cuenta instanceof CuentaSabadell) {
+		        System.out.println("Cuenta SABADELL: " + cuenta);
+		    } else if (cuenta instanceof CuentaSantander) {
+		        System.out.println("Cuenta SANTANDER: " + cuenta);
+		    }
+		}
+		
+		System.out.println("Números de cuentas de Santander: " + CuentaSantander.getNumCuentas());
 	}
 }

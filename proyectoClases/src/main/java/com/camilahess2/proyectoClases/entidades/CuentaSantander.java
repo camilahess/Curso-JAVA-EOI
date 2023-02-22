@@ -1,4 +1,4 @@
-package com.camilahess2.proyectoClases;
+package com.camilahess2.proyectoClases.entidades;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -11,25 +11,37 @@ import java.util.Arrays;
 import java.util.List;
 
 public class CuentaSantander extends Cuenta {
-	private static int numCuentas = 0;
+	private static int numCuentas = 0; //contador de clase, variable única para TODAS las cuentas de Santander
+	
 	private boolean isResidente;
+	
 	
 	public CuentaSantander() {
 		super();
+		this.isResidente = false;
+		numCuentas++;
 	}  
 	
 	public CuentaSantander(String dniCif, String nombreCliente, LocalDate fechaNacimientoCliente, String codigoPais,
 			int saldo) {
 		super(dniCif, nombreCliente, fechaNacimientoCliente, codigoPais, saldo);
 		this.isResidente = false;
+		numCuentas++;
 	}
 	
 	public CuentaSantander(String dniCif, String nombreCliente, LocalDate fechaNacimientoCliente, String codigoPais,
 			int saldo, boolean residente) {
 		super(dniCif, nombreCliente, fechaNacimientoCliente, codigoPais, saldo);
 		this.isResidente = residente;
+		numCuentas++;
 	}
 
+	public CuentaSantander(CuentaSantander c) {
+		super(c);
+		this.isResidente = c.isResidente;
+		numCuentas++;
+	}
+	
 	public boolean isResidente() {
 		return isResidente;
 	}
@@ -39,6 +51,14 @@ public class CuentaSantander extends Cuenta {
 	}
 	
 	
+	public static int getNumCuentas() {
+		return numCuentas;
+	}
+
+	public static void setNumCuentas(int numCuentas) {
+		CuentaSantander.numCuentas = Math.abs(numCuentas);
+	}
+
 	@Override
 	public String toString() {
 		return "DNI-CIF: " +getDniCif() 
