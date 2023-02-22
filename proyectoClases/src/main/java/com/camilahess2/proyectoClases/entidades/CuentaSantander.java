@@ -13,7 +13,7 @@ import java.util.List;
 public class CuentaSantander extends Cuenta {
 	private static int numCuentas = 0; //contador de clase, variable única para TODAS las cuentas de Santander
 	
-	private boolean isResidente;
+	private boolean isResidente; //false  
 	
 	
 	public CuentaSantander() {

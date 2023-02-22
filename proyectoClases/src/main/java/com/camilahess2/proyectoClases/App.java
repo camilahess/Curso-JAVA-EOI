@@ -3,11 +3,13 @@ package com.camilahess2.proyectoClases;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import com.camilahess2.proyectoClases.entidades.Cuenta;
 import com.camilahess2.proyectoClases.entidades.CuentaCaixa;
 import com.camilahess2.proyectoClases.entidades.CuentaSabadell;
 import com.camilahess2.proyectoClases.entidades.CuentaSantander;
+import com.camilahess2.proyectoClases.metodos.Metodos;
 
 public class App {
 	private static final String RUTA = "ficheros/";
@@ -25,7 +27,7 @@ public class App {
 		todasLasCuentas.addAll(cuentasSabadell);
 		todasLasCuentas.addAll(cuentasSantander);
 		
-		for (Object cuenta : todasLasCuentas) {
+		for (Cuenta cuenta : todasLasCuentas) {
 		    if (cuenta instanceof CuentaCaixa) {
 		        System.out.println("Cuenta CAIXA: " + cuenta);
 		    } else if (cuenta instanceof CuentaSabadell) {
@@ -36,5 +38,8 @@ public class App {
 		}
 		
 		System.out.println("Números de cuentas de Santander: " + CuentaSantander.getNumCuentas());
+		// Borra un elemento al azar de la lista todasLasCuentas
+		Cuenta cuentaEliminada = Metodos.borrarCuentaAzar(todasLasCuentas);
+		System.out.println("\nLa cuenta eliminada es:\n" + cuentaEliminada);
 	}
 }

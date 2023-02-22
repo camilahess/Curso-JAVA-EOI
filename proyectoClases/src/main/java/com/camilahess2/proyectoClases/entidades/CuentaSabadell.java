@@ -31,7 +31,7 @@ public final class CuentaSabadell extends Cuenta {
 		public CuentaSabadell(String dniCif, String nombreCliente, LocalDate fechaNacimientoCliente, String codigoPais,
 				int saldo) {
 			super(dniCif, nombreCliente, fechaNacimientoCliente, codigoPais, saldo);
-			this.nivelCatalan = NivelCatalan.Bajo;
+			this.nivelCatalan = NivelCatalan.Medio;
 		}
 		
 		public CuentaSabadell(String dniCif, String nombreCliente, LocalDate fechaNacimientoCliente, String codigoPais,
@@ -58,11 +58,11 @@ public final class CuentaSabadell extends Cuenta {
 				for (String linea:lineas) {
 					List<String> datosLinea = new ArrayList<>(Arrays.asList(linea.split(";")));
 					datosBanco.add(new CuentaSabadell(
-							datosLinea.get(0), // dni_cif
-							datosLinea.get(1), //nombre_cliente
-							LocalDate.parse(datosLinea.get(2), DateTimeFormatter.ofPattern("dd/MM/yyyy")), // fechaNacimiento
-							datosLinea.get(3), // codigo_pais
-							Integer.parseInt(datosLinea.get(4)))); // saldo
+							datosLinea.get(0), 
+							datosLinea.get(1), 
+							LocalDate.parse(datosLinea.get(2), DateTimeFormatter.ofPattern("dd/MM/yyyy")), 
+							datosLinea.get(3), 
+							Integer.parseInt(datosLinea.get(4)))); 
 				}
 			} catch (IOException e) {
 				System.err.println("Error leyendo el archivo ");
