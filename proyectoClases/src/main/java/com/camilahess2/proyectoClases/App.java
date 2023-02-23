@@ -22,10 +22,7 @@ public class App {
 		List<CuentaSantander> cuentasSantander = CuentaSantander.listaSantander(RUTA);
 		
 		
-		List<Cuenta> todasLasCuentas = new ArrayList<Cuenta>();
-		todasLasCuentas.addAll(cuentasCaixa);
-		todasLasCuentas.addAll(cuentasSabadell);
-		todasLasCuentas.addAll(cuentasSantander);
+		List<Cuenta> todasLasCuentas = Metodos.unirListas(cuentasCaixa, cuentasSabadell, cuentasSantander);
 		
 		for (Cuenta cuenta : todasLasCuentas) {
 		    if (cuenta instanceof CuentaCaixa) {
@@ -37,9 +34,16 @@ public class App {
 		    }
 		}
 		
-		System.out.println("Números de cuentas de Santander: " + CuentaSantander.getNumCuentas());
+	
 		// Borra un elemento al azar de la lista todasLasCuentas
 		Cuenta cuentaEliminada = Metodos.borrarCuentaAzar(todasLasCuentas);
 		System.out.println("\nLa cuenta eliminada es:\n" + cuentaEliminada);
+		
+		//SANTANDER 
+		System.out.println("Números de cuentas del banco Santander: " + CuentaSantander.getNumCuentas());
+		System.out.println("Suma de todos los saldos del banco Santander: " + CuentaSantander.getSumaSaldos(cuentasSantander) + "€\n");
+		System.out.println("Cuenta con el saldo máximo: \n" + CuentaSantander.getCuentaConSaldoMax(cuentasSantander));
+		
+		
 	}
 }

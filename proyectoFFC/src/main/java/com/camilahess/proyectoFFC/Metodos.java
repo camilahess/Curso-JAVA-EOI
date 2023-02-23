@@ -64,7 +64,7 @@ public class Metodos {
 	 * 
 	 * @param Recibe la lista de cuentas del cliente
 	 * @param Recibe el DNI-CIF del cliente
-	 * @return Devuelve su fecha de nacimiento correcta
+	 * @return Devuelve la fecha de nacimiento correcta
 	 */
 	public static LocalDate buscarFechaNacimiento(List<Cliente> cuentasMismoDni, String dniCliente, String codigo) {
 		DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd-MM-yyyy");

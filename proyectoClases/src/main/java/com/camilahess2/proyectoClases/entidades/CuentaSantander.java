@@ -8,6 +8,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 public class CuentaSantander extends Cuenta {
@@ -88,6 +89,19 @@ public class CuentaSantander extends Cuenta {
 		}
 		return datosBanco;
 	}
+	
+	
+	public static int getSumaSaldos(List<CuentaSantander> cuentasSantander) {
+		return cuentasSantander.stream()
+				.mapToInt(e->e.getSaldo()).sum();
+	}
+	
+	public static CuentaSantander getCuentaConSaldoMax(List<CuentaSantander> cuentas) {
+	    return cuentas.stream()
+	            .max(Comparator.comparingInt(CuentaSantander::getSaldo))
+	            .orElse(null);
+	}
+	
 	
 	
 
