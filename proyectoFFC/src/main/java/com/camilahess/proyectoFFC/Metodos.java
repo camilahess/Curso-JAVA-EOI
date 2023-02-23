@@ -18,7 +18,7 @@ public class Metodos {
 	 * @return Devuelve la lista de cuentas del cliente en caso de que lo haya encontrado, sino , devuelve una lista vacía.
 	 */
 	public static List<Cliente> buscarClientePorDniIngresado(List<Cliente> listaClientes, String dniCifIngresado) {
-	    List<Cliente> clientesEncontrados = listaClientes.stream().filter(c -> c.getDniCif().equals(dniCifIngresado)).collect(Collectors.toList());
+	    List<Cliente> clientesEncontrados = listaClientes.stream().filter(c -> c.getDniCif().equals(dniCifIngresado)).collect(Collectors.toList()); 
 	    return clientesEncontrados.isEmpty() ? null : clientesEncontrados;
 	}
 
