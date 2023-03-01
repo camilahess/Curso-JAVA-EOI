@@ -1,9 +1,11 @@
 package com.camilahess.harrypotter.utilidades;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.List;
 
@@ -29,4 +31,28 @@ public class SerializationUtils {
 		}
 		return false;
 	}
+	
+	/**
+	 * Dada una ruta de un fichero devuelve la lista de objetos almacenados en él.
+	 * @param <T> Clase genérica
+	 * @param rutaCompleta Ruta donde guardamos los objetos
+	 * @return Lista de objetos almacenados en el fichero, null si da algún fallo.
+	 */
+	public static <T> List<T> desSerializarListaObjetos(String rutaCompleta){
+		File fichero = new File(rutaCompleta);
+		try {
+			ObjectInputStream ficheroObjetos = new ObjectInputStream(new FileInputStream(fichero));
+			List<T> resultado = (List<T>)ficheroObjetos.readObject();
+			ficheroObjetos.close();
+			return resultado;
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} 
+		return null;		
+	}
+	
 }

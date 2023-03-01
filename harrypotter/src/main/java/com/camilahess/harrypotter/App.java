@@ -45,11 +45,23 @@ public class App
 	       .forEach(e->System.out.println(e));
 	   
 	}
+	
+	public static void ejemploDesSerializar() {
+		personajes = SerializationUtils.desSerializarListaObjetos("personajes.dat");
+	}
+	
+	public static void mostrarPersonajes() {
+		personajes.forEach(e->System.out.println(e));
+	}
+	
     public static void main( String[] args )
     {
     	//obtenerDatosApi();
     	//rellenarFechaNacLD();
-       //ejemploSerializar();
+        //ejemploSerializar();
+    	ejemploDesSerializar();
+    	rellenarFechaNacLD();
+    	mostrarPersonajes();
       
     }
 }
