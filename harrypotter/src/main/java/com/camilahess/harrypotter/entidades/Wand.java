@@ -1,5 +1,6 @@
 package com.camilahess.harrypotter.entidades;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 
@@ -10,8 +11,9 @@ import java.util.Objects;
 "length": 14
 }
 */
-public class Wand {
+public class Wand implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
 	private String wood;
 	private String core;
 	private Double length; //Objeto que puede almacenar nulos, no int

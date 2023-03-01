@@ -1,5 +1,6 @@
 package com.camilahess.harrypotter.entidades;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -7,9 +8,10 @@ import java.util.List;
 import java.util.Objects;
 
 //https://hp-api.onrender.com/api/characters
-public class CharacterHP {
+public class CharacterHP implements Serializable {
 
 	
+	private static final long serialVersionUID = 1L; // Permite llevar un versionado de las clases
 	private String id;
 	private String name;
 	private List<String> alternate_names;
