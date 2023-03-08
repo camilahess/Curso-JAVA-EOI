@@ -103,7 +103,7 @@ public class App
 	            ps.setBoolean(14, personaje.getHogwartsStaff());
 	            ps.setString(15, personaje.getActor());
 	            ps.setBoolean(16, personaje.getAlive());
-	            ps.setString(17, personaje.getImage());
+	            ps.setString(17, personaje.getImage()); 
 	            ps.executeUpdate();
 	        }
 
