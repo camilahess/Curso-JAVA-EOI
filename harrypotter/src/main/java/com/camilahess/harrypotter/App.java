@@ -116,9 +116,9 @@ public class App
     public static void main( String[] args )
     {
     	//PROCESO DE SERIALIZACIÓN
-    	//obtenerDatosApi();
-    	//rellenarFechaNacLD();
-        //ejemploSerializar();
+//    	obtenerDatosApi();
+//    	rellenarFechaNacLD();
+//        ejemploSerializar();
     	
     	//PROCESO DE DES-SERIALIZACIÓN
     	//ejemploDesSerializar();
@@ -126,7 +126,7 @@ public class App
     	//mostrarPersonajes();
     	
     	//PROCESO DE CARGA EN BASE DE DATOS
-    	//probarConexión();
+    	probarConexión();
     	obtenerDatosApi();
     	rellenarFechaNacLD();
     	poblarbBbdd();
